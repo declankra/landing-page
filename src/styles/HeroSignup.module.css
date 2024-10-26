@@ -1,0 +1,96 @@
+/* src/components/HeroSignup.module.css */
+.container {
+    position: relative;
+    max-width: var(--mantine-container-size-lg);
+    margin: 0 auto;
+  }
+  
+  .heroContainer {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Increased height to accommodate title and form */
+    margin-bottom: var(--mantine-spacing-xl);
+  }
+  
+  .heroImage {
+    border-radius: var(--mantine-radius-lg);
+  }
+  
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--mantine-spacing-xl);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    border-radius: var(--mantine-radius-lg);
+    padding: var(--mantine-spacing-xl);
+  }
+  
+  .heroContent {
+    text-align: center;
+    max-width: 800px;
+    color: var(--mantine-color-white);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--mantine-spacing-md);
+    color: inherit;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .subtitle {
+    font-size: var(--mantine-font-size-xl);
+    color: inherit;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+  }
+  
+  .signupForm {
+    background-color: var(--mantine-color-white);
+    padding: var(--mantine-spacing-lg);
+    border-radius: var(--mantine-radius-lg);
+    box-shadow: var(--mantine-shadow-lg);
+    max-width: 28rem;
+    width: 100%;
+    margin: 0 1rem;
+  }
+  
+  .input {
+    margin-bottom: var(--mantine-spacing-md);
+  }
+  
+  .surveyContainer {
+    margin-top: var(--mantine-spacing-md);
+  }
+  
+  .surveyTitle {
+    font-weight: 500;
+    margin-bottom: var(--mantine-spacing-sm);
+  }
+  
+  .radioGroup {
+    margin-top: var(--mantine-spacing-xs);
+  }
+  
+  .progressBar {
+    margin-bottom: var(--mantine-spacing-md);
+  }
+  
+  @media (min-width: 768px) {
+    .title {
+      font-size: 3.75rem;
+    }
+    
+    .heroContainer {
+      height: 700px;
+    }
+  }
