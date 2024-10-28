@@ -1,4 +1,4 @@
-# ![Project Logo](.public/ProjectLogo.webp)
+# ![Project Logo](public/ProjectLogo.webp)
 
 # Idea(L)anding Page V1
 
