@@ -1,6 +1,6 @@
-# ![Project Logo](link_to_logo_image)
+# ![Project Logo](link)
 
-# Landing Page Boiler Plate V1
+# Idea(L)anding Page Boiler Plate V1
 
 An open source, full stack, product-minded starter kit for going from idea-to-vetted product based on ongoing learnings from [dkBuilds] (declankramper.me) projects.
 
@@ -15,7 +15,7 @@ Everything you need to build a production-ready **Project Description**. It's an
 - [Build System](#)
 - [Styling System](#)
 - [UI Components](#)
-- [Authentication](Supabase.io)
+- [Authentication](www.supabase.io)
 - [Database](#)
 - [Cache](#)
 - [Background Jobs](#)
