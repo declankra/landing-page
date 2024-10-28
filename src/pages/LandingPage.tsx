@@ -1,5 +1,6 @@
 import HeroSignup from '../components/HeroSignup';
 import UserSay from '../components/UserSay';
+import UserSayCarousel from '../components/UserSayCarousel';
 import {
   Button,
   Title,
@@ -16,6 +17,9 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <UserSay />
+
+      {/* Testimonials - Carousel Section */}
+      <UserSayCarousel />
 
       {/* How It Works */}
       <div className={styles.howItWorks}>
