@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Title, Text, Card, UnstyledButton } from '@mantine/core';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import styles from '../Styles/UserSayCarousel.module.css';
+import styles from '../styles/UserSayCarousel.module.css';
 
 interface TestimonialCard {
   quote: string;
