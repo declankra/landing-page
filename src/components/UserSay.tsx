@@ -1,16 +1,17 @@
 // src/components/UserSay.tsx
 import { Card, Title, Text } from '@mantine/core';
-import { Quote } from 'lucide-react';
+import { SmilePlus, Handshake, Sunrise } from 'lucide-react';
 import styles from '../styles/UserSay.module.css';
 
 interface TestimonialCardProps {
   quote: string;
+  icon: React.ElementType;
 }
 
-const TestimonialCard = ({ quote }: TestimonialCardProps) => (
+const TestimonialCard = ({ quote, icon: Icon }: TestimonialCardProps) => (
   <Card className={styles.testimonialCard}>
     <div className={styles.quoteIconWrapper}>
-      <Quote className={styles.quoteIcon} size={24} />
+      <Icon className={styles.quoteIcon} size={24} />
     </div>
     <Text className={styles.quoteText}>{quote}</Text>
   </Card>
@@ -18,17 +19,30 @@ const TestimonialCard = ({ quote }: TestimonialCardProps) => (
 
 export default function UserSay() {
   const testimonials = [
-    'Solved pain X!',
-    'Improved desirable outcome Y!',
-    'Something delightful because Z is so fun!'
+    {
+      quote: '"I always struggled, until lorem ipsum solved pain X!"',
+      icon: Sunrise
+    },
+    {
+      quote: '"No one else was able to until lorem ipsum improved desirable outcome Y!"',
+      icon: Handshake
+    },
+    {
+      quote: '"Something delightful because Z is so fun!"',
+      icon: SmilePlus
+    }
   ];
 
   return (
     <section className={styles.container}>
       <Title className={styles.title}>What Our Users Say</Title>
       <div className={styles.testimonialGrid}>
-        {testimonials.map((quote, index) => (
-          <TestimonialCard key={index} quote={quote} />
+        {testimonials.map((testimonial, index) => (
+          <TestimonialCard 
+            key={index} 
+            quote={testimonial.quote}
+            icon={testimonial.icon}
+          />
         ))}
       </div>
     </section>
