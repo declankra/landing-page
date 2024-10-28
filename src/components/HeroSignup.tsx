@@ -169,7 +169,7 @@ export default function HeroSignup() {
                 What about this product are you most excited about?
               </Text>
               <TextInput
-                placeholder="I'm most excited about…"
+                placeholder="I&apos;m most excited about…"
                 onChange={(e) => setSignupData({
                   ...signupData,
                   excitement_to_focus: e.currentTarget.value

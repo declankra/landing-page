@@ -1,35 +1,13 @@
 import HeroSignup from '../components/HeroSignup';
 import UserSay from '../components/UserSay';
-import { useState } from 'react';
-import { supabase } from '../lib/supabaseClient';
 import {
   Button,
-  TextInput,
   Title,
-  Text,
-  Container,
-  SimpleGrid,
-  Card,
-  Stack,
+  Text
 } from '@mantine/core';
 import styles from '../styles/LandingPage.module.css';
 
 export default function Home() {
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  const handleEmailSubmit = async () => {
-    setLoading(true);
-    const { data, error } = await supabase.from('signups').insert([{ email_address: email }]);
-    if (error) {
-      console.error('Error inserting email:', error);
-      alert('An error occurred. Please try again.');
-    } else {
-      alert('Thank you for signing up!');
-      setEmail('');
-    }
-    setLoading(false);
-  };
 
   return (
     <div className={styles.container}>
