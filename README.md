@@ -2,7 +2,7 @@
 
 <h1 align="center">Idea(L)anding Page V1</h1>
 
-An open source, full stack, product-minded starter kit for going from idea-to-vetted product based on ongoing learnings from [dkBuilds](https://www.declankramper.me) projects.
+An open source, full stack, product-minded starter kit for going from idea-to-vetted live product based on ongoing learnings from [dkBuilds](https://www.declankramper.me) projects.
 
 <p align="center">
   <a href="#">Website</a> · 
@@ -13,7 +13,7 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
   <a href="#roadmap">Roadmap</a>
 </p>
 
-Everything you need to build a production-ready SaaS, but more importanty, **vet your idea**. Full-stack, product-minded. It's an oppinionated starter based on **my own learnings** with a focus on solving your problem of **deciding what to build**.
+**Everything you need** to build a production-ready SaaS, but more importanty, **vet your idea**. It's an oppinionated starter based on **my own learnings** with a focus on solving your problem of **deciding what to build**.
 
 ## What's Included
 - [Coming soon](#)
