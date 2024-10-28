@@ -19,7 +19,7 @@ interface UserSayCarouselProps {
 // {{REPLACE_TESTIMONIALS}} - Replace these testimonials with your product's actual user feedback
 const testimonials: TestimonialCard[] = [
   {
-    quote: "This solution completely transformed how we handle our workflow!",
+    quote: "This solution completely transformed how we do X!",
     name: "Anonymous",
     archetype: "Product Manager",
     // backgroundImage: "/testimonial-bg-1.webp" // Uncomment and add your image path
@@ -29,7 +29,7 @@ const testimonials: TestimonialCard[] = [
     archetype: "Tech Lead"
   },
   {
-    quote: "Game-changing results for our team's productivity.",
+    quote: "Game-changing results for our Y!.",
     name: "Jane Doe",
     archetype: "Engineering Manager",
     // backgroundImage: "/testimonial-bg-2.webp" // Uncomment and add your image path

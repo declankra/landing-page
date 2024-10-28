@@ -20,15 +20,15 @@ const TestimonialCard = ({ quote, icon: Icon }: TestimonialCardProps) => (
 export default function UserSay() {
   const testimonials = [
     {
-      quote: '"I always struggled, until lorem ipsum solved pain X!"',
+      quote: '"I always struggled, until {product} solved pain X!"',
       icon: Sunrise
     },
     {
-      quote: '"No one else was able to until lorem ipsum improved desirable outcome Y!"',
+      quote: '"No one else was able to until {product} improved desirable outcome Y!"',
       icon: Handshake
     },
     {
-      quote: '"Something delightful because Z is so fun!"',
+      quote: '"Something delightful because doing Z on {product} is so fun!"',
       icon: SmilePlus
     }
   ];
