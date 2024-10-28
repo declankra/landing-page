@@ -112,12 +112,12 @@ export default function HeroSignup() {
           {/* Email Signup Form */}
           <div className={styles.signupForm}>
             <TextInput
-              placeholder="Enter your email"
+              placeholder="sign@me.up"
               value={email}
               onChange={(event) => setEmail(event.currentTarget.value)}
               error={error}
               disabled={loading}
-              size="lg"
+              size="md"
               className={styles.input}
             />
             <Button
