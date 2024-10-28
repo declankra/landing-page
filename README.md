@@ -2,7 +2,7 @@
 
 <h1 align="center">Idea(L)anding Page V1</h1>
 
-An open source, full stack, product-minded starter kit for going from idea-to-vetted product based on ongoing learnings from [dkBuilds] (https://www.declankramper.me) projects.
+An open source, full stack, product-minded starter kit for going from idea-to-vetted product based on ongoing learnings from ![dkBuilds](https://www.declankramper.me) projects.
 
 <p align="center">
   <a href="#">Website</a> · 
