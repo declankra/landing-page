@@ -51,7 +51,7 @@
   .quoteText {
     font-size: var(--mantine-font-size-lg);
     font-weight: 500;
-    color: var(--foreground);
+    color: var(--mantine-color-nuetral);
     line-height: 1.6;
   }
   
