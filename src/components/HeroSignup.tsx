@@ -149,7 +149,7 @@ export default function HeroSignup() {
           {currentStep === 1 ? (
             <>
               <Text className={styles.surveyTitle}>
-                How disappointed would you be if you don't get access?
+                How disappointed would you be if you don&apos;t get access?
               </Text>
               <Radio.Group
                 onChange={(value) => handleDisappointmentSubmit(value)}
