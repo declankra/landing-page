@@ -1,28 +1,15 @@
-# ![Project Logo](link)
+# ![Project Logo](.public/ProjectLogo.webp)
 
-# Idea(L)anding Page Boiler Plate V1
+# Idea(L)anding Page V1
 
-An open source, full stack, product-minded starter kit for going from idea-to-vetted product based on ongoing learnings from [dkBuilds] (declankramper.me) projects.
+An open source, full stack, product-minded starter kit for going from idea-to-vetted product based on ongoing learnings from [dkBuilds] (https://www.declankramper.me) projects.
 
-[Website](#) · [What's Included](#) · [Prerequisites](#) · [Getting Started](#) · [How to use](#) · [Roadmap](#)
+[Website](#) · [What's Included](#whats-included) · [Prerequisites](#prerequisites) · [Getting Started](#getting-started) · [How to use](#how-to-use) · [Roadmap](#roadmap)
 
----
-
-Everything you need to build a production-ready **Project Description**. It's an opinionated starter based on **Framework/Technology** with a focus on **Key Objectives**.
+Everything you need to build a production-ready SaaS, but more importanty, vet your idea. It's an oppinionated starter based on **my own learnings** with a focus on solving your problem to **decide what to build**.
 
 ## What's Included
-- [Framework](#)
-- [Build System](#)
-- [Styling System](#)
-- [UI Components](#)
-- [Authentication](www.supabase.io)
-- [Database](#)
-- [Cache](#)
-- [Background Jobs](#)
-- [Email Service](#)
-- [Analytics](#)
-- [Error Monitoring](#)
-- [Theme Manager](#)
+- [Coming soon](#)
 
 ---
 
@@ -30,11 +17,24 @@ Everything you need to build a production-ready **Project Description**. It's an
 
 ```bash
 .
-├── apps                # App workspace
-│   ├── api             # API module
-│   ├── web             # Web module
-├── packages            # Shared components or libraries
-│   ├── ui              # UI components
-│   ├── auth            # Authentication
-├── config              # Configuration files
-└── README.md           # This README file
+├── Coming soon         # App workspace
+└── README.md           # This README file #
+```
+
+## Prerequisites
+
+
+## Getting Started
+
+
+## How to use
+
+
+## Roadmap
+
+
+## Recognition
+
+
+## Contact
+
