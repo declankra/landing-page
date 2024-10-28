@@ -1,6 +1,7 @@
 import HeroSignup from '../components/HeroSignup';
 import UserSay from '../components/UserSay';
 import UserSayCarousel from '../components/UserSayCarousel';
+import HowItWorksVertical from '../components/HowItWorksVertical';
 import {
   Button,
   Title,
@@ -12,14 +13,18 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {/* Hero Section with Email Signup */}
+      {/* Hero Component with Email Signup */}
       <HeroSignup />
 
-      {/* Testimonials Section */}
+      {/* Testimonials Component */}
       <UserSay />
 
-      {/* Testimonials - Carousel Section */}
+      {/* Testimonials - Carousel Component */}
       <UserSayCarousel />
+
+     {/* How It Works - Vertical scroll component*/}
+     <HowItWorksVertical />
+
 
       {/* How It Works */}
       <div className={styles.howItWorks}>
