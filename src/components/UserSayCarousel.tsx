@@ -1,5 +1,5 @@
 // src/components/UserSayCarousel.tsx
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Title, Text, Card, UnstyledButton } from '@mantine/core';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from '../Styles/UserSayCarousel.module.css';
@@ -41,17 +41,6 @@ export default function UserSayCarousel({
   subtitle = "Don't just take our word, hear it from them in a carousel" // optional subtitle
 }: UserSayCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [cards, setCards] = useState<TestimonialCard[]>([]);
-
-  // Create circular array for infinite loop
-  useEffect(() => {
-    const extendedCards = [
-      ...testimonials.slice(-1),
-      ...testimonials,
-      ...testimonials.slice(0, 1)
-    ];
-    setCards(extendedCards);
-  }, []);
 
   const handlePrevious = () => {
     setActiveIndex((current) => {
@@ -75,14 +64,18 @@ export default function UserSayCarousel({
     });
   };
 
-  // Calculate indices for visible cards
+  // Calculate indices for visible cards in circular manner
   const getVisibleCards = () => {
     const totalCards = testimonials.length;
-    const prev = (activeIndex - 1 + totalCards) % totalCards;
-    const next = (activeIndex + 1) % totalCards;
-    
-    return [prev, activeIndex, next];
+    // Using modulo to handle circular indexing
+    return [
+      (activeIndex - 1 + totalCards) % totalCards, // previous
+      activeIndex, // current
+      (activeIndex + 1) % totalCards // next
+    ].map(index => testimonials[index]);
   };
+
+  const visibleCards = getVisibleCards();
 
   return (
     <section className={styles.container}>
@@ -101,24 +94,24 @@ export default function UserSayCarousel({
         </UnstyledButton>
 
         <div className={styles.carouselTrack}>
-          {getVisibleCards().map((index, position) => (
+          {visibleCards.map((card, position) => (
             <Card
-              key={`${index}-${position}`}
+              key={`${position}-${card.quote}`}
               className={`${styles.testimonialCard} ${
                 position === 1 ? styles.activeCard : styles.inactiveCard
               }`}
               style={{
-                backgroundImage: testimonials[index].backgroundImage
-                  ? `url(${testimonials[index].backgroundImage})`
+                backgroundImage: card.backgroundImage
+                  ? `url(${card.backgroundImage})`
                   : 'none'
               }}
             >
-              <Text className={styles.quote}>{testimonials[index].quote}</Text>
-              {testimonials[index].name && (
-                <Text className={styles.name}>{testimonials[index].name}</Text>
+              <Text className={styles.quote}>{card.quote}</Text>
+              {card.name && (
+                <Text className={styles.name}>{card.name}</Text>
               )}
               <Text className={styles.archetype}>
-                {testimonials[index].archetype}
+                {card.archetype}
               </Text>
             </Card>
           ))}
