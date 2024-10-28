@@ -36,27 +36,8 @@ export default function Home() {
       {/* Hero Section with Email Signup */}
       <HeroSignup />
 
-      {/* Email Input Section */}
-      <div className={styles.emailSection}>
-        <TextInput
-          className={styles.input}
-          placeholder="Enter your email"
-          value={email}
-          onChange={(event) => setEmail(event.currentTarget.value)}
-          size="md"
-        />
-        <Button 
-          className={styles.button}
-          onClick={handleEmailSubmit} 
-          loading={loading} 
-          size="md"
-        >
-          Get Early Access
-        </Button>
-      </div>
-
-        {/* Testimonials Section */}
-        <UserSay />
+      {/* Testimonials Section */}
+      <UserSay />
 
       {/* How It Works */}
       <div className={styles.howItWorks}>
