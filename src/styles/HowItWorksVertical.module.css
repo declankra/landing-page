@@ -18,7 +18,7 @@
 
 .subtitle {
   font-size: var(--mantine-font-size-xl);
-  color: var(--mantine-color-dark-6);
+  color: var(--mantine-color-gray-6);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -110,61 +110,60 @@
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  .header {
-    margin-bottom: var(--mantine-spacing-lg);
+    .content {
+      grid-template-columns: 60px 1fr; /* Fixed width for stepper */
+      gap: var(--mantine-spacing-md);
+      padding: 0 var(--mantine-spacing-xs);
+    }
+  
+    .stepperContainer {
+      position: sticky;
+      top: 20%;
+      left: 0;
+      height: 400px; /* Fixed height to match desktop */
+      transform: none;
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+    }
+  
+    .stepper {
+      min-height: 400px;
+      flex-direction: column;
+      gap: 0;
+    }
+  
+    .sections {
+      gap: var(--mantine-spacing-xl);
+      padding-bottom: var(--mantine-spacing-xl);
+    }
+  
+    .section {
+      flex-direction: column;
+      text-align: center;
+      min-height: 60vh;
+      padding: var(--mantine-spacing-md) 0;
+    }
+  
+    .textContent {
+      padding: var(--mantine-spacing-md);
+    }
+  
+    .imageContainer {
+      padding: var(--mantine-spacing-md);
+      width: 100%;
+    }
+  
+    .sectionImage {
+      width: 100%;
+      height: auto;
+    }
+  
+    .title {
+      font-size: calc(var(--mantine-h1-font-size) * 0.8);
+    }
+  
+    .subtitle {
+      font-size: var(--mantine-font-size-lg);
+    }
   }
-
-  .title {
-    font-size: calc(var(--mantine-h1-font-size) * 0.8);
-  }
-
-  .subtitle {
-    font-size: var(--mantine-font-size-lg);
-  }
-
-  .content {
-    grid-template-columns: 1fr;
-  }
-
-  .stepperContainer {
-    position: fixed;
-    bottom: var(--mantine-spacing-xl);
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--mantine-color-white);
-    border-radius: var(--mantine-radius-xl);
-    box-shadow: var(--mantine-shadow-lg);
-    padding: var(--mantine-spacing-xs);
-    z-index: 1000;
-  }
-
-  .stepper {
-    min-height: auto;
-    flex-direction: row;
-    gap: var(--mantine-spacing-md);
-  }
-
-  .sections {
-    gap: var(--mantine-spacing-xl);
-    padding-bottom: 100px; /* Space for fixed stepper */
-  }
-
-  .section {
-    flex-direction: column;
-    text-align: center;
-    min-height: 70vh;
-  }
-
-  .textContent {
-    padding: var(--mantine-spacing-md);
-  }
-
-  .leftAlign,
-  .rightAlign {
-    text-align: center;
-  }
-
-  .imageContainer {
-    padding: var(--mantine-spacing-md);
-  }
-}
