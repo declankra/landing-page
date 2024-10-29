@@ -117,11 +117,17 @@
   }
 
   .testimonialCard {
-    width: 280px;
-    height: 220px;
+    width: 260px;
+    height: 210px;
   }
 
   .inactiveCard {
     display: none;
+  }
+
+  .navigationButton {
+    margin: auto;
+    width: 30px;
+    height: 30px;
   }
 }
