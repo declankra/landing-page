@@ -1,6 +1,7 @@
 import HeroSignup from '../components/HeroSignup';
 import UserSay from '../components/UserSay';
 import UserSayCarousel from '../components/UserSayCarousel';
+import HowItWorksVertical from '../components/HowItWorksVertical';
 import {
   Button,
   Title,
@@ -21,16 +22,9 @@ export default function Home() {
       {/* Testimonials - Carousel Component */}
       <UserSayCarousel />
 
+      {/* How It Works - Vertical scroll component */} 
+      <HowItWorksVertical />
 
-      {/* How It Works */}
-      <div className={styles.howItWorks}>
-        <Title className={styles.howItWorksTitle}>
-          How It Works
-        </Title>
-        <Text>
-          Three step flow. Highlights core customer features with simplicity.
-        </Text>
-      </div>
 
       {/* Invite Section */}
       <div className={styles.inviteSection}>
