@@ -2,6 +2,8 @@ import HeroSignup from '../components/HeroSignup';
 import UserSay from '../components/UserSay';
 import UserSayCarousel from '../components/UserSayCarousel';
 import HowItWorksVertical from '../components/HowItWorksVertical';
+import Features from '../components/Features';
+
 import {
   Button,
   Title,
@@ -22,9 +24,11 @@ export default function Home() {
       {/* Testimonials - Carousel Component */}
       <UserSayCarousel />
 
-      {/* How It Works - Vertical scroll component */} 
+      {/* How It Works - Stepper vertical scroll component */} 
       <HowItWorksVertical />
 
+      {/* Features */} 
+      <Features />
 
       {/* Invite Section */}
       <div className={styles.inviteSection}>
