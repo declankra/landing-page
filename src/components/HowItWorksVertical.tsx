@@ -23,7 +23,7 @@ const sections: Section[] = [
   },
   {
     title: "Achieve Your Goals",
-    description: "Reach your goals faster than ever before. Highlight how product continually delivers.",
+    description: "Reach your goals faster than ever before. Highlight how the product continually delivers results.",
     // imagePath: "/step3-placeholder.webp" // {{REPLACE_IMAGE_PATH}}
   }
 ];
@@ -36,7 +36,7 @@ interface HowItWorksVerticalProps {
 export default function HowItWorksVertical({
   // {{REPLACE_COPY}} - Replace these default strings with your product's copy
   title = "How It Works",
-  subtitle = "Beauty in simplicity & min(time to value)"
+  subtitle = "Beauty in simplicity & min(time_to_value)"
 }: HowItWorksVerticalProps) {
   const [activeStep, setActiveStep] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);

@@ -7,34 +7,34 @@ import styles from '../styles/Features.module.css';
 const features = [
   {
     icon: Lightbulb,
-    title: "Smart Automation",
-    description: "Automate your workflow with intelligent features that learn and adapt.",
+    title: "Effortless Ideation",
+    description: "Quickly convey why your idea matters to test early interest.",
     colorIndex: 4 // Using accent[4] - #38BDF8
   },
   {
     icon: Zap,
     title: "Lightning Fast",
-    description: "Experience blazing fast performance with optimized processing.",
+    description: "Experience blazing fast performance with industry-leading tech stack.",
     colorIndex: 5 // Using accent[5] - #0EA5E9
   },
   {
     icon: Target,
-    title: "Precision Control",
-    description: "Fine-tune every aspect with precise, granular controls.",
+    title: "Precision Targeting",
+    description: "Customize to reach your target audience based on next-level feedback.",
     colorIndex: 6 // Using accent[6] - #0284C7
   },
   {
     icon: Clock,
-    title: "Time Saving",
-    description: "Save hours each week with streamlined processes.",
+    title: "Rapid Validation",
+    description: "Spend more time gathering insights and validating your concept.",
     colorIndex: 4 // Using accent[4] - #38BDF8
   },
   {
     icon: Shield,
-    title: "Enterprise Security",
-    description: "Bank-grade security keeps your data safe and protected.",
+    title: "Built for Security",
+    description: "Production-ready from the start with secure handling.",
     colorIndex: 5 // Using accent[5] - #0EA5E9
-  },
+    },
   {
     icon: Heart,
     title: "User Friendly",
