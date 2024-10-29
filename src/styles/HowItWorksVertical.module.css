@@ -10,14 +10,12 @@
 }
 
 .title {
-  font-size: var(--mantine-h1-font-size);
-  font-weight: 700;
+  font-size: var(--mantine-h2-font-size);
+  font-weight: 600;
   margin-bottom: var(--mantine-spacing-md);
-  color: var(--mantine-color-dark-8);
 }
 
 .subtitle {
-  font-size: var(--mantine-font-size-xl);
   color: var(--mantine-color-gray-6);
   max-width: 600px;
   margin: 0 auto;
@@ -81,8 +79,8 @@
 }
 
 .sectionTitle {
-  font-size: var(--mantine-h2-font-size);
-  font-weight: 700;
+  font-size: var(--mantine-h3-font-size);
+  font-weight: 600;
   margin-bottom: var(--mantine-spacing-md);
   color: var(--mantine-color-dark-8);
 }
@@ -90,7 +88,7 @@
 .sectionDescription {
   font-size: var(--mantine-font-size-lg);
   line-height: 1.6;
-  color: var(--mantine-color-dark-6);
+  color: var(--mantine-color-dark-5);
 }
 
 .imageContainer {
