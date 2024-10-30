@@ -3,12 +3,7 @@ import UserSay from '../components/UserSay';
 import UserSayCarousel from '../components/UserSayCarousel';
 import HowItWorksVertical from '../components/HowItWorksVertical';
 import Features from '../components/Features';
-
-import {
-  Button,
-  Title,
-  Text
-} from '@mantine/core';
+import ShareSection from '../components/ShareSection';
 import styles from '../styles/LandingPage.module.css';
 
 export default function Home() {
@@ -30,35 +25,9 @@ export default function Home() {
       {/* Features */} 
       <Features />
 
-      {/* Invite Section */}
-      <div className={styles.inviteSection}>
-        <Title className={styles.howItWorksTitle}>
-          Tell your friend about it!
-        </Title>
-        <Button
-          className={styles.button}
-          onClick={() => {
-            navigator.clipboard.writeText(window.location.href);
-            alert('Link copied to clipboard!');
-          }}
-        >
-          Copy Invitation Link
-        </Button>
-      </div>
+      {/* Sharing site for growth */} 
+      <ShareSection />
 
-      {/* Contact Section */}
-      <div className={styles.contactSection}>
-        <Title className={styles.howItWorksTitle}>
-          Contact Us
-        </Title>
-        <Text>Have questions or need more info?</Text>
-        <Text>
-          Email us at:{' '}
-          <a href="mailto:support@product.com" className={styles.contactLink}>
-            support@product.com
-          </a>
-        </Text>
-      </div>
     </div>
   );
 }
