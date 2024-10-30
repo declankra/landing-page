@@ -4,9 +4,12 @@ import UserSayCarousel from '../components/UserSayCarousel';
 import HowItWorksVertical from '../components/HowItWorksVertical';
 import Features from '../components/Features';
 import ShareSection from '../components/ShareSection';
+import FAQDrawer from '../components/FAQDrawer';
+import FAQDrawerMT from '../components/FAQDrawerMT';
 import styles from '../styles/LandingPage.module.css';
 
-export default function Home() {
+
+export default function LandingPage() {
 
   return (
     <div className={styles.container}>
@@ -25,8 +28,12 @@ export default function Home() {
       {/* Features */} 
       <Features />
 
-      {/* Sharing site for growth */} 
+      {/* Sharing site for reach */} 
       <ShareSection />
+
+      {/* FAQ Component optimized for SEO */} 
+      <FAQDrawer />
+      <FAQDrawerMT />
 
     </div>
   );
