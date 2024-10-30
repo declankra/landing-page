@@ -1,5 +1,4 @@
 // src/components/ShareSection.tsx
-import { useState } from 'react';
 import { Link2, Twitter, Facebook, Linkedin} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from "@/hooks/use-toast"
@@ -14,8 +13,6 @@ interface ShareConfig {
   coreBenefit?: string;
 }
 
-interface ShareSectionProps extends ShareConfig {}
-
 export default function ShareSection({
   // {{REPLACE_CONFIG}} - Replace these defaults with your product's details
   title = "Invite a Friend! Share the power of {core feature}",
@@ -23,8 +20,7 @@ export default function ShareSection({
   trackingUrl = "https://dub.sh/IdeaLandingPage",
   productName = "ProductName",
   coreBenefit = "game-changing solution",
-}: ShareSectionProps) {
-  const [hasCopied, setHasCopied] = useState(false);
+}: ShareConfig) {
   const { toast } = useToast(); // Use shadcn's toast
 
   // Social media share text
@@ -41,14 +37,12 @@ export default function ShareSection({
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(trackingUrl);
-      setHasCopied(true);
       toast({
         description: "Link copied to clipboard!",
         duration: 2000,
       });
-      // Reset copy state after 2 seconds
-      setTimeout(() => setHasCopied(false), 2000);
-    } catch (err) {
+    } catch (error: unknown) {
+      console.error('Failed to copy:', error);
       toast({
         variant: "destructive",
         description: "Failed to copy link",
