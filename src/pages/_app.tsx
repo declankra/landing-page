@@ -3,14 +3,13 @@ import '../styles/globals.css';
 import '@mantine/core/styles.css';
 import type { AppProps } from 'next/app';
 import { MantineProvider } from '@mantine/core';
-import { theme } from '../theme/theme';
+import { theme as mantineTheme } from '../theme/theme';
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MantineProvider theme={theme} defaultColorScheme="light">
+    // Using Mantine's provider on the outside to allow shadcn components to override when needed
+    <MantineProvider theme={mantineTheme} defaultColorScheme="light">
       <Component {...pageProps} />
     </MantineProvider>
   );
 }
-
-export default MyApp;
