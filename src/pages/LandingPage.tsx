@@ -7,6 +7,7 @@ import ShareSection from '../components/ShareSection';
 import FAQDrawer from '../components/FAQDrawer';
 import FAQDrawerMT from '../components/FAQDrawerMT';
 import LogoClouds from '@/components/LogoClouds';
+import Footer from '@/components/Footer';
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -39,6 +40,8 @@ export default function LandingPage() {
       <FAQDrawer />
       <FAQDrawerMT />
 
+      {/* Footer */} 
+      <Footer />
 
 
     </div>
