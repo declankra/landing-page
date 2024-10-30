@@ -6,6 +6,7 @@ import Features from '../components/Features';
 import ShareSection from '../components/ShareSection';
 import FAQDrawer from '../components/FAQDrawer';
 import FAQDrawerMT from '../components/FAQDrawerMT';
+import LogoClouds from '@/components/LogoClouds';
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -28,12 +29,17 @@ export default function LandingPage() {
       {/* Features */} 
       <Features />
 
+      {/* Fun Logo Clouds for ethos*/}
+      <LogoClouds />
+
       {/* Sharing site for reach */} 
       <ShareSection />
 
       {/* FAQ Component optimized for SEO */} 
       <FAQDrawer />
       <FAQDrawerMT />
+
+
 
     </div>
   );
