@@ -90,12 +90,12 @@ export default function HeroSignup() {
     <div className={styles.container}>
       <div className={styles.heroContainer}>
         <Image
-          src="/hero_image.webp"
-          alt="Hero background"
-          layout="fill"
-          objectFit="cover"
-          className={styles.heroImage}
-          priority
+            src="/hero_image.webp"
+            alt="Hero background"
+            fill
+            priority
+            className={styles.heroImage}
+            style={{ objectFit: 'cover' }}
         />
 
         <div className={styles.overlay}>
