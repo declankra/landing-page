@@ -76,6 +76,8 @@ const config: Config = {
         'flip': 'flip 6s infinite steps(2, end)',
         'rotate': 'rotate 1s linear infinite',
         'scale': 'scale 1s linear infinite',
+        'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
+        'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
       },
       keyframes: {
         'accordion-down': {
