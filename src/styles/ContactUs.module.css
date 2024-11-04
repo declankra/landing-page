@@ -21,41 +21,24 @@
     align-items: center;
   }
   
-  /* Word rotation animation */
+  /* Word rotation styling */
   .wordRotateWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--mantine-color-neutral-8);
-  }
-  
-  .wordRotate {
-    position: relative;
-    height: 3.5rem;
-    overflow: hidden;
+    padding: var(--mantine-spacing-xl);
   }
   
   .rotatingWord {
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    animation: rotateWords 12s linear infinite 0s;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
     background: linear-gradient(to right, var(--mantine-color-accent-4), var(--mantine-color-accent-6));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-  
-  @keyframes rotateWords {
-    0% { opacity: 0; transform: translateY(50%); }
-    2% { opacity: 0; transform: translateY(50%); }
-    5% { opacity: 1; transform: translateY(0); }
-    20% { opacity: 1; transform: translateY(0); }
-    25% { opacity: 0; transform: translateY(-50%); }
-    100% { opacity: 0; transform: translateY(-50%); }
+    background-clip: text;
+    margin: 0;
   }
   
   /* Form styling */
@@ -96,8 +79,11 @@
     }
   
     .wordRotateWrapper {
-      font-size: 2rem;
-      margin-bottom: var(--mantine-spacing-xl);
+      padding: var(--mantine-spacing-md);
+    }
+  
+    .rotatingWord {
+      font-size: 2.5rem;
     }
   
     .form {

@@ -5,6 +5,7 @@ import { useForm } from '@mantine/form';
 import { hasLength, isEmail, matches } from '@mantine/form';
 import { Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import WordRotate from '@/components/ui/word-rotate';
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from '../lib/supabaseClient';
 import styles from '../styles/ContactUs.module.css';
@@ -75,7 +76,7 @@ export default function ContactUs() {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Something went wrong. Please try again. Or call us: ######",
+        description: "Something went wrong. Please try again. If urgent, call us: ######",
       });
     } finally {
       setLoading(false);
@@ -89,17 +90,17 @@ export default function ContactUs() {
       <div className={styles.content}>
         {/* Left side - Rotating words */}
         <div className={styles.wordRotateWrapper}>
-          <div className={styles.wordRotate}>
-            {rotatingWords.map((word, index) => (
-              <span
-                key={index}
-                className={styles.rotatingWord}
-                style={{ animationDelay: `${index * 3}s` }}
-              >
-                {word}
-              </span>
-            ))}
-          </div>
+          <WordRotate
+            words={rotatingWords}
+            className={styles.rotatingWord}
+            duration={3000}
+            framerProps={{
+              initial: { opacity: 0, y: 20 },
+              animate: { opacity: 1, y: 0 },
+              exit: { opacity: 0, y: -20 },
+              transition: { duration: 0.5, ease: "easeInOut" }
+            }}
+          />
         </div>
 
         {/* Right side - Contact form */}
