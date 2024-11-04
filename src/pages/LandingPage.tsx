@@ -8,6 +8,7 @@ import FAQDrawer from '../components/FAQDrawer';
 import FAQDrawerMT from '../components/FAQDrawerMT';
 import LogoClouds from '@/components/LogoClouds';
 import Footer from '@/components/Footer';
+import ContactUs from '@/components/ContactUs';
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -15,7 +16,7 @@ export default function LandingPage() {
 
   return (
     <div className={styles.container}>
-      {/* Hero Component with Email Signup */}
+      {/* Hero Component with Email Signup - modal with supabase connection */}
       <HeroSignup />
 
       {/* Testimonials Component */}
@@ -39,6 +40,9 @@ export default function LandingPage() {
       {/* FAQ Component optimized for SEO */} 
       <FAQDrawer />
       <FAQDrawerMT />
+
+      {/* Contact Us Component - contact form with Supabase connection*/} 
+      <ContactUs />
 
       {/* Footer */} 
       <Footer />
