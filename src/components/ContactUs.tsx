@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { TextInput, Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { hasLength, isEmail, matches } from '@mantine/form';
+import { hasLength, isEmail } from '@mantine/form';
 import { Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import WordRotate from '@/components/ui/word-rotate';
