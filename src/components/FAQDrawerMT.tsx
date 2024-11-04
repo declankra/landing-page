@@ -60,6 +60,7 @@ export default function FAQDrawerMT({
         <Accordion 
           variant="default"
           radius="md"
+          className={styles.accordion}
           classNames={{
             item: styles.accordionItem,
             control: styles.accordionControl,
