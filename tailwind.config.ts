@@ -198,7 +198,10 @@ const config: Config = {
   		},
   		fontFamily: {
   			sans: ["var(--font-sans)", ...fontFamily.sans]
-  		}
+  		},
+		zIndex: {
+			'-10': '-10',
+		  },
   	}
   },
   plugins: [require("tailwindcss-animate")],
