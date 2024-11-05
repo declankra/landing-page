@@ -134,8 +134,8 @@ export default function HeroSignup() {
         <Image
           src="/hero_image.webp" // {{REPLACE_IMAGE}} - Replace with your hero image
           alt="Hero background"
-          layout="fill"
-          objectFit="cover"
+          style={{ objectFit: 'cover' }}
+          fill
           className={styles.heroImage}
           priority
         />
