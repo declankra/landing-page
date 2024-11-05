@@ -95,7 +95,7 @@
 .inviteButton {
   background: linear-gradient(45deg, var(--mantine-color-accent-6), var(--mantine-color-accent-4));
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.125rem;
   padding: 1rem 2rem;
   transition: all 0.3s ease;
