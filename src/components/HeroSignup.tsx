@@ -209,10 +209,11 @@ export default function HeroSignup() {
         <Image
           src="/hero_image.webp" // {{REPLACE_IMAGE}} - Replace with your hero image
           alt="Hero background"
-          style={{ objectFit: 'cover' }}
           fill
-          className={styles.heroImage}
+          sizes="100vw"
           priority
+          className={styles.heroImage}
+          style={{ objectFit: 'cover' }}
         />
 
         <div className={styles.overlay}>

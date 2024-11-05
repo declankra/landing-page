@@ -78,6 +78,7 @@ export default function HowItWorksVertical({
           width={400}
           height={300}
           className={styles.sectionImage}
+          style={{ width: 'auto', height: 'auto' }}
         />
       </div>
     );
