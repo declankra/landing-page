@@ -8,8 +8,7 @@ import {
   Radio,
   Progress,
   Modal,
-  Stack,
-  Group
+  Stack
 } from '@mantine/core';
 import { useForm, isEmail } from '@mantine/form';
 import { supabase } from '../lib/supabaseClient';
