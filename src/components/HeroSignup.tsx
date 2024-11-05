@@ -1,5 +1,5 @@
 // src/components/HeroSignup.tsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Button, 
   TextInput, 
@@ -8,13 +8,20 @@ import {
   Radio,
   Progress,
   Modal,
-  Stack
+  Stack,
+  Group
 } from '@mantine/core';
 import { useForm, isEmail } from '@mantine/form';
 import { supabase } from '../lib/supabaseClient';
 import { RainbowButton } from '@/components/ui/rainbow-button';
+import confetti from 'canvas-confetti';
+import { useClipboard } from '@mantine/hooks';
 import Image from 'next/image';
 import styles from '../styles/HeroSignup.module.css';
+
+// Constants
+const TRACKING_URL = "https://dub.sh/IdeaLandingPage";
+const SUCCESS_MODAL_DURATION = 6000; // 3 seconds
 
 // Type definitions for signup data
 interface SignupData {
@@ -22,14 +29,56 @@ interface SignupData {
   disappointment?: string;
   excitement_to_focus?: string;
 }
+
+/**
+ * Triggers confetti side cannons animation
+ * Creates a celebratory effect with confetti shooting from both sides
+ */
+const triggerConfettiCannons = () => {
+  const end = Date.now() + 3 * 1000; // 3 seconds duration
+  const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
+
+  const frame = () => {
+    if (Date.now() > end) return;
+
+    // Left cannon
+    confetti({
+      particleCount: 2,
+      angle: 60,
+      spread: 55,
+      startVelocity: 60,
+      origin: { x: 0, y: 0.5 },
+      colors: colors,
+    });
+
+    // Right cannon
+    confetti({
+      particleCount: 2,
+      angle: 120,
+      spread: 55,
+      startVelocity: 60,
+      origin: { x: 1, y: 0.5 },
+      colors: colors,
+    });
+
+    requestAnimationFrame(frame);
+  };
+
+  frame();
+};
+
 /**
  * HeroSignup Component
  * 
  * A hero section with email capture and follow-up survey modal.
- * Validates email, captures initial signup, and gathers additional
- * user feedback through a two-step survey process.
+ * Validates email, captures initial signup, and gathers additional user feedback through a two-step survey process.
+ * Delightful additions: Rainbow action button and confetti upon completion of pop-up survey.
  */
 export default function HeroSignup() {
+
+  // Initialize clipboard hook
+  const clipboard = useClipboard();
+
   // Form validation using Mantine's useForm
   const form = useForm({
     initialValues: {
@@ -43,9 +92,23 @@ export default function HeroSignup() {
   // State management
   const [loading, setLoading] = useState(false);
   const [showSurvey, setShowSurvey] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [signupData, setSignupData] = useState<SignupData>({ email: '' });
   const [error, setError] = useState('');
+  const [inviteButtonText, setInviteButtonText] = useState('Invite a friend');
+
+  // Auto-close success modal after duration
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (showSuccessModal) {
+      timeout = setTimeout(() => {
+        setShowSuccessModal(false);
+        setInviteButtonText('Invite a friend'); // Reset button text
+      }, SUCCESS_MODAL_DURATION);
+    }
+    return () => clearTimeout(timeout);
+  }, [showSuccessModal]);
 
   /**
    * Validates email and handles initial signup
@@ -88,8 +151,17 @@ export default function HeroSignup() {
     setError('');
   };
 
+    /**
+   * Handles invitation link copying
+   */
+    const handleInvite = () => {
+      clipboard.copy(TRACKING_URL);
+      setInviteButtonText('Link copied!');
+    };
+
   /**
    * Handles the final survey step and saves all data to Supabase
+   * Triggers confetti celebration on successful submission
    */
   const handleExcitementSubmit = async (excitement: string) => {
     if (!excitement) {
@@ -108,17 +180,19 @@ export default function HeroSignup() {
           email_address: signupData.email,
           disappointment: signupData.disappointment,
           excitement_to_focus: excitement,
-          created_at: new Date().toISOString()
         }]);
 
       if (supabaseError) throw supabaseError;
 
-      // Reset all state after successful submission
-      form.reset();
-      setShowSurvey(false);
-      setCurrentStep(1);
-      setSignupData({ email: '' });
-      alert('Thank you for your feedback!');
+        // Trigger success actions
+        triggerConfettiCannons();
+        setShowSurvey(false);
+        setShowSuccessModal(true);
+
+        // Reset forms and state
+        form.reset();
+        setCurrentStep(1);
+        setSignupData({ email: '' });
       
     } catch (err) {
       console.error('Error saving signup data:', err);
@@ -234,6 +308,35 @@ export default function HeroSignup() {
           )}
         </Stack>
       </Modal>
+
+       {/* Success Modal */}
+       <Modal
+        opened={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        size="sm"
+        centered
+        withCloseButton={false}
+      >
+        <Stack align="center" gap="md" p="md">
+          <Title order={2}>Thank you for signing up!</Title>
+          <Text ta="center" size="lg" c="dimmed">
+            You will receive an email shortly with next steps
+          </Text>
+          
+          <Group mt="xl">
+            <Button
+              onClick={handleInvite}
+              variant="light"
+              size="md"
+              style={{ minWidth: 150 }}
+            >
+              {inviteButtonText}
+            </Button>
+          </Group>
+        </Stack>
+      </Modal>
+
+
     </div>
   );
 }
