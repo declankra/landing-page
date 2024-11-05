@@ -237,11 +237,11 @@ export default function HeroSignup() {
               size="md"
               className={styles.input}
             />
-            <div className="relative z-0 w-full">
+            <div className={styles.buttonWrapper}>
               <RainbowButton
                 onClick={handleEmailSubmit}
                 disabled={loading}
-                className="w-full text-lg font-semibold bg-transparent hover:bg-transparent"
+                className="relative w-full text-lg font-semibold"
               >
                 {loading ? 'Sending...' : 'Get Early Access'}
               </RainbowButton>
