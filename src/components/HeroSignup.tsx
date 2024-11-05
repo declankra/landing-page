@@ -21,7 +21,7 @@ import styles from '../styles/HeroSignup.module.css';
 
 // Constants
 const TRACKING_URL = "https://dub.sh/inviteFriend2ILP";
-const SUCCESS_MODAL_DURATION = 6000; // 3 seconds
+const SUCCESS_MODAL_DURATION = 9000; // 9 seconds
 
 // Type definitions for signup data
 interface SignupData {
@@ -35,7 +35,7 @@ interface SignupData {
  * Creates a celebratory effect with confetti shooting from both sides
  */
 const triggerConfettiCannons = () => {
-  const end = Date.now() + 3 * 1000; // 3 seconds duration
+  const end = Date.now() + 4 * 1000; // 4 seconds duration
   const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
 
   const frame = () => {
@@ -309,33 +309,40 @@ export default function HeroSignup() {
         </Stack>
       </Modal>
 
-       {/* Success Modal */}
+       {/* Success Modal - Styled to match survey modal */}
        <Modal
         opened={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
-        size="sm"
+        title="Welcome aboard! 🎉"
+        size="md"
         centered
-        withCloseButton={false}
       >
-        <Stack align="center" gap="md" p="md">
-          <Title order={2}>Thank you for signing up!</Title>
-          <Text ta="center" size="lg" c="dimmed">
-            You will receive an email shortly with next steps
+        <Stack>
+          {/* Full progress bar to show completion */}
+          <Progress 
+            value={100} 
+            className={styles.progressBar}
+          />
+          
+          <Text className={styles.surveyTitle}>
+            Thank you for signing up!
           </Text>
           
-          <Group mt="xl">
-            <Button
-              onClick={handleInvite}
-              variant="light"
-              size="md"
-              style={{ minWidth: 150 }}
-            >
-              {inviteButtonText}
-            </Button>
-          </Group>
+          <Text size="md" mb="md">
+            You will receive an email shortly with next steps.
+            In the meantime, why not share this with a friend?
+          </Text>
+
+          <Button
+            onClick={handleInvite}
+            fullWidth
+            size="lg"
+            className={styles.inviteButton}
+          >
+            {inviteButtonText}
+          </Button>
         </Stack>
       </Modal>
-
 
     </div>
   );
