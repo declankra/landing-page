@@ -10,6 +10,7 @@ import LogoClouds from '@/components/LogoClouds';
 import Footer from '@/components/Footer';
 import ContactUs from '@/components/ContactUs';
 import StatsSimple from '../components/StatsSimple';
+import SpotlightImage from '../components/SpotlightImage';
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -40,6 +41,13 @@ export default function LandingPage() {
 
       {/* Stats component - simple grid row */} 
       <StatsSimple />
+
+      {/* Image spotlight component - reusable configuration */}
+      <SpotlightImage
+        title="Title to sell customer with the dopest feature, visually"
+        imagePath="/HeroBackgroundBox.webp"
+        imageAlt="Dopest feature"
+      />
 
       {/* FAQ Component optimized for SEO */} 
       <FAQDrawer />
