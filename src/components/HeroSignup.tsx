@@ -12,6 +12,7 @@ import {
 } from '@mantine/core';
 import { useForm, isEmail } from '@mantine/form';
 import { supabase } from '../lib/supabaseClient';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 import Image from 'next/image';
 import styles from '../styles/HeroSignup.module.css';
 
@@ -162,14 +163,16 @@ export default function HeroSignup() {
               size="md"
               className={styles.input}
             />
-            <Button
-              fullWidth
-              onClick={handleEmailSubmit}
-              loading={loading}
-              size="lg"
-            >
-              Get Early Access
-            </Button>
+            <div className="relative z-0 w-full">
+              <RainbowButton
+                onClick={handleEmailSubmit}
+                disabled={loading}
+                className="w-full text-lg font-semibold bg-transparent hover:bg-transparent"
+              >
+                {loading ? 'Sending...' : 'Get Early Access'}
+              </RainbowButton>
+            </div>
+
           </div>
         </div>
       </div>
