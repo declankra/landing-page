@@ -20,7 +20,7 @@ import Image from 'next/image';
 import styles from '../styles/HeroSignup.module.css';
 
 // Constants
-const TRACKING_URL = "https://dub.sh/IdeaLandingPage";
+const TRACKING_URL = "https://dub.sh/inviteFriend2ILP";
 const SUCCESS_MODAL_DURATION = 6000; // 3 seconds
 
 // Type definitions for signup data
