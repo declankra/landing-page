@@ -62,7 +62,7 @@
   max-width: 28rem;
   width: 100%;
   margin: 0 1rem;
-  backdrop-filter: blur(10px);
+  position: relative;
 }
 
 .input {
