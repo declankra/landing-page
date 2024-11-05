@@ -1,7 +1,6 @@
 // src/components/StatsSimple.tsx
 import { cn } from "@/lib/utils";
 import styles from '../styles/StatsSimple.module.css';
-import { useRef } from 'react';
 import { useIntersection } from '@mantine/hooks';
 
 
