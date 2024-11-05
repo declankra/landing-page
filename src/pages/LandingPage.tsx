@@ -9,6 +9,7 @@ import FAQDrawerMT from '../components/FAQDrawerMT';
 import LogoClouds from '@/components/LogoClouds';
 import Footer from '@/components/Footer';
 import ContactUs from '@/components/ContactUs';
+import StatsSimple from '../components/StatsSimple';
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -31,11 +32,14 @@ export default function LandingPage() {
       {/* Features */} 
       <Features />
 
-      {/* Fun Logo Clouds for ethos*/}
+      {/* Fun Logo Clouds for ethos */}
       <LogoClouds />
 
       {/* Sharing site for reach */} 
       <ShareSection />
+
+      {/* Stats component - simple grid row */} 
+      <StatsSimple />
 
       {/* FAQ Component optimized for SEO */} 
       <FAQDrawer />
