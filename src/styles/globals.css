@@ -61,6 +61,11 @@
     --mantine-gray-700: #404040;
     --mantine-gray-800: #262626;
     --mantine-gray-900: #171717;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
   }
  
   .dark {
@@ -89,6 +94,11 @@
     --mantine-primary: #38BDF8;
     --mantine-primary-light: #7DD3FC;
     --mantine-primary-dark: #0284C7;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
   }
 }
 
