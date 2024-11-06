@@ -12,6 +12,7 @@ import ContactUs from '@/components/ContactUs';
 import StatsSimple from '../components/StatsSimple';
 import SpotlightImage from '../components/SpotlightImage';
 import SpotlightVideo from '../components/SpotlightVideo';
+import { TextRevealScroll } from '@/components/TextRevealScroll';
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -59,6 +60,8 @@ export default function LandingPage() {
         imagePath="/HeroBackgroundBox.webp"
         imageAlt="Dopest feature"
       />
+
+      <TextRevealScroll/>
 
       {/* FAQ Component optimized for SEO */} 
       <FAQDrawer />
