@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import ContactUs from '@/components/ContactUs';
 import StatsSimple from '../components/StatsSimple';
 import SpotlightImage from '../components/SpotlightImage';
+import SpotlightVideo from '../components/SpotlightVideo';
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -38,6 +39,16 @@ export default function LandingPage() {
 
       {/* Sharing site for reach */} 
       <ShareSection />
+
+      {/* Video Spotlight Comoponent site for reach */} 
+      <SpotlightVideo
+        title="Experience your problem solved with our solution"
+        highlightedText="problem solved"
+        highlightColor='var(--mantine-primary-light)'
+        videoSrc="https://www.youtube.com/embed/QGIUa2sSYFI"
+        thumbnailSrc="/SteveJobs16x9.webp"
+        ctaText="See it for yourself"
+      />
 
       {/* Stats component - simple grid row */} 
       <StatsSimple />
