@@ -1,3 +1,5 @@
+/* src/pages/LandingPage.tsx */
+
 import HeroSignup from '../components/HeroSignup';
 import UserSay from '../components/UserSay';
 import UserSayCarousel from '../components/UserSayCarousel';
