@@ -14,7 +14,9 @@ import ContactUs from '@/components/ContactUs';
 import StatsSimple from '../components/StatsSimple';
 import SpotlightImage from '../components/SpotlightImage';
 import SpotlightVideo from '../components/SpotlightVideo';
+import ScrollVelocityWrapper from '@/components/scroll-velocity-wrapper';
 import { TextRevealScroll } from '@/components/TextRevealScroll';
+
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -27,6 +29,13 @@ export default function LandingPage() {
 
       {/* Testimonials Component */}
       <UserSay />
+
+      {/* Main emotional/outcome sell - text based, animated component */}
+      <ScrollVelocityWrapper 
+        text="This, not that."
+        velocity={4}
+        className="bg-background text-color-3 animate-pulse shadow-[0_0_15px_rgba(var(--color-3),0.5)]"
+      />
 
       {/* Testimonials - Carousel Component */}
       <UserSayCarousel />
@@ -55,6 +64,7 @@ export default function LandingPage() {
 
       {/* Stats component - simple grid row */} 
       <StatsSimple />
+
 
       {/* Image spotlight component - reusable configuration */}
       <SpotlightImage
