@@ -108,7 +108,7 @@ export function IconCloud({ iconSlugs, onIconClick }: IconCloudProps) {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "400px" }}>
-      {/* @ts-ignore */}
+      {/* @ts-expect-error - Cloud component from react-icon-cloud has incomplete type definitions */}
       <Cloud {...cloudProps}>{renderedIcons}</Cloud>
     </div>
   );
