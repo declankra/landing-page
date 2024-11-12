@@ -17,6 +17,7 @@ import SpotlightVideo from '../components/SpotlightVideo';
 import ScrollVelocityWrapper from '@/components/scroll-velocity-wrapper';
 import FinalSell from '../components/FinalSell';
 import MarqueeCardDisplay from '@/components/MarqueeCardDisplay';
+import ComparisonTable from '@/components/ComparisonTable';
 import { TextRevealScroll } from '@/components/TextRevealScroll';
 
 import styles from '../styles/LandingPage.module.css';
@@ -79,6 +80,15 @@ export default function LandingPage() {
       />
 
       <TextRevealScroll/>
+
+
+      {/* Comparison Table component - table format to highlight your unique offering compared to competitors */}
+      <ComparisonTable
+        title="Why we're different: The {highlighted} choice"
+        highlightedWord="uniquely better"
+        competitors={["Product A", "Product B", "Product C"]}
+      />
+
 
       {/* FAQ Component optimized for SEO */} 
       <FAQDrawer />
