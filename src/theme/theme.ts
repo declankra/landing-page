@@ -11,9 +11,9 @@ export const theme: MantineThemeOverride = createTheme({
   headings: {
     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
     sizes: {
-      h1: { fontSize: rem(44), lineHeight: '1.3', fontWeight: '700' },
-      h2: { fontSize: rem(32), lineHeight: '1.35', fontWeight: '600' },
-      h3: { fontSize: rem(24), lineHeight: '1.4', fontWeight: '600' },
+      h1: { fontSize: rem(60), lineHeight: '1.3', fontWeight: '900' }, // Marc Lou recommended sizes
+      h2: { fontSize: rem(48), lineHeight: '1.35', fontWeight: '700' }, // Marc Lou recommended sizes
+      h3: { fontSize: rem(32), lineHeight: '1.4', fontWeight: '700' },
     },
   },
   colors: {
