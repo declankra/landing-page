@@ -1,13 +1,13 @@
 import { cn } from "@/lib/utils";
+import { HTMLProps } from "react";
 
-interface MarqueeProps {
+interface MarqueeProps extends Omit<HTMLProps<HTMLDivElement>, 'children'> {
   className?: string;
   reverse?: boolean;
   pauseOnHover?: boolean;
   children?: React.ReactNode;
   vertical?: boolean;
   repeat?: number;
-  [key: string]: any;
 }
 
 export default function Marquee({
