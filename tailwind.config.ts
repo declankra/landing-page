@@ -82,7 +82,9 @@ const config: Config = {
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
   			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
   			rainbow: 'rainbow var(--speed, 2s) infinite linear',
-  			pulse: 'pulse var(--duration) ease-out infinite'
+  			pulse: 'pulse var(--duration) ease-out infinite',
+  			marquee: 'marquee var(--duration) infinite linear',
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
   		},
   		keyframes: {
   			'accordion-down': {
@@ -197,6 +199,22 @@ const config: Config = {
   				},
   				'50%': {
   					boxShadow: '0 0 0 8px var(--pulse-color)'
+  				}
+  			},
+  			marquee: {
+  				from: {
+  					transform: 'translateX(0)'
+  				},
+  				to: {
+  					transform: 'translateX(calc(-100% - var(--gap)))'
+  				}
+  			},
+  			'marquee-vertical': {
+  				from: {
+  					transform: 'translateY(0)'
+  				},
+  				to: {
+  					transform: 'translateY(calc(-100% - var(--gap)))'
   				}
   			}
   		},
