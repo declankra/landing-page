@@ -15,6 +15,7 @@ import StatsSimple from '../components/StatsSimple';
 import SpotlightImage from '../components/SpotlightImage';
 import SpotlightVideo from '../components/SpotlightVideo';
 import ScrollVelocityWrapper from '@/components/scroll-velocity-wrapper';
+import FinalSell from '../components/FinalSell';
 import { TextRevealScroll } from '@/components/TextRevealScroll';
 
 import styles from '../styles/LandingPage.module.css';
@@ -81,6 +82,16 @@ export default function LandingPage() {
 
       {/* Contact Us Component - contact form with Supabase connection*/} 
       <ContactUs />
+
+      {/* Contact Us Component - contact form with Supabase connection*/} 
+      <FinalSell 
+      title="Your compelling final pitch"
+      subtitle="The clear value-add of joining"
+      ctaText="Start {it} Now"
+      onCtaClick={() => {
+      // Your conversion tracking/signup logic
+        }}
+      />
 
       {/* Footer */} 
       <Footer />
