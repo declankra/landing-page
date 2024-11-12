@@ -16,6 +16,7 @@ import SpotlightImage from '../components/SpotlightImage';
 import SpotlightVideo from '../components/SpotlightVideo';
 import ScrollVelocityWrapper from '@/components/scroll-velocity-wrapper';
 import FinalSell from '../components/FinalSell';
+import MarqueeCardDisplay from '@/components/MarqueeCardDisplay';
 import { TextRevealScroll } from '@/components/TextRevealScroll';
 
 import styles from '../styles/LandingPage.module.css';
@@ -46,6 +47,9 @@ export default function LandingPage() {
 
       {/* Features */} 
       <Features />
+
+      {/* Scrolling Marque Card Wrapper Component - show problem-centric statement, pain point questions, or testomonials */} 
+      <MarqueeCardDisplay />
 
       {/* Fun Logo Clouds for ethos */}
       <LogoClouds />
