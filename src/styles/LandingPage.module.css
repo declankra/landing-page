@@ -3,4 +3,12 @@
     max-width: var(--mantine-container-size-md);
     margin: 0 auto;
     padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);
+    margin-top: var(--header-height);
   }
+  @media (max-width: 768px) {
+
+  .container {
+    margin-top: var(--header-height-mobile);
+  }
+
+}
