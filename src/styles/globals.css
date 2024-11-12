@@ -70,6 +70,10 @@
     /* Header heights */
     --header-height: 2.8rem;
     --header-height-mobile: 1.8rem;
+
+    /* Section spacing */
+    --section-spacing: clamp(2.25rem, 5.5vw, 5rem);     /* Fluid spacing between sections */
+    --content-padding: clamp(1rem, 5vw, 2.5rem);   /* Fluid horizontal padding */
   }
  
   .dark {

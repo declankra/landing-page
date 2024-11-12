@@ -1,14 +1,55 @@
 /* src/styles/LandingPage.module.css */
-.container {
-    max-width: var(--mantine-container-size-md);
-    margin: 0 auto;
-    padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);
-    margin-top: var(--header-height);
-  }
-  @media (max-width: 768px) {
 
-  .container {
-    margin-top: var(--header-height-mobile);
+/* Overall page wrapper */
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+}
+
+/* Main content wrapper - excludes header and footer */
+.mainWrapper {
+  flex: 1;
+  width: 100%;
+}
+/* Default section style */
+.section {
+  width: 100%;
+  max-width: var(--mantine-container-size-xl);
+  margin: 0 auto;
+  padding: var(--section-spacing) var(--content-padding);
+}
+
+/* Full width section that breaks out of container */
+.sectionFullWidth {
+  width: 100%;
+  padding: var(--section-spacing) 0;
+}
+
+/* Section with subtle background variation - can be repeated */
+.sectionAlt {
+  width: 100%;
+  max-width: var(--mantine-container-size-xl);
+  margin: 0 auto;
+  padding: var(--section-spacing) var(--content-padding);
+  background: linear-gradient(
+    to bottom,
+    var(--background) 0%,
+    var(--muted/50) 50%,
+    var(--background) 100%
+  );
+  border-radius: var(--radius);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding-top: var(--header-height-mobile);
   }
 
+  .section,
+  .sectionAlt {
+    padding: calc(var(--section-spacing) * 0.75) var(--content-padding);
+  }
 }
