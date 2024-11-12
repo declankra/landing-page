@@ -79,6 +79,8 @@ export default function LandingPage() {
         imageAlt="Dopest feature"
       />
 
+
+      {/* Fancy animated text that reveals itself in center of screen while user scrolls */}
       <TextRevealScroll/>
 
 
