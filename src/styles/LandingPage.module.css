@@ -5,13 +5,14 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: var(--header-height);
 }
 
 /* Main content wrapper - excludes header and footer */
 .mainWrapper {
   flex: 1;
   width: 100%;
+  /* Add margin-top to account for fixed header height */
+  margin-top: var(--header-height);
 }
 /* Default section style */
 .section {
@@ -24,7 +25,7 @@
 /* Full width section that breaks out of container */
 .sectionFullWidth {
   width: 100%;
-  padding: var(--section-spacing) 0;
+  padding-bottom: var(--section-spacing);
 }
 
 /* Section with subtle background variation - can be repeated */
@@ -44,8 +45,8 @@
 
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
-  .pageWrapper {
-    padding-top: var(--header-height-mobile);
+  .mainWrapper {
+    margin-top: var(--header-height-mobile);
   }
 
   .section,

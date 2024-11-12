@@ -68,8 +68,8 @@
     --color-5: 90 100% 63%;
 
     /* Header heights */
-    --header-height: 2.8rem;
-    --header-height-mobile: 1.8rem;
+    --header-height: 3.65rem; /* .65 is the padding on the .nav element in NavigationHeader.module.css */
+    --header-height-mobile: 2.65rem;
 
     /* Section spacing */
     --section-spacing: clamp(2.25rem, 5.5vw, 5rem);     /* Fluid spacing between sections */
