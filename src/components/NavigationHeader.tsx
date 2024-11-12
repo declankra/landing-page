@@ -47,7 +47,7 @@ export default function NavigationHeader({
     { label: "Testimonials", href: "#testimonials" },
     { label: "FAQ", href: "#faq" }
   ],
-  activeOffset = 100 // Pixels from top to consider section active
+  activeOffset = 80 // Pixels from top to consider section active
 }: NavigationHeaderProps) {
   // Track active section
   const [activeSection, setActiveSection] = useState<string>('');
