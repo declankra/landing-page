@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useWindowScroll } from '@mantine/hooks';
+import { Menu } from 'lucide-react';
 import SignupButtonShiny from './SignupButtonShiny';
 import styles from '../styles/NavigationHeader.module.css';
 import { cn } from "@/lib/utils";
@@ -54,22 +55,23 @@ export default function NavigationHeader({
   const [{ y: scrollY }] = useWindowScroll();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Handle scroll direction detection and active section
-  useEffect(() => {
+
+   // Handle scroll behavior
+   useEffect(() => {
     const handleScroll = () => {
-      // Show nav when scrolling up or at top
       if (scrollY < lastScrollY || scrollY < 50) {
         setIsVisible(true);
       } 
-      // Hide nav when scrolling down
       else if (scrollY > 50 && scrollY > lastScrollY) {
         setIsVisible(false);
+        setIsMobileMenuOpen(false); // Close mobile menu on scroll
       }
       
       setLastScrollY(scrollY);
 
-      // Check which section is currently in view
+      // Active section detection
       const sections = links.map(link => ({
         id: link.href.replace('#', ''),
         element: document.getElementById(link.href.replace('#', ''))
@@ -84,9 +86,8 @@ export default function NavigationHeader({
       setActiveSection(currentSection ? `#${currentSection.id}` : '');
     };
 
-    handleScroll(); // Initial check
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollY, lastScrollY, links, activeOffset]);
 
@@ -94,24 +95,23 @@ export default function NavigationHeader({
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     
-    // Handle top of page reset
     if (href === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - offset;
 
-    // Scroll to section
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80; // Account for header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }
+    
+    setIsMobileMenuOpen(false); // Close menu after click
   };
 
   return (
@@ -122,7 +122,7 @@ export default function NavigationHeader({
       )}
     >
       <nav className={styles.nav}>
-        {/* Logo Section */}
+        {/* Logo */}
         <a 
           href="#" 
           className={styles.logoLink}
@@ -140,8 +140,17 @@ export default function NavigationHeader({
           </div>
         </a>
 
-        {/* Navigation Links */}
-        <div className={styles.linkContainer}>
+        {/* Mobile Menu Button */}
+        <button 
+          className={styles.mobileMenuButton}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <Menu size={24} />
+        </button>
+
+        {/* Desktop Navigation */}
+        <div className={styles.desktopNav}>
           {links.map((link) => (
             <a
               key={link.href}
@@ -157,9 +166,29 @@ export default function NavigationHeader({
           ))}
         </div>
 
+        {/* Mobile Navigation Dropdown */}
+        <div className={cn(
+          styles.mobileNav,
+          isMobileMenuOpen && styles.mobileNavOpen
+        )}>
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={cn(
+                styles.mobileLink,
+                activeSection === link.href && styles.active
+              )}
+              onClick={(e) => handleNavClick(e, link.href)}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
         {/* Signup Button */}
         <div className={styles.buttonWrapper}>
-          <SignupButtonShiny>
+          <SignupButtonShiny className={styles.signupButton}>
             Get Access
           </SignupButtonShiny>
         </div>
