@@ -40,7 +40,7 @@ Note: Mantine automatically converts rem values from theme.ts to CSS variables
   
   .accordion {
     /* Reduced max-width for better readability and focus */
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     /* Add some horizontal padding for mobile views */
     padding: 0 var(--mantine-spacing-sm);
