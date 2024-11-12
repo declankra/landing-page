@@ -227,7 +227,7 @@ export default function SignupButton({
           ) : currentStep === 1 ? (
             <>
               <Text className={styles.stepTitle}>
-                How disappointed would you be if you don't get access?
+                How disappointed would you be if you don&apos;t get access?
               </Text>
               <Radio.Group
                 onChange={(value) => handleDisappointmentSubmit(value)}
