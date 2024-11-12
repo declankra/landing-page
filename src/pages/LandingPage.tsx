@@ -83,7 +83,7 @@ export default function LandingPage() {
       {/* Contact Us Component - contact form with Supabase connection*/} 
       <ContactUs />
 
-      {/* Contact Us Component - contact form with Supabase connection*/} 
+      {/* Finall Sell Component - large call to action */} 
       <FinalSell 
       title="Your compelling final pitch"
       subtitle="The clear value-add of joining"
