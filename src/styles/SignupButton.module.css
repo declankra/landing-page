@@ -1,0 +1,62 @@
+/* src/styles/SignupButton.module.css */
+.modal {
+    background: var(--background);
+    color: var(--foreground);
+    border-radius: var(--radius);
+  }
+  
+  .modalHeader {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--mantine-spacing-sm);
+  }
+  
+  .modalTitle {
+    color: var(--foreground);
+    font-weight: 600;
+  }
+  
+  .progressBar {
+    margin: var(--mantine-spacing-md) 0;
+  }
+  
+  .stepTitle {
+    color: var(--foreground);
+    font-weight: 500;
+  }
+  
+  .input input {
+    background: var(--background);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+  }
+  
+  .input input:focus {
+    border-color: var(--primary);
+    outline-color: var(--ring);
+  }
+  
+  .input input[aria-invalid="true"] {
+    border-color: var(--destructive);
+    background-color: var(--destructive-foreground);
+  }
+  
+  .input input[aria-invalid="true"]:focus {
+    border-color: var(--destructive);
+    outline-color: var(--destructive);
+  }
+  
+  .radioGroup {
+    color: var(--foreground);
+  }
+  
+  .submitButton {
+    width: 100%;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    margin-top: var(--mantine-spacing-md);
+  }
+  
+  .error {
+    color: var(--destructive);
+    margin-top: var(--mantine-spacing-xs);
+  }
