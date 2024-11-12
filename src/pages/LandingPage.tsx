@@ -6,7 +6,6 @@ import UserSayCarousel from '../components/UserSayCarousel';
 import HowItWorksVertical from '../components/HowItWorksVertical';
 import Features from '../components/Features';
 import ShareSection from '../components/ShareSection';
-import FAQDrawer from '../components/FAQDrawer';
 import FAQDrawerMT from '../components/FAQDrawerMT';
 import LogoClouds from '@/components/LogoClouds';
 import Footer from '@/components/Footer';
@@ -93,7 +92,6 @@ export default function LandingPage() {
 
 
       {/* FAQ Component optimized for SEO */} 
-      <FAQDrawer />
       <FAQDrawerMT />
 
       {/* Contact Us Component - contact form with Supabase connection*/} 
