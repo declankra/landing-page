@@ -18,14 +18,28 @@ import FinalSell from '../components/FinalSell';
 import MarqueeCardDisplay from '@/components/MarqueeCardDisplay';
 import ComparisonTable from '@/components/ComparisonTable';
 import { TextRevealScroll } from '@/components/TextRevealScroll';
-
+import NavigationHeader from '../components/NavigationHeader';
 import styles from '../styles/LandingPage.module.css';
 
 
 export default function LandingPage() {
 
+
+  const navigationLinks = [
+    { label: "How It Works", href: "#how-it-works" },
+    { label: "Features", href: "#features" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "Demo", href: "#demo" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Contact", href: "#contact" }
+    // Only include sections you want in navigation
+  ];
+
   return (
     <div className={styles.container}>
+      {/* Pass navigation links to header */}
+      <NavigationHeader links={navigationLinks} />
+
       {/* Hero Component with Email Signup - modal with supabase connection */}
       <HeroSignup />
 
@@ -38,15 +52,21 @@ export default function LandingPage() {
         velocity={4}
         className="bg-background text-color-3 animate-pulse shadow-[0_0_15px_rgba(var(--color-3),0.5)]"
       />
-
+      <section id="testimonials">
       {/* Testimonials - Carousel Component */}
       <UserSayCarousel />
+      </section>
 
+      <section id="how-it-works">
       {/* How It Works - Stepper vertical scroll component */} 
       <HowItWorksVertical />
+      </section>
 
-      {/* Features */} 
+
+      <section id="features">
+      {/* Features Component - Card Grid*/} 
       <Features />
+      </section>
 
       {/* Scrolling Marque Card Wrapper Component - show problem-centric statement, pain point questions, or testomonials */} 
       <MarqueeCardDisplay />
@@ -57,6 +77,7 @@ export default function LandingPage() {
       {/* Sharing site for reach */} 
       <ShareSection />
 
+      <section id="demo">
       {/* Video Spotlight Comoponent site for reach */} 
       <SpotlightVideo
         title="Experience your problem solved with our solution"
@@ -66,6 +87,8 @@ export default function LandingPage() {
         thumbnailSrc="/SteveJobs16x9.webp"
         ctaText="See it for yourself"
       />
+      </section>
+
 
       {/* Stats component - simple grid row */} 
       <StatsSimple />
@@ -90,12 +113,15 @@ export default function LandingPage() {
         competitors={["Product A", "Product B", "Product C"]}
       />
 
-
+      <section id="faq">
       {/* FAQ Component optimized for SEO */} 
       <FAQDrawerMT />
+      </section>
 
+      <section id="contact">
       {/* Contact Us Component - contact form with Supabase connection*/} 
       <ContactUs />
+      </section>
 
       {/* Finall Sell Component - large call to action */} 
       <FinalSell 

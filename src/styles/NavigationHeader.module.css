@@ -1,0 +1,135 @@
+/* src/styles/NavigationHeader.module.css */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    transition: all 0.3s ease-in-out;
+    /* Blur effect background */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dark mode support */
+  :global(.dark) .header {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 0.65rem .65rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Logo styles */
+  .logoLink {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.2s ease;
+  }
+  
+  .logoLink:hover {
+    opacity: 0.6;
+  }
+  
+  .logoWrapper {
+    position: relative;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .logo {
+    object-fit: contain;
+  }
+  
+  /* Link container styles */
+  .linkContainer {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin: 0 1rem;
+  }
+  
+  /* Individual link styles */
+  .link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+
+  .link:hover {
+    opacity: 0.6;
+  }
+  
+  .link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.2s ease;
+  }
+  
+  .link:hover::after,
+  .link.active::after {
+    width: 100%;
+  }
+  
+  .link.active {
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  /* Button wrapper styles */
+  .buttonWrapper {
+    /* Ensure proper spacing and sizing for the signup button */
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Visibility states */
+  .visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    .nav {
+      padding: 0.5rem 1rem;
+    }
+  
+    .linkContainer {
+      display: none; /* Hide links on mobile - could be replaced with a hamburger menu */
+    }
+  
+    .buttonWrapper {
+      margin-left: auto;
+    }
+  }
+  
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .header,
+    .link::after {
+      transition: none;
+    }
+  }
