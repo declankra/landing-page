@@ -27,7 +27,7 @@ export function TextRevealScroll() {
         text="This text will change you, convince you. " 
         className="
           /* Larger text size that scales with screen size */
-          text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+          text-3xl sm:text-4xl md:text-5xl lg:text-heading-2
 
           /* Force text centering */
           text-center
