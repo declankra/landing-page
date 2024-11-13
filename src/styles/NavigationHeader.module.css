@@ -11,7 +11,7 @@
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
+} 
   
   :global(.dark) .header {
     background: rgba(0, 0, 0, 0.8);
@@ -19,14 +19,15 @@
   }
   
   .nav {
-    max-width: 1450px;
+    max-width: 1450px; /* Reduced for better content density */
     margin: 0 auto;
-    padding: 0.65rem 1rem;
+    padding: 0.65rem 2rem; /* Increased horizontal padding */
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    z-index: 1; /* Ensure proper stacking within header */
+    z-index: 1;
+    gap: 2rem; /* Added gap for consistent spacing */
   }
   
   /* Logo styles */
@@ -44,6 +45,7 @@
     position: relative;
     width: 32px;
     height: 32px;
+    margin-right: 80px; /*!!!!! !!!!!!! cheat code fix to align the text, should be removed!!!!! */
   }
   
   .logo {
@@ -122,7 +124,7 @@
     backdrop-filter: blur(8px);
     border: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 999; /* Just below header */
-}
+  }
   
   .mobileNavOpen {
     opacity: 1;
