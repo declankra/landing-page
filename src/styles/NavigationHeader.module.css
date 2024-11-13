@@ -193,6 +193,10 @@
     .mobileNavOpen {
       display: block;
     }
+
+    .logoWrapper {
+      margin-right: auto; /* this is offsettting other temporary change!!! */
+    }
   
     .buttonWrapper {
       margin-left: auto;
