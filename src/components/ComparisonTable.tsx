@@ -111,7 +111,7 @@ export default function ComparisonTable({
   return (
     <div className={cn("w-full max-w-7xl mx-auto px-4 py-8", className)}>
       {/* Title Section */}
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+      <h2 className="text-2xl md:text-heading-2 font-bold text-center mb-8">
         {title.split("{highlighted}").map((part, index) => 
           index === 0 ? part : (
             <React.Fragment key={index}>
