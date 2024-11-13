@@ -31,7 +31,7 @@
   }
   
   .rotatingWord {
-    font-size: 3.5rem;
+    font-size: var(--mantine-h2-font-size);
     font-weight: 700;
     text-align: center;
     background: linear-gradient(to right, var(--mantine-color-accent-4), var(--mantine-color-accent-6));
@@ -105,5 +105,8 @@
   
     .submitButton:active {
       transform: scale(0.98);
+    }
+    .rotatingWord {
+      font-size: 1.5rem;
     }
   }
