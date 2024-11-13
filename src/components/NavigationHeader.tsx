@@ -16,6 +16,7 @@ interface NavigationHeaderProps {
   // {{REPLACE_PROPS}} - Configure based on your product needs
   logoSrc?: string;
   logoAlt?: string;
+  productName?: string; // Product name to display next to logo
   links?: NavigationLink[];
   activeOffset?: number; // Offset for determining active section
 }
@@ -42,6 +43,7 @@ export default function NavigationHeader({
   // {{REPLACE_CONFIG}} - Replace with your product's details
   logoSrc = "/RocketLaunchIcon-Light.svg",
   logoAlt = "Project Logo",
+  productName = "Idea(L)anding Page", 
   links = [
     { label: "How It Works", href: "#how-it-works" },
     { label: "Features", href: "#features" },
@@ -122,35 +124,32 @@ export default function NavigationHeader({
       )}
     >
       <nav className={styles.nav}>
-        {/* Logo */}
-        <a 
-          href="#" 
-          className={styles.logoLink}
-          onClick={(e) => handleNavClick(e, '#')}
-          aria-label="Go to top of page"
-        >
-          <div className={styles.logoWrapper}>
-            <Image
-              src={logoSrc}
-              alt={logoAlt}
-              width={32}
-              height={32}
-              className={styles.logo}
-            />
-          </div>
-        </a>
+        {/* Logo and Product Name Section */}
+        <div className={styles.logoContainer}>
+          <a 
+            href="#" 
+            className={styles.logoLink}
+            onClick={(e) => handleNavClick(e, '#')}
+            aria-label="Go to top of page"
+          >
+            <div className={styles.logoWrapper}>
+              <Image
+                src={logoSrc}
+                alt={logoAlt}
+                width={32}
+                height={32}
+                className={styles.logo}
+              />
+            </div>
+          </a>
+          {/* Product Name */}
+          <span className={styles.productName} title={productName}>
+            {productName}
+          </span>
+        </div>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className={styles.mobileMenuButton}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <Menu size={24} />
-        </button>
-
-        {/* Desktop Navigation */}
-        <div className={styles.desktopNav}>
+        {/* Navigation Links */}
+        <div className={styles.linkContainer}>
           {links.map((link) => (
             <a
               key={link.href}
@@ -166,33 +165,43 @@ export default function NavigationHeader({
           ))}
         </div>
 
-        {/* Mobile Navigation Dropdown */}
-        <div className={cn(
-          styles.mobileNav,
-          isMobileMenuOpen && styles.mobileNavOpen
-        )}>
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={cn(
-                styles.mobileLink,
-                activeSection === link.href && styles.active
-              )}
-              onClick={(e) => handleNavClick(e, link.href)}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          className={styles.mobileMenuButton}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+        >
+          <Menu size={24} />
+        </button>
 
         {/* Signup Button */}
         <div className={styles.buttonWrapper}>
-          <SignupButtonShiny className={styles.signupButton}>
+          <SignupButtonShiny>
             Get Access
           </SignupButtonShiny>
         </div>
       </nav>
+
+      {/* Mobile Navigation Menu */}
+      <div className={cn(styles.mobileNav, isMobileMenuOpen && styles.mobileNavOpen)}>
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className={cn(
+              styles.mobileLink,
+              activeSection === link.href && styles.active
+            )}
+            onClick={(e) => {
+              handleNavClick(e, link.href);
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
     </header>
   );
 }
