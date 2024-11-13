@@ -3,7 +3,6 @@
 /* Note: Most styling is handled by Tailwind classes directly in the component.
    This CSS module is mainly for any custom animations or complex styles that
    can't be easily achieved with Tailwind. */
-/* src/styles/StatsSimple.module.css */
 
 /* Base styles for header and stats */
 .header {

@@ -73,7 +73,7 @@ export default function StatsSimple({
           styles.header,
           isVisible && styles.headerVisible
         )}>
-          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl mb-2">
+          <h2 className="text-3xl font-bold tracking-tighter md:text-heading-2 mb-2">
             {title}
           </h2>
           <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed dark:text-gray-400">
