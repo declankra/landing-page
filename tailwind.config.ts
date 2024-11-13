@@ -17,6 +17,23 @@ const config: Config = {
   		}
   	},
   	extend: {
+		// Add custom font sizes that match Mantine
+		fontSize: {
+			'heading-1': ['3.75rem', { // 60px
+			  lineHeight: '1.3',
+			  fontWeight: '900',
+			  letterSpacing: '-0.02em'
+			}],
+			'heading-2': ['3rem', {    // 48px
+			  lineHeight: '1.35',
+			  fontWeight: '700',
+			  letterSpacing: '-0.01em'
+			}],
+			'heading-3': ['2rem', {    // 32px
+			  lineHeight: '1.4',
+			  fontWeight: '700'
+			}],
+		},
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
@@ -232,9 +249,9 @@ const config: Config = {
 
   // This ensures Tailwind doesn't conflict with Mantine's styles
   corePlugins: {
-    preflight: false,
+    preflight: false, // Prevents Tailwind from conflicting with Mantine
   },
-  important: true,
+  important: true, // Ensures Tailwind styles take precedence when needed
 };
 
 export default config;
