@@ -1,23 +1,71 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-
 import { cn } from "@/lib/utils"
 
+// Button variants using Tailwind classes and global design tokens
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  [
+    // Base styles - using global tokens where possible
+    "inline-flex items-center justify-center gap-2",
+    "whitespace-nowrap rounded-md text-sm font-medium",
+    "ring-offset-background transition-all duration-200",  // Using global transition duration
+    "focus-visible:outline-none focus-visible:ring-2",
+    "focus-visible:ring-ring focus-visible:ring-offset-2",
+    // Cursor handling
+    "cursor-pointer disabled:cursor-not-allowed",         // Explicit cursor states
+    // Disabled state
+    "disabled:pointer-events-none disabled:opacity-50",
+    // Icon styles
+    "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  ],
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 cursor-pointer",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground cursor-pointer",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer",
-        ghost: "hover:bg-accent hover:text-accent-foreground cursor-pointer",
-        link: "text-primary underline-offset-4 hover:underline cursor-pointer",
+        default: [
+          "bg-primary text-primary-foreground",
+          // Hover - lift effect with color change
+          "hover:translate-y-[-2px] hover:bg-primary/90",
+          // Active state
+          "active:translate-y-[0px] active:bg-primary/95"
+        ],
+        destructive: [
+          "bg-destructive text-destructive-foreground",
+          // Hover - lift effect with color change
+          "hover:translate-y-[-2px] hover:bg-destructive/90",
+          // Active state
+          "active:translate-y-[0px] active:bg-destructive/95"
+        ],
+        outline: [
+          "border border-input bg-background",
+          // Hover - lift effect with subtle background
+          "hover:translate-y-[-2px] hover:bg-accent hover:text-accent-foreground",
+          // Active state
+          "active:translate-y-[0px] active:bg-accent/90"
+        ],
+        secondary: [
+          "bg-secondary text-secondary-foreground",
+          // Hover - lift effect with color change
+          "hover:translate-y-[-2px] hover:bg-secondary/80",
+          // Active state
+          "active:translate-y-[0px] active:bg-secondary/90"
+        ],
+        ghost: [
+          "hover:bg-accent hover:text-accent-foreground",
+          // Hover - just background change, no lift
+          "hover:bg-accent/50",
+          // Active state
+          "active:bg-accent/70"
+        ],
+        link: [
+          "text-primary underline-offset-4",
+          // Link specific cursor
+          "cursor-pointer",
+          // Hover - underline and opacity
+          "hover:underline hover:opacity-90",
+          // Active state
+          "active:opacity-80"
+        ],
       },
       size: {
         default: "h-10 px-4 py-2",
