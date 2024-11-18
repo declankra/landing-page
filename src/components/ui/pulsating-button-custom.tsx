@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 // Define button variants using CVA for consistent styling patterns
 const buttonVariants = cva(
   // Base styles
-  "relative text-center cursor-pointer flex justify-center items-center rounded-lg transition-colors",
+  "relative text-center cursor-pointer flex justify-center items-center rounded-lg transition-colors cursor-pointer",
   {
     variants: {
       // Size variants
