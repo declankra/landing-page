@@ -102,7 +102,7 @@ export default function LandingPage() {
       <SpotlightVideo
         title="Experience your problem solved with our solution"
         highlightedText="problem solved"
-        highlightColor='hsl(var(--color-primary))'
+        highlightColor='var(--mantine-primary)'
         videoSrc="https://www.youtube.com/embed/QGIUa2sSYFI"
         thumbnailSrc="/SteveJobs16x9.webp"
         ctaText="See it for yourself"
