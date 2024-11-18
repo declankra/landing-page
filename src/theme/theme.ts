@@ -1,23 +1,31 @@
 // src/theme/theme.ts
-import { createTheme, MantineThemeOverride, rem } from '@mantine/core';
+import { createTheme, MantineThemeOverride} from '@mantine/core';
 
 // Define custom colors type
 type ExtendedCustomColors = 'neutral' | 'accent';
 
+// {{REPLACE_THEME}} - Update these values for your project
 export const theme: MantineThemeOverride = createTheme({
-  primaryColor: 'dark',
-  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-  fontFamilyMonospace: 'Monaco, Courier, monospace',
-  headings: {
-    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-    sizes: {
-      h1: { fontSize: rem(60), lineHeight: '1.3', fontWeight: '900' }, // Marc Lou recommended sizes
-      h2: { fontSize: rem(48), lineHeight: '1.35', fontWeight: '700' }, // Marc Lou recommended sizes
-      h3: { fontSize: rem(32), lineHeight: '1.4', fontWeight: '700' },
-    },
-  },
+  
+  // Primary color configuration
+  primaryColor: 'primary',
+
   colors: {
     // Custom colors need to be arrays of exactly 10 values
+    // Using CSS custom properties for colors
+    primary: [
+      'hsl(var(--color-primary) / 0.1)',  // 0
+      'hsl(var(--color-primary) / 0.2)',  // 1
+      'hsl(var(--color-primary) / 0.3)',  // 2
+      'hsl(var(--color-primary) / 0.4)',  // 3
+      'hsl(var(--color-primary) / 0.5)',  // 4
+      'hsl(var(--color-primary))',        // 5 (default)
+      'hsl(var(--color-primary-bold))',   // 6
+      'hsl(var(--color-primary-bold) / 0.8)', // 7
+      'hsl(var(--color-primary-bold) / 0.9)', // 8
+      'hsl(var(--color-primary-bold))'    // 9
+    ],
+    // previous neutral and accent colors
     neutral: [
       '#FFFFFF',
       '#F5F5F5',
@@ -43,28 +51,67 @@ export const theme: MantineThemeOverride = createTheme({
       '#0C4A6E',
     ],
   },
-  radius: {
-    xs: rem(4),
-    sm: rem(6),
-    md: rem(8),
-    lg: rem(12),
-    xl: rem(16),
+
+  fontFamily: 'var(--font-sans)',
+  fontFamilyMonospace: 'var(--font-mono)',
+  headings: {
+    fontFamily: 'var(--font-heading)',
+    sizes: {
+      h1: { 
+        fontSize: 'var(--heading-1-fluid)',
+        lineHeight: 'var(--heading-1-line-height)',
+        fontWeight: 'var(--heading-1-weight)'
+      },
+      h2: { 
+        fontSize: 'var(--heading-2-fluid)',
+        lineHeight: 'var(--heading-2-line-height)',
+        fontWeight: 'var(--heading-2-weight)'
+      },
+      h3: { 
+        fontSize: 'var(--heading-3-fluid)',
+        lineHeight: 'var(--heading-3-line-height)',
+        fontWeight: 'var(--heading-3-weight)'
+      }
+    }
   },
+
+
+  // Consistent with CSS custom properties 
+
+  fontSizes: {
+      xs: 'var(--text-xs)',
+      sm: 'var(--text-sm)',
+      md: 'var(--text-base)',
+      lg: 'var(--text-lg)',
+      xl: 'var(--text-xl)'
+  },
+  
   spacing: {
-    xs: rem(8),
-    sm: rem(12),
-    md: rem(16),
-    lg: rem(24),
-    xl: rem(32),
+    xs: 'var(--space-xs)',
+    sm: 'var(--space-sm)',
+    md: 'var(--space-md)',
+    lg: 'var(--space-lg)',
+    xl: 'var(--space-xl)'
   },
+
+  radius: {
+    xs: 'var(--radius-sm)',
+    sm: 'var(--radius-md)',
+    md: 'var(--radius-lg)',
+    lg: 'var(--radius-xl)',
+    xl: 'var(--radius-2xl)'
+  },
+
   shadows: {
-    sm: '0 1px 3px rgba(0, 0, 0, 0.1)',
-    md: '0 4px 6px rgba(0, 0, 0, 0.07)',
-    lg: '0 10px 15px rgba(0, 0, 0, 0.05)',
+    xs: 'var(--shadow-sm)',
+    sm: 'var(--shadow-md)',
+    md: 'var(--shadow-lg)',
+    lg: 'var(--shadow-xl)',
+    xl: 'var(--shadow-2xl)'
   },
-  other: {
-    transition: 'all 150ms ease',
-  },
+
+
+  // Component-specific overrides
   components: {
     Button: {
       defaultProps: {
@@ -72,7 +119,7 @@ export const theme: MantineThemeOverride = createTheme({
       },
       styles: {
         root: {
-          transition: 'all 150ms ease',
+          transition: 'var(--transition-normal)',
           '&:hover': {
             transform: 'translateY(-1px)',
           },
@@ -86,11 +133,11 @@ export const theme: MantineThemeOverride = createTheme({
       },
       styles: {
         root: {
-          backgroundColor: 'var(--mantine-color-white)',
-          transition: 'all 150ms ease',
+          backgroundColor: 'hsl(var(--color-base-100))',
+          transition: 'var(--transition-normal)',
           '&:hover': {
             transform: 'translateY(-2px)',
-            boxShadow: 'var(--mantine-shadow-md)',
+            boxShadow: 'var(--shadow-md)',
           },
         },
       },
@@ -101,15 +148,22 @@ export const theme: MantineThemeOverride = createTheme({
       },
       styles: {
         input: {
-          transition: 'all 150ms ease',
+          transition: 'var(--transition-normal)',
           '&:focus': {
-            borderColor: 'var(--mantine-color-accent-6)',
+            borderColor: 'hsl(var(--color-base-300))',
           },
         },
       },
     },
-  },
-});
+      // Add other component overrides as needed
+    },
+
+    // Other theme properties
+    other: {
+      transition: 'var(--transition-normal)',
+      borderWidth: '1px',
+    }
+  });
 
 // Type augmentation for custom colors
 declare module '@mantine/core' {
