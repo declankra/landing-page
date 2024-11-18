@@ -19,7 +19,7 @@
   width: 100%;
   max-width: var(--mantine-container-size-xl);
   margin: 0 auto;
-  padding: var(--section-spacing) var(--content-padding);
+  padding: var(--section-space-md) var(--space-lg);
 }
 
 /* Full width section that breaks out of container */
