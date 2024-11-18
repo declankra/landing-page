@@ -9,7 +9,7 @@ const features = [
     icon: Lightbulb,
     title: "Effortless Ideation",
     description: "Quickly convey why your idea matters to test early interest.",
-    colorIndex: 4 // Using accent[4] - #38BDF8
+    colorIndex: 5 // Using accent[4] - #38BDF8
   },
   {
     icon: Zap,
@@ -21,13 +21,13 @@ const features = [
     icon: Target,
     title: "Precision Targeting",
     description: "Customize to reach your target audience based on next-level feedback.",
-    colorIndex: 6 // Using accent[6] - #0284C7
+    colorIndex: 5 // Using accent[6] - #0284C7
   },
   {
     icon: Clock,
     title: "Rapid Validation",
     description: "Spend more time gathering insights and validating your concept.",
-    colorIndex: 4 // Using accent[4] - #38BDF8
+    colorIndex: 5 // Using accent[4] - #38BDF8
   },
   {
     icon: Shield,
@@ -39,7 +39,7 @@ const features = [
     icon: Heart,
     title: "User Friendly",
     description: "Intuitive interface that anyone can master in minutes.",
-    colorIndex: 6 // Using accent[6] - #0284C7
+    colorIndex: 5 // Using accent[6] - #0284C7
   }
 ];
 
