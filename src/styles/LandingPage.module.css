@@ -25,7 +25,7 @@
 /* Full width section that breaks out of container */
 .sectionFullWidth {
   width: 100%;
-  padding-bottom: var(--section-spacing);
+  padding-bottom: var(--section-space-md);
 }
 
 /* Section with subtle background variation - can be repeated */
@@ -33,7 +33,7 @@
   width: 100%;
   max-width: var(--mantine-container-size-xl);
   margin: 0 auto;
-  padding: var(--section-spacing) var(--content-padding);
+  padding: var(--section-space-md) var(--space-lg);
   background: linear-gradient(
     to bottom,
     var(--background) 0%,
@@ -51,6 +51,6 @@
 
   .section,
   .sectionAlt {
-    padding: calc(var(--section-spacing) * 0.75) var(--content-padding);
+    padding: calc(var(--section-space-md) * 0.75) var(--space-lg);
   }
 }
