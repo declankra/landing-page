@@ -49,7 +49,7 @@ const TestimonialCardView = ({ quote, author, role }: Omit<TestimonialCard, 'typ
     "border border-border/50 hover:border-primary/50 transition-colors duration-[--transition-normal]",
     "flex flex-col gap-3"
   )}>
-    <Quote className="text-primary/60 size-6" />
+    <Quote className="text-foreground/80 size-6" />
     <p className="text-card-foreground/80 text-sm italic">{quote}</p>
     {(author || role) && (
       <div className="text-muted-foreground text-xs mt-auto">
