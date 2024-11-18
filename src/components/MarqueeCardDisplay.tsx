@@ -49,7 +49,7 @@ const TestimonialCardView = ({ quote, author, role }: Omit<TestimonialCard, 'typ
     "border border-border/50 hover:border-primary/50 transition-colors duration-[--transition-normal]",
     "flex flex-col gap-3"
   )}>
-    <Quote className="text-primary/60 w-6 h-6" />
+    <Quote className="text-primary/60 size-6" />
     <p className="text-card-foreground/80 text-sm italic">{quote}</p>
     {(author || role) && (
       <div className="text-muted-foreground text-xs mt-auto">
@@ -62,23 +62,23 @@ const TestimonialCardView = ({ quote, author, role }: Omit<TestimonialCard, 'typ
 
 const PainPointCardView = ({ question }: Omit<PainPointCard, 'type'>) => (
   <div className={cn(
-    "bg-accent/5 p-6 rounded-xl shadow-sm min-w-[300px] max-w-[400px] mx-4",
-    "border border-border/50 hover:border-accent/50 transition-colors",
+    "bg-accent/5 p-6 rounded-xl shadow-md min-w-[300px] max-w-[400px] mx-4",
+    "border border-border/50 hover:border-accent/50 transition-colors duration-[--transition-normal]",
     "flex flex-col gap-3"
   )}>
-    <MessageCircleQuestion className="text-accent/60 w-6 h-6" />
-    <p className="text-accent-foreground font-medium">{question}</p>
+    <MessageCircleQuestion className="text-accent/60 size-6" />
+    <p className="text-foreground text-sm font-normal mt-auto">{question}</p>
   </div>
 );
 
 const ProblemCardView = ({ statement }: Omit<ProblemCard, 'type'>) => (
   <div className={cn(
-    "bg-destructive/5 p-6 rounded-xl shadow-sm min-w-[300px] max-w-[400px] mx-4",
+    "bg-destructive/5 p-6 rounded-xl shadow-md min-w-[300px] max-w-[400px] mx-4",
     "border border-border/50 hover:border-destructive/50 transition-colors",
     "flex flex-col gap-3"
   )}>
-    <AlertCircle className="text-destructive/60 w-6 h-6" />
-    <p className="text-foreground font-medium">{statement}</p>
+    <AlertCircle className="text-destructive/60 size-6" />
+    <p className="text-foreground text-sm font-normal mt-auto">{statement}</p>
   </div>
 );
 
