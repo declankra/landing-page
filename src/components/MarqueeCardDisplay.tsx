@@ -44,8 +44,9 @@ interface MarqueeCardDisplayProps {
 // Individual card components for each type
 const TestimonialCardView = ({ quote, author, role }: Omit<TestimonialCard, 'type'>) => (
   <div className={cn(
+        // Base card styles using global tokens
     "bg-card p-6 rounded-xl shadow-md min-w-[300px] max-w-[400px] mx-4",
-    "border border-border/50 hover:border-primary/50 transition-colors",
+    "border border-border/50 hover:border-primary/50 transition-colors duration-[--transition-normal]",
     "flex flex-col gap-3"
   )}>
     <Quote className="text-primary/60 w-6 h-6" />
