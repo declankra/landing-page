@@ -361,6 +361,11 @@ html {
 /* Customizes the appearance of selected text
    Creates a consistent brand experience */
 
+/* Systematic approach to cursor handling across all interactive elements */
+.interactive {
+    @apply cursor-pointer hover:cursor-pointer disabled:cursor-not-allowed;
+}
+
 /* Base layer styles - Essential for Tailwind integration */
 @layer base {
   * {
