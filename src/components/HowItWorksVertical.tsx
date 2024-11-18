@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Container, Stepper, Title, Text, Stack } from '@mantine/core';
+import { Container, Stepper, Text, Stack } from '@mantine/core';
 import Image from 'next/image';
 import styles from '../styles/HowItWorksVertical.module.css';
 
@@ -85,9 +85,9 @@ export default function HowItWorksVertical({
 
     const textContent = (
       <Stack className={styles.textContent}>
-        <Title order={2} className={styles.sectionTitle}>
+        <h2 className={styles.sectionTitle}>
           {section.title}
-        </Title>
+        </h2>
         <Text className={styles.sectionDescription}>
           {section.description}
         </Text>
@@ -118,7 +118,7 @@ export default function HowItWorksVertical({
   return (
     <Container size="lg" className={styles.container} ref={containerRef}>
       <div className={styles.header}>
-        <Title className={styles.title}>{title}</Title>
+        <h2 className={styles.title}>{title}</h2>
         <Text className={styles.subtitle}>{subtitle}</Text>
       </div>
 

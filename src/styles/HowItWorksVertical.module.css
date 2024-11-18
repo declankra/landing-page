@@ -38,6 +38,8 @@
 }
 
 .stepper {
+  /* Using the CSS custom property for consistent color */
+  --stepper-color: hsl(var(--color-base-content));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
