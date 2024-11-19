@@ -13,6 +13,7 @@ import { useForm, isEmail } from '@mantine/form';
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from '../lib/supabaseClient';
 import ShinyButton from '@/components/ui/shiny-button';
+import { Button } from "@/components/ui/button";
 import confetti from 'canvas-confetti';
 import { cn } from "@/lib/utils";
 import styles from '../styles/SignupButton.module.css';
@@ -110,30 +111,33 @@ export default function SignupButtonShiny({
   const [signupData, setSignupData] = useState<SignupData>({ email: '' });
   const { toast } = useToast();
 
-  // Form validation using Mantine's useForm
+  // Form validation using Mantine's useForm for explicit check
   const form = useForm({
-    initialValues: { email: '' },
+    initialValues: {
+      email: '',
+    },
     validate: {
-      email: (value) => (!value ? 'Email is required' : 
-                        !isEmail(value) ? 'Please enter a valid email address' : null),
+      email: isEmail('Please enter a valid email address'),
     },
   });
 
+
   // Handle email submission
   const handleEmailSubmit = async () => {
+    // Validate form
     const validation = form.validate();
-    
     if (validation.hasErrors) {
-      const input = document.querySelector('input[type="email"]') as HTMLInputElement;
-      input?.focus();
       return;
     }
 
     try {
       setLoading(true);
       setError('');
+      
+      // Store email in signup data and proceed to next step
       setSignupData({ ...signupData, email: form.values.email });
       setCurrentStep(1);
+      
     } catch (err) {
       console.error('Error in email submission:', err);
       setError('An error occurred. Please try again.');
@@ -141,6 +145,7 @@ export default function SignupButtonShiny({
       setLoading(false);
     }
   };
+
 
   // Handle disappointment rating submission
   const handleDisappointmentSubmit = (value: string) => {
@@ -227,7 +232,7 @@ export default function SignupButtonShiny({
         <Stack>
           {/* Progress indicator */}
           <Progress 
-            value={currentStep * 33.33} 
+            value={currentStep * 50} 
             className={styles.progressBar}
           />
 
@@ -239,22 +244,20 @@ export default function SignupButtonShiny({
               </Title>
               <TextInput
                 type="email"
-                placeholder="your@email.com"
+                placeholder="your @ email .com"
                 {...form.getInputProps('email')}
                 disabled={loading}
                 required
                 className={styles.input}
               />
-              <ShinyButton
+              <Button
                 onClick={handleEmailSubmit}
                 disabled={loading}
-                className={cn(
-                  "w-full mt-4",
-                  loading && "opacity-50 cursor-not-allowed"
-                )}
+                className=
+                  "w-full mt-4"
               >
                 Continue
-              </ShinyButton>
+              </Button>
             </>
           ) : currentStep === 1 ? (
             <>
@@ -290,16 +293,14 @@ export default function SignupButtonShiny({
                 disabled={loading}
                 className={cn(styles.input, loading && styles.loading)}
               />
-              <ShinyButton
+              <Button
                 onClick={() => handleExcitementSubmit(signupData.excitement_to_focus || '')}
                 disabled={loading}
-                className={cn(
-                  "w-full mt-4",
-                  loading && "opacity-50 cursor-not-allowed"
-                )}
+                className=
+                  "w-full mt-4"
               >
                 Submit
-              </ShinyButton>
+              </Button>
             </>
           )}
         </Stack>
