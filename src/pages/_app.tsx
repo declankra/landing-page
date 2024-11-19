@@ -10,9 +10,10 @@ import { theme as mantineTheme } from '../theme/theme';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     // Using Mantine's provider on the outside to allow shadcn components to override when needed
+    // set defaultTheme = "system" when ready for dark mode
     <>
       <ColorSchemeScript />
-      <ThemeProvider attribute="class" defaultTheme="system">
+      <ThemeProvider attribute="class" defaultTheme="light">
         <MantineProvider theme={mantineTheme}>
           <Component {...pageProps} />
           <Toaster /> {/* shadcn Toaster */}
