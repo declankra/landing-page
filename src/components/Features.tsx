@@ -9,37 +9,37 @@ const features = [
     icon: Lightbulb,
     title: "Effortless Ideation",
     description: "Quickly convey why your idea matters to test early interest.",
-    colorIndex: 5 // Using accent[4] - #38BDF8
+    colorIndex: 8 // Using accent[4] - #38BDF8
   },
   {
     icon: Zap,
     title: "Lightning Fast",
     description: "Experience blazing fast performance with industry-leading tech stack.",
-    colorIndex: 5 // Using accent[5] - #0EA5E9
+    colorIndex: 8 // Using accent[5] - #0EA5E9
   },
   {
     icon: Target,
     title: "Precision Targeting",
     description: "Customize to reach your target audience based on next-level feedback.",
-    colorIndex: 5 // Using accent[6] - #0284C7
+    colorIndex: 8 // Using accent[6] - #0284C7
   },
   {
     icon: Clock,
     title: "Rapid Validation",
     description: "Spend more time gathering insights and validating your concept.",
-    colorIndex: 5 // Using accent[4] - #38BDF8
+    colorIndex: 8 // Using accent[4] - #38BDF8
   },
   {
     icon: Shield,
     title: "Built for Security",
     description: "Production-ready from the start with secure handling.",
-    colorIndex: 5 // Using accent[5] - #0EA5E9
+    colorIndex: 8 // Using accent[5] - #0EA5E9
     },
   {
     icon: Heart,
     title: "User Friendly",
     description: "Intuitive interface that anyone can master in minutes.",
-    colorIndex: 5 // Using accent[6] - #0284C7
+    colorIndex: 8 // Using accent[6] - #0284C7
   }
 ];
 
@@ -75,7 +75,7 @@ export default function Features({
               <div 
                 className={`${styles.iconWrapper} ${activeFeature === index ? styles.activeIcon : ''}`}
                 style={{ 
-                  '--feature-color': `var(--mantine-color-accent-${feature.colorIndex})`
+                  '--feature-color': `var(--mantine-color-neutral-${feature.colorIndex})`
                 } as React.CSSProperties}
               >
                 <Icon size={24} />
