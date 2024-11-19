@@ -1,5 +1,6 @@
 // src/components/ShareSection.tsx
-import { Link2, Twitter, Facebook, Linkedin} from 'lucide-react';
+import { Link2, Facebook, Linkedin} from 'lucide-react';
+import { TwitterLogoIcon, DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons"
 import { Button } from '@/components/ui/button';
 import { useToast } from "@/hooks/use-toast"
 // import styles from '../styles/ShareSection.module.css'; // not used because overriding with shadcn defaults
@@ -30,7 +31,9 @@ export default function ShareSection({
   const socialShareUrls = {
     Twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(trackingUrl)}`,
     Facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(trackingUrl)}&quote=${encodeURIComponent(shareText)}`,
-    Linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(trackingUrl)}&summary=${encodeURIComponent(shareText)}`
+    Linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(trackingUrl)}&summary=${encodeURIComponent(shareText)}`,
+        Discord: `https://discord.com/share?url=${encodeURIComponent(trackingUrl)}&title=${encodeURIComponent(shareText)}`,
+    Instagram: `https://www.instagram.com/share?url=${encodeURIComponent(trackingUrl)}&caption=${encodeURIComponent(shareText)}`
   };
 
   // Handle copy to clipboard
@@ -63,39 +66,55 @@ export default function ShareSection({
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <Button 
-              size="lg" 
-              className="w-full md:w-auto" 
-              onClick={handleCopyLink}
-            >
-              <Link2 className="mr-2 h-5 w-5" />
-              Copy Invite Link
-            </Button>
-            <div className="flex gap-4 justify-center md:justify-start">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => window.open(socialShareUrls.Twitter, '_blank')}
-                aria-label="Share on Twitter"
+              <Button 
+                size="lg" 
+                className="w-full md:w-auto" 
+                onClick={handleCopyLink}
               >
-                <Twitter className="h-5 w-5" />
+                <Link2 className="mr-2 h-5 w-5" />
+                Copy Invite Link
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => window.open(socialShareUrls.Facebook, '_blank')}
-                aria-label="Share on Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => window.open(socialShareUrls.Linkedin, '_blank')}
-                aria-label="Share on LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Button>
+              <div className="flex gap-4 justify-center md:justify-start">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.open(socialShareUrls.Twitter, '_blank')}
+                  aria-label="Share on Twitter"
+                >
+                  <TwitterLogoIcon className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.open(socialShareUrls.Facebook, '_blank')}
+                  aria-label="Share on Facebook"
+                >
+                  <Facebook strokeWidth = {1.5} className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.open(socialShareUrls.Linkedin, '_blank')}
+                  aria-label="Share on LinkedIn"
+                >
+                  <Linkedin strokeWidth = {1.5} className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.open(socialShareUrls.Discord, '_blank')}
+                  aria-label="Share on Discord"
+                >
+                  <DiscordLogoIcon className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.open(socialShareUrls.Instagram, '_blank')}
+                  aria-label="Share on Instagram"
+                >
+                  <InstagramLogoIcon className="h-5 w-5" />
+                </Button>
             </div>
           </div>
         </div>
