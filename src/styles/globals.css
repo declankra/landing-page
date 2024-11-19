@@ -45,7 +45,7 @@
         --color-base-content-secondary: 240 4% 46%; /* Secondary text */
       
       /* Primary Colors */
-        --color-primary: 199 94% 55%;    /* Brand color = Neon Sky Blue */
+        --color-primary: 199 94% 50%;    /* Brand color = Neon Sky Blue */
         --color-primary-content: 0 0% 100%; /* Text on primary = White */
       /* extra primary */
         --color-primary-subtle: 199 94% 75%; /* Lighter primary = Super light Blue */
