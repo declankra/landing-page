@@ -73,12 +73,12 @@
 
 /* Survey and Modal Styles */
 .surveyContainer {
-  margin-top: var(--mantine-spacing-md);
+  margin-top: var(--mantine-spacing-sm);
 }
 
 .surveyTitle {
-  font-weight: 500;
-  margin-bottom: var(--mantine-spacing-sm);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--mantine-spacing-xs);
 }
 
 .radioGroup {
@@ -86,7 +86,7 @@
 }
 
 .progressBar {
-  margin-bottom: var(--mantine-spacing-md);
+  margin-bottom: var(--mantine-spacing-sm);
 }
 
 /* custom invite button styles and effects */ 
