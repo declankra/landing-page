@@ -25,14 +25,14 @@ const buttonVariants = cva(
         default: [
           "bg-primary text-primary-foreground",
           // Hover - lift effect with color change
-          "hover:translate-y-[-2px] hover:bg-primary/90",
+          "hover:translate-y-[-2px] hover:bg-primary/85",
           // Active state
           "active:translate-y-[0px] active:bg-primary/95"
         ],
         destructive: [
           "bg-destructive text-destructive-foreground",
           // Hover - lift effect with color change
-          "hover:translate-y-[-2px] hover:bg-destructive/90",
+          "hover:translate-y-[-2px] hover:bg-destructive/85",
           // Active state
           "active:translate-y-[0px] active:bg-destructive/95"
         ],
@@ -46,9 +46,9 @@ const buttonVariants = cva(
         secondary: [
           "bg-secondary text-secondary-foreground",
           // Hover - lift effect with color change
-          "hover:translate-y-[-2px] hover:bg-secondary/80",
+          "hover:translate-y-[-2px] hover:bg-secondary/85",
           // Active state
-          "active:translate-y-[0px] active:bg-secondary/90"
+          "active:translate-y-[0px] active:bg-secondary/95"
         ],
         ghost: [
           "hover:bg-accent hover:text-accent-foreground",
