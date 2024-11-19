@@ -18,9 +18,9 @@
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.3;
+  font-size: var(--heading-2-fluid);
+  font-weight: var(--heading-2-weight);
+  line-height: var(--heading-2-line-height);
   max-width: 800px;
   margin: 0 auto;
 }
