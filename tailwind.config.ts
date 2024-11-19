@@ -22,11 +22,11 @@ const config: Config = {
   	},
   	extend: {
   		colors: {
-			border: 'hsl(var(--color-base-200))',
+			border: 'hsl(var(--color-base-300))',
 			input: 'hsl(var(--color-base-200))',
 			ring: 'hsl(var(--color-primary))',
 			background: 'hsl(var(--color-base-100))',
-			foreground: 'hsl(var(--color-content))',
+			foreground: 'hsl(var(--color-base-content))',
 			primary: {
 				DEFAULT: 'hsl(var(--color-primary))',
 				foreground: 'hsl(var(--color-base-100))'
@@ -41,13 +41,13 @@ const config: Config = {
 			},
 			  muted: {
 				DEFAULT: 'hsl(var(--color-base-200))',
-				foreground: 'hsl(var(--color-content-subtle))'
+				foreground: 'hsl(var(--color-base-content-secondary))'
 			},
 			  accent: {
 				DEFAULT: 'hsl(var(--color-accent))',
 				foreground: 'hsl(var(--color-base-100))'
 			},
-			popover: {
+			  popover: {
 				DEFAULT: 'hsl(var(--color-base-100))',
 				foreground: 'hsl(var(--color-base-content))'
 			  },
