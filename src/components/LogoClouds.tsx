@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 // {{REPLACE_LOGOS}} - Replace these with your product's actual customer/partner logos
 const LOGO_LIST = [
-  { name: "Capital One", src: "/CapitalOneLogo.svg" },
+  { name: "Google", src: "https://cdn.worldvectorlogo.com/logos/google-1-1.svg" },
   { name: "Nvidia", src: "https://cdn.worldvectorlogo.com/logos/nvidia-image-logo.svg" },
   { name: "Indeed", src: "https://cdn.worldvectorlogo.com/logos/indeed-1.svg" },
-  { name: "Google", src: "https://cdn.worldvectorlogo.com/logos/google-1-1.svg" },
   { name: "Publicis Sapient", src: "/PS_Logo.svg" },
+  { name: "Deloitte", src: "/DeloitteLogo.svg" },
 ];
 
 /**
@@ -21,7 +21,7 @@ export default function LogoClouds() {
     <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* {{REPLACE_TITLE}} - Replace with your social proof title */}
-        <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
+        <h2 className="text-center text-xl font-semibold leading-8 text-foreground">
           Trusted by innovative teams worldwide
         </h2>
 
