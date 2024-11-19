@@ -3,7 +3,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-// Button variants using Tailwind classes and global design tokens
+// !! BASE Button variants (applied to all variants) using Tailwind classes and global design tokens
 const buttonVariants = cva(
   [
     // Base styles - using global tokens where possible
@@ -27,7 +27,7 @@ const buttonVariants = cva(
           // Hover - lift effect with color change
           "hover:translate-y-[-2px] hover:bg-primary/85",
           // Active state
-          "active:translate-y-[0px] active:bg-primary/95"
+          "active:scale-[0.98] active:bg-primary/95"
         ],
 
         // Core button variant for key actions across the sight
