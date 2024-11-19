@@ -244,7 +244,7 @@ export default function SignupButtonShiny({
               </Title>
               <TextInput
                 type="email"
-                placeholder="your @ email .com"
+                placeholder="your@email.com"
                 {...form.getInputProps('email')}
                 disabled={loading}
                 required
