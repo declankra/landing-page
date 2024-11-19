@@ -26,8 +26,8 @@
     font-weight: 700;
     background: linear-gradient(
       360deg,
-      var(--mantine-color-accent-3),
-      var(--mantine-color-accent-6)
+      var(--mantine-color-neutral-4),
+      var(--mantine-color-neutral-7)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -84,17 +84,5 @@
   
     .title {
       font-size: clamp(1.5rem, 4vw, 2.5rem);
-    }
-  }
-  
-  /* Reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    .titleWrapper,
-    .imageWrapper {
-      transition: none;
-    }
-  
-    .image {
-      transition: none;
     }
   }
