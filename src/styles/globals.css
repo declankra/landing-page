@@ -42,7 +42,7 @@
       
       /* Base Content Colors */
         --color-base-content: 240 10% 4%;       /* Primary text = Zinc-ish Black */
-        --color-base-content-secondary: 240 4% 46%; /* Secondary text */
+        --color-base-content-secondary: 240 4% 46%; /* Secondary lighter text */
       
       /* Primary Colors */
         --color-primary: 199 94% 50%;    /* Brand color = Neon Sky Blue */
@@ -54,9 +54,9 @@
       /*---------------------------------*/
 
       /* Accent Colors */
-        --color-accent: 280 100% 52%;     /* Secondary brand = Purple */
-        --color-accent-subtle: 280 100% 62%; /* Lighter accent */
-        --color-accent-bold: 280 100% 42%;   /* Darker accent */
+        --color-accent: 240 4.8% 85%;    /* Secondary brand = Zinc Shadcn secondary */
+        --color-accent-subtle: 240 4.8% 95%; /* Lighter accent */
+        --color-accent-bold: 240 4.8% 45%;   /* Darker accent */
 
       /* Semantic Colors */
         --color-success: 142 72% 29%;     /* Success states */
