@@ -38,14 +38,26 @@
   }
   
   .quoteIconWrapper {
+    /* Fixed dimensions for perfect circle */
+    width: 72px;
+    height: 72px;
+    /* Use 50% or 9999px for circle */
     border-radius: 50%;
+    /* Center icon inside wrapper */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Background and spacing */
     background-color: var(--mantine-color-neutral-1);
-    padding: var(--mantine-spacing-md);
     margin-bottom: var(--mantine-spacing-md);
   }
   
+  /* Add specific styling for the icon itself */
   .quoteIcon {
     color: var(--mantine-color-neutral);
+    /* Slightly smaller than container */
+    width: 24px;
+    height: 24px;
   }
   
   .quoteText {
