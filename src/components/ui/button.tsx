@@ -29,6 +29,62 @@ const buttonVariants = cva(
           // Active state
           "active:translate-y-[0px] active:bg-primary/95"
         ],
+
+        // Core button variant for key actions across the sight
+        /* EXAMPLE USAGE
+          <Button variant="cta">
+            Get Started
+          </Button>
+
+          // With leading icon
+          <Button variant="cta">
+            <ArrowRight className="size-5" />
+            Start Now
+          </Button>
+
+          // With trailing icon
+          <Button variant="cta">
+            Launch App
+            <ArrowRight className="size-5" />
+          </Button>
+        */
+        keyCTA: [
+          // Base styles using design tokens
+          "bg-primary text-primary-foreground font-extrabold",
+          "text-[1.125rem]", // Slightly larger than default
+          "px-6 py-3",       // Generous padding
+          "rounded-lg",      // Consistent rounding
+          "shadow-md",       // Subtle initial shadow
+          "border border-primary/10", // Subtle outline
+          
+          // Icon handling
+          "[&>svg]:mr-2 [&>svg]:size-5", // Icon sizing and spacing
+          "[&>svg:last-child]:mr-0 [&>svg:last-child]:ml-2", // Handle trailing icons
+          
+          // Interactive states with smooth transitions
+          "transition-all duration-200 ease-out",
+          
+          // Hover state
+          "hover:bg-primary/90",
+          "hover:shadow-lg",
+          "hover:scale-[1.02]", // Subtle grow effect
+          "hover:border-primary/20",
+          
+          // Active/Click state
+          "active:scale-[0.98]",
+          "active:shadow-md",
+          "active:bg-primary/95",
+          
+          // Focus state
+          "focus-visible:outline-none focus-visible:ring-2",
+          "focus-visible:ring-primary/50 focus-visible:ring-offset-2",
+          
+          // Disabled state
+          "disabled:opacity-50",
+          "disabled:pointer-events-none",
+          "disabled:shadow-none",
+        ],
+
         destructive: [
           "bg-destructive text-destructive-foreground",
           // Hover - lift effect with color change
