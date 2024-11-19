@@ -46,7 +46,7 @@ const TestimonialCardView = ({ quote, author, role }: Omit<TestimonialCard, 'typ
   <div className={cn(
         // Base card styles using global tokens
     "bg-card p-6 rounded-xl shadow-md min-w-[300px] max-w-[400px] mx-4",
-    "border border-border/50 hover:border-primary/50 transition-colors duration-[--transition-normal]",
+    "border border-border/50 hover:border-primary/50 transition-colors",
     "flex flex-col gap-3"
   )}>
     <Quote className="text-foreground/80 size-6" />
@@ -62,11 +62,11 @@ const TestimonialCardView = ({ quote, author, role }: Omit<TestimonialCard, 'typ
 
 const PainPointCardView = ({ question }: Omit<PainPointCard, 'type'>) => (
   <div className={cn(
-    "bg-accent/5 p-6 rounded-xl shadow-md min-w-[300px] max-w-[400px] mx-4",
-    "border border-border/50 hover:border-accent/50 transition-colors duration-[--transition-normal]",
+    "bg-card-foreground/5 p-6 rounded-xl shadow-md min-w-[300px] max-w-[400px] mx-4",
+    "border border-border/50 hover:border-foreground/50 transition-colors",
     "flex flex-col gap-3"
   )}>
-    <MessageCircleQuestion className="text-accent/60 size-6" />
+    <MessageCircleQuestion className="text-foreground/80 size-6" />
     <p className="text-foreground text-sm font-normal mt-auto">{question}</p>
   </div>
 );
