@@ -45,7 +45,7 @@ export default function ComparisonTable({
     // {{REPLACE_CONFIG}} - Replace with your product's details
     title="Why we're different: The {highlighted} choice",
     highlightedWord="uniquely better",
-    highlightColor = "var(--mantine-primary-light)",
+    highlightColor = "var(--mantine-primary)",
     competitors = ["Product A", "Product B", "Product C"],
     className,
   }: ComparisonTableProps) {
