@@ -89,6 +89,8 @@
         /* NOTE: these should NOT be raw!! so mantine components accept*/
         --mantine-primary: hsl(var(--color-primary));
         --mantine-primary-content: hsl(var(--color-primary-content));
+        --mantine-base: hsl(var(--color-base-100));
+        --mantine-base-content: hsl(var(--color-base-content));
         --mantine-primary-light: hsl(var(--color-primary-subtle));
         --mantine-primary-dark: hsl(var(--color-primary-bold));
 
