@@ -18,6 +18,7 @@ import MarqueeCardDisplay from '@/components/MarqueeCardDisplay';
 import ComparisonTable from '@/components/ComparisonTable';
 import { TextRevealScroll } from '@/components/TextRevealScroll';
 import NavigationHeader from '../components/NavigationHeader';
+import ThreeCardHorizontal from '@/components/ThreeCardHorizontal';
 import styles from '../styles/LandingPage.module.css';
 
 
@@ -80,6 +81,9 @@ export default function LandingPage() {
       <section id="how-it-works" className={styles.sectionAlt}>
         {/* How It Works - Stepper vertical scroll component */} 
         <HowItWorksVertical />
+        
+        {/* Three Card Horizontal - static component */} 
+        <ThreeCardHorizontal />
       </section>
 
 
