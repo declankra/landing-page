@@ -65,7 +65,6 @@ export default function HowItWorksHorizontal({
     <section className={cn("py-12 md:py-20", className)}>
       {/* Header Section */}
       <div className="text-center mb-12">
-        {/* Override global H3 styles while maintaining semantic value */}
         <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary mb-2">
           {subtitle}
         </h3>
@@ -79,49 +78,47 @@ export default function HowItWorksHorizontal({
         <div className="flex flex-col md:flex-row items-center justify-center">
           {steps.map((step, index) => (
             <React.Fragment key={step.number}>
-              {/* Card */}
               <div className="w-full md:w-1/3 max-w-md">
-              
-            <Card 
-              key={step.number}
-              className="relative overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              {/* Step Number */}
-              <div className="absolute top-4 left-4 size-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold shadow-lg">
-                {step.number}
-              </div>
-
-              {/* Card Content */}
-              <CardHeader className="p-0">
-                {step.imagePath && (
-                  <div className="relative w-[400px] h-[240px] bg-muted mx-auto">
-                    <Image
-                      src={step.imagePath}
-                      alt={step.imageAlt || `Step ${step.number}`}
-                      width={400}
-                      height={240}
-                      className="object-cover rounded-t-lg"
-                      sizes="(max-width: 768px) 400px, 400px"
-                    />
+                <Card className="overflow-hidden hover:shadow-xl border-solid transition-shadow duration-300 h-[420px] flex flex-col"> {/* Fixed total height */}
+                  {/* ImageContainer with relative positioning - fixed height */}
+                  <div className="relative w-[400px] h-[240px] bg-muted mx-auto flex-shrink-0"> {/* flex-shrink-0 prevents image compression */}
+                    {/* Number Badge - Absolutely positioned */}
+                    <div 
+                      className="absolute left-4 top-4 z-10 size-9 rounded-full bg-[hsl(var(--color-base-100))] text-[hsl(var(--color-base-content))] flex items-center justify-center font-medium shadow-lg"
+                      style={{ transform: 'translateZ(10px)' }} // Ensure it's above the image
+                    >
+                      {step.number}
+                    </div>
+                    
+                    {/* Image */}
+                    <div className="relative w-full h-full">
+                      {step.imagePath && (
+                        <Image
+                          src={step.imagePath}
+                          alt={step.imageAlt || `Step ${step.number}`}
+                          fill
+                          className="object-cover rounded-t-lg"
+                          sizes="(max-width: 768px) 400px, 400px"
+                        />
+                      )}
+                    </div>
                   </div>
-                )}
-              </CardHeader>
-              
-              <CardContent className="pt-6 pb-8 px-6">
-                <h3 className="text-xl font-semibold mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {step.description}
-                </p>
-              </CardContent>
-            </Card>
+
+                  {/* Card Content - flex-grow to fill remaining space */}
+                  <CardContent className="pb-8 px-6 flex-grow flex flex-col">
+                    <h3 className="text-xl font-semibold mb-1.5">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground line-clamp-4"> {/* Limit to 4 lines */}
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
 
               {/* Arrow - Show between cards but not after the last one */}
               {index < steps.length - 1 && (
                 <div className="flex justify-center py-4 md:py-0 md:px-6">
-                  {/* Down arrow for mobile, Right arrow for desktop */}
                   <ArrowDown className="h-8 w-8 text-muted-foreground md:hidden" />
                   <ArrowRight className="hidden md:block h-8 w-8 text-muted-foreground" />
                 </div>
