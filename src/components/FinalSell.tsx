@@ -40,7 +40,7 @@ export default function FinalSell({
         // Container styles with rounded corners and max width
         "max-w-[90%] rounded-2xl",
         // Updated gradient background
-        "bg-gradient-to-br from-accent/5 via-background to-primary/5",
+        "bg-gradient-to-b from-accent/5 via-background to-accent/50",
         // Shadow for depth
         "shadow-xl",
         // Optional custom classes
@@ -57,7 +57,7 @@ export default function FinalSell({
           className={cn(
             "text-4xl font-bold md:text-5xl lg:text-6xl",
             "leading-tight pb-2", // Added padding and increased line height
-            "bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text text-transparent",
+            "bg-gradient-to-b from-foreground via-foreground/50 to-foreground bg-clip-text text-transparent",
             "animate-rainbow [--speed:4s]"
           )}
         >
