@@ -72,6 +72,7 @@ export default function ShareSection({
                 size="lg" 
                 className="w-full md:w-auto" 
                 onClick={handleCopyLink}
+                variant={"nonKeyCTA"}
               >
                 <Link2 className="mr-2 h-5 w-5" />
                 Copy Invite Link
