@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Title, Text, UnstyledButton, Stack } from '@mantine/core';
+import { Container, Text, UnstyledButton, Stack } from '@mantine/core';
 import { Lightbulb, Zap, Target, Clock, Shield, Heart } from 'lucide-react';
 import styles from '../styles/Features.module.css';
 
