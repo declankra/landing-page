@@ -20,7 +20,7 @@ const buttonVariants = cva(
       },
       // Color variants - using Tailwind's color scheme
       variant: {
-        primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+        primary: "bg-primary text-primary-foreground hover:bg-primary/90 border-.5",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border-2 border-input bg-background hover:bg-accent hover:text-accent-foreground",
