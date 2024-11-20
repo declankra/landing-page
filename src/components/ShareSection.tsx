@@ -1,6 +1,7 @@
 // src/components/ShareSection.tsx
 import { Link2, Facebook, Linkedin} from 'lucide-react';
 import { TwitterLogoIcon, DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons"
+import { IconBrandReddit } from '@tabler/icons-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from "@/hooks/use-toast"
 // import styles from '../styles/ShareSection.module.css'; // not used because overriding with shadcn defaults
@@ -32,8 +33,9 @@ export default function ShareSection({
     Twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(trackingUrl)}`,
     Facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(trackingUrl)}&quote=${encodeURIComponent(shareText)}`,
     Linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(trackingUrl)}&summary=${encodeURIComponent(shareText)}`,
-        Discord: `https://discord.com/share?url=${encodeURIComponent(trackingUrl)}&title=${encodeURIComponent(shareText)}`,
-    Instagram: `https://www.instagram.com/share?url=${encodeURIComponent(trackingUrl)}&caption=${encodeURIComponent(shareText)}`
+    Discord: `https://discord.com/share?url=${encodeURIComponent(trackingUrl)}&title=${encodeURIComponent(shareText)}`,
+    Instagram: `https://www.instagram.com/share?url=${encodeURIComponent(trackingUrl)}&caption=${encodeURIComponent(shareText)}`,
+    Reddit: `https://www.reddit.com/submit?url=${encodeURIComponent(trackingUrl)}&title=${encodeURIComponent(shareText)}`
   };
 
   // Handle copy to clipboard
@@ -42,7 +44,7 @@ export default function ShareSection({
       await navigator.clipboard.writeText(trackingUrl);
       toast({
         description: "Link copied to clipboard!",
-        duration: 2000,
+        duration: 1800,
       });
     } catch (error: unknown) {
       console.error('Failed to copy:', error);
@@ -114,6 +116,14 @@ export default function ShareSection({
                   aria-label="Share on Instagram"
                 >
                   <InstagramLogoIcon className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => window.open(socialShareUrls.Reddit, '_blank')}
+                  aria-label="Share on Reddit"
+                >
+                  <IconBrandReddit stroke-width = {1.6} className="h-5 w-5" />
                 </Button>
             </div>
           </div>
