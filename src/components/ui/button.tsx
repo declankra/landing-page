@@ -12,41 +12,67 @@ const buttonVariants = cva(
     "ring-offset-background transition-all duration-200",  // Using global transition duration
     "focus-visible:outline-none focus-visible:ring-2",
     "focus-visible:ring-ring focus-visible:ring-offset-2",
-    "border-0", // Add explicit no border by default
+    "border-0", // Add explicit no border by default, so it can be added by each variant if needed
     // Cursor handling
-    "cursor-pointer disabled:cursor-not-allowed",         // Explicit cursor states
+    "cursor-pointer disabled:cursor-not-allowed",
     // Disabled state
     "disabled:pointer-events-none disabled:opacity-50",
     // Icon styles
     "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+
+    // Base styles - I added these
+    "rounded-lg",      // Consistent rounding
+    "[border-image:none]", // Reset any border image
+
+
   ],
   {
     variants: {
       variant: {
         default: [
-          "bg-primary text-primary-foreground",
-          // Hover - lift effect with color change
-          "hover:translate-y-[-2px] hover:bg-primary/85",
-          // Active state
-          "active:scale-[0.98] active:bg-primary/95",
-          "border border-border/80" // Subtle outline
+          // Base Styles - using global tokens where possible
+          "bg-background text-foreground", // Color
+          "border-3", // size
+          "border-border", // color -- being ovewritten
+          // "border-solid border-border/50", // Explicitly set solid border with opacity
 
+          // Hover
+          "hover:translate-y-[-2px]", // shift up
+          "hover:bg-foreground hover:text-background", // color invert
+
+          // Active/Click state
+          "active:scale-[0.98]",
+
+        ],
+
+        nonKeyCTA: [
+          // Base Styles - using global tokens where possible
+          "bg-primary text-primary-foreground", // Color
+          "border-3", // size
+          "border border-border/80", //  Border
+
+          // Hover
+          "hover:translate-y-[-2px]", // shift up
+          "hover:bg-primary/85", // light color slightly
+          
+          // Active/Click state
+          "active:scale-[0.98] active:bg-primary/95",
         ],
 
         // Core button variant for key actions across the sight
         /* EXAMPLE USAGE
-          <Button variant="cta">
+          <Button variant="keyCTA">
             Get Started
           </Button>
 
           // With leading icon
-          <Button variant="cta">
+          <Button variant="keyCTA">
             <ArrowRight className="size-5" />
             Start Now
           </Button>
 
           // With trailing icon
-          <Button variant="cta">
+          <Button variant="keyCTA">
             Launch App
             <ArrowRight className="size-5" />
           </Button>
@@ -55,7 +81,7 @@ const buttonVariants = cva(
           // Base styles using design tokens
           "bg-primary text-primary-foreground font-extrabold",
           "text-[1.125rem]", // Slightly larger than default
-          "px-6 py-3",       // Generous padding
+          "px-8 py-6",       // Generous padding
           "rounded-lg",      // Consistent rounding
           "shadow-md",       // Subtle initial shadow
           "border border-primary/10", // Subtle outline
@@ -96,7 +122,7 @@ const buttonVariants = cva(
           "active:translate-y-[0px] active:bg-destructive/95"
         ],
         outline: [
-          "border border-input bg-background",
+          "border border-border bg-background",
           // Hover - lift effect with subtle background
           "hover:translate-y-[-2px] hover:bg-accent hover:text-accent-foreground",
           // Active state
