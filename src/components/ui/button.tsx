@@ -12,6 +12,7 @@ const buttonVariants = cva(
     "ring-offset-background transition-all duration-200",  // Using global transition duration
     "focus-visible:outline-none focus-visible:ring-2",
     "focus-visible:ring-ring focus-visible:ring-offset-2",
+    "border-0", // Add explicit no border by default
     // Cursor handling
     "cursor-pointer disabled:cursor-not-allowed",         // Explicit cursor states
     // Disabled state
@@ -27,7 +28,9 @@ const buttonVariants = cva(
           // Hover - lift effect with color change
           "hover:translate-y-[-2px] hover:bg-primary/85",
           // Active state
-          "active:scale-[0.98] active:bg-primary/95"
+          "active:scale-[0.98] active:bg-primary/95",
+          "border border-border/80" // Subtle outline
+
         ],
 
         // Core button variant for key actions across the sight
