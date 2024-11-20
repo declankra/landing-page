@@ -25,11 +25,11 @@ import { Loader2 } from "lucide-react";
 type StepConfig = {
   title: string;
   description?: string;
-  fields: FormField[];
-  validation?: Record<string, (value: any) => string | null>;
+  fields: FormValues[];
+  validation?: Record<string, (value: string | undefined) => string | null>;
 };
 
-type FormField = {
+type FormValues = {
   type: 'email' | 'text' | 'radio';
   name: string;
   label: string;
@@ -39,7 +39,7 @@ type FormField = {
 };
 
 type SignupData = {
-  [key: string]: any;
+  [key: string]: string | undefined;  // Replace 'any' with specific types
   email?: string;
 };
 
@@ -191,7 +191,6 @@ const triggerConfetti = () => {
  * - Accessibility features
  */
 export function SignupModal({
-  requestEmail = true,
   steps = defaultSteps,
   supabaseTable = 'signups',
   successAnimation = true,
@@ -224,7 +223,7 @@ export function SignupModal({
     } else {
       onOpen?.();
     }
-  }, [open]);
+  }, [open, form, onOpen]);
 
   /**
    * Handles successful signup
@@ -246,7 +245,7 @@ export function SignupModal({
   /**
    * Handles form submission for each step
    */
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: Record<string, string>) => {
     try {
       setLoading(true);
 
