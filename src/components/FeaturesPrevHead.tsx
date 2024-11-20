@@ -1,3 +1,26 @@
+
+/// Add this to Features.module.css if you this component:
+/*
+.header {
+    text-align: center;
+    margin-bottom: var(--mantine-spacing-xl);
+  }
+  
+  .title {
+    font-size: var(--mantine-h2-font-size);
+    font-weight: 600;
+    margin-bottom: var(--mantine-spacing-xs);
+    color: var(--mantine-color-neutral-9);
+  }
+  
+  .subtitle {
+    color: var(--mantine-color-neutral-6);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+*/
+
+
 import { useState } from 'react';
 import { Container, Title, Text, UnstyledButton, Stack } from '@mantine/core';
 import { Lightbulb, Zap, Target, Clock, Shield, Heart } from 'lucide-react';
@@ -49,22 +72,17 @@ interface FeaturesProps {
 }
 
 export default function Features({ 
-  title = "The tagline that solves problems" ,
-  subtitle = "FEATURES" 
+  title = "Features" ,
+  subtitle = "How our features will solve your problem" 
 }: FeaturesProps) {
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
 
   return (
     <Container size="lg" className={styles.container}>
-      {/* Header Section */}
-      <div className="text-center mb-20">
-        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary !-mb-5">
-          {subtitle}
-        </h3>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-          {title}
-        </h2>
-      </div>
+      <Stack className={styles.header}>
+        <Title className={styles.title}>{title}</Title>
+        <Text className={styles.subtitle}>{subtitle}</Text>
+      </Stack>
 
       <div className={styles.grid}>
         {features.map((feature, index) => {

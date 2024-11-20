@@ -64,11 +64,11 @@ export default function HowItWorksHorizontal({
   return (
     <section className={cn("py-12 md:py-20", className)}>
       {/* Header Section */}
-      <div className="text-center mb-12">
-        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary mb-2">
+      <div className="text-center mb-20">
+        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary !-mb-5">
           {subtitle}
         </h3>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight ">
           {title}
         </h2>
       </div>
