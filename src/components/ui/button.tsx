@@ -24,7 +24,6 @@ const buttonVariants = cva(
     "rounded-lg",      // Consistent rounding
     "[border-image:none]", // Reset any border image
 
-
   ],
   {
     variants: {
@@ -48,8 +47,8 @@ const buttonVariants = cva(
         nonKeyCTA: [
           // Base Styles - using global tokens where possible
           "bg-primary text-primary-foreground", // Color
-          "border-3", // size
-          "border border-border/80", //  Border
+          "border-3", // border size
+          "border-border/80", // border color
 
           // Hover
           "hover:translate-y-[-2px]", // shift up
@@ -81,10 +80,11 @@ const buttonVariants = cva(
           // Base styles using design tokens
           "bg-primary text-primary-foreground font-extrabold",
           "text-[1.125rem]", // Slightly larger than default
+          "border-3", // size
           "px-8 py-6",       // Generous padding
           "rounded-lg",      // Consistent rounding
           "shadow-md",       // Subtle initial shadow
-          "border border-primary/10", // Subtle outline
+          "border-border/20", // Subtle outline
           
           // Icon handling
           "[&>svg]:mr-2 [&>svg]:size-5", // Icon sizing and spacing
@@ -143,19 +143,19 @@ const buttonVariants = cva(
           "active:bg-accent/70"
         ],
         link: [
-          "text-primary underline-offset-4",
+          "text-foreground bg-transparent underline-offset-4",
           // Link specific cursor
           "cursor-pointer",
-          // Hover - underline and opacity
-          "hover:underline hover:opacity-90",
+          // Hover - underline {nope}, opacity
+          "hover:opacity-80",
           // Active state
           "active:opacity-80"
         ],
       },
       size: {
         default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        sm: "h-9 rounded-lg px-3",
+        lg: "h-11 rounded-lg px-8",
         icon: "h-10 w-10",
       },
     },
