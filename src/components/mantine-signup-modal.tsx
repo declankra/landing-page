@@ -51,11 +51,11 @@ type FormField = EmailField | TextField | RadioField | CTAField;
 type StepConfig = {
   title: string;
   fields: FormField[];
-  validation?: Record<string, (value: any) => string | null>;
+  validation?: Record<string, (value: string | undefined) => string | null>;
 };
 
 type SignupData = {
-  [key: string]: any;
+  [key: string]: string | undefined;
   email?: string;
 };
 
@@ -100,12 +100,12 @@ const defaultSteps: StepConfig[] = [
       type: 'email',
       name: 'email',
       label: 'Email',
-      placeholder: 'your@email.com',
+      placeholder: 'sign@me.up',
       required: true,
       description: 'Get {core benefit} before everyone else'
     }],
     validation: {
-        email: (value: string) => {
+        email: (value: string | undefined) => {
           if (!value || !value.trim()) return 'Email is required';
           return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? null : 'Please enter a valid email address';
         }
@@ -227,7 +227,7 @@ export function MantineSignupModal({
       form.reset();
       setSignupData(requestEmail ? { email: requestEmail } : {});
     }
-  }, [opened, requestEmail]);
+  }, [opened, requestEmail, form]);
 
   /**
    * Handles successful signup
@@ -265,7 +265,7 @@ export function MantineSignupModal({
   /**
    * Handles form submission for each step
    */
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: SignupData) => {
 
     const currentField = steps[currentStep].fields[0];
     if (!values[currentField.name] && currentField.required) {
@@ -285,7 +285,7 @@ export function MantineSignupModal({
         const columnName = SUPABASE_COLUMN_MAPPING[key as keyof typeof SUPABASE_COLUMN_MAPPING] || key;
         acc[columnName] = value;
         return acc;
-      }, {} as Record<string, any>);
+      }, {} as Record<string, string | undefined>);
 
       // If this is the final non-CTA step, save to Supabase
       const nextStep = steps[currentStep + 1];
