@@ -20,6 +20,10 @@ import { TextRevealScroll } from '@/components/TextRevealScroll';
 import NavigationHeader from '../components/NavigationHeader';
 import ThreeCardHorizontal from '@/components/ThreeCardHorizontal';
 import styles from '../styles/LandingPage.module.css';
+import { useState } from 'react';
+import { Button } from '@mantine/core';
+import { MantineSignupModal } from '@/components/mantine-signup-modal';
+
 
 
 export default function LandingPage() {
@@ -34,6 +38,9 @@ export default function LandingPage() {
     // Only include sections you want in navigation
   ];
 
+  const [opened, setOpened] = useState(false);
+
+
   return (
     <div className={styles.pageWrapper}>
 
@@ -45,6 +52,16 @@ export default function LandingPage() {
       <section className={styles.sectionFullWidth}>
         {/* Hero Component with Email Signup - modal with supabase connection */}
         <HeroSignup />
+
+        <Button onClick={() => setOpened(true)} >
+        Sign Up
+      </Button>
+
+      <MantineSignupModal
+        opened={opened}
+        onClose={() => setOpened(false)}
+      />
+
       </section>
 
       
