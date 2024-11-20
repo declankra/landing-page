@@ -374,9 +374,4 @@ html {
     @apply border-border;
     /* Ensures all border colors are consistent throughout the app */
   }
-  body {
-    @apply bg-background text-foreground;
-    /* Sets default background and text colors
-       Essential for theme consistency */
-  }
 }
