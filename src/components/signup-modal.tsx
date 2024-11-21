@@ -235,7 +235,7 @@ export function SignupModal({
 
     toast({
       title: "Welcome aboard! 🎉",
-      description: "You'll receive an email shortly with next steps.",
+      description: "Speed wins - you'll receive an email shortly with next steps.",
     });
 
     onSuccess?.(finalData);
