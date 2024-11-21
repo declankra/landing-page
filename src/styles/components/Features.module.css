@@ -1,0 +1,95 @@
+/* src/styles/components/Features.module.css */
+
+.container {
+  padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--mantine-spacing-lg);
+  margin-top: var(--mantine-spacing-xl);
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mantine-spacing-md);
+  padding: var(--mantine-spacing-lg);
+  border-radius: var(--mantine-radius-lg);
+  background-color: var(--mantine-color-neutral-0);
+  border: 1px solid var(--mantine-color-neutral-2);
+  transition: all 200ms ease-out;
+  cursor: pointer;
+}
+
+.feature:hover,
+.feature.active {
+  transform: translateY(-4px);
+  box-shadow: var(--mantine-shadow-md);
+  background-color: var(--mantine-color-neutral-1);
+  border-color: var(--feature-color, var(--mantine-color-neutral-3));
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--mantine-radius-md);
+  background-color: var(--mantine-color-neutral-1);
+  color: var(--feature-color, var(--mantine-color-accent-6));
+  transition: all 200ms ease-out;
+  flex-shrink: 0;
+}
+
+.activeIcon {
+  background-color: var(--feature-color, var(--mantine-color-accent-6));
+  color: var(--mantine-color-neutral-0);
+}
+
+.featureTitle {
+  font-weight: 600;
+  font-size: var(--mantine-font-size-lg);
+  color: var(--mantine-color-neutral-8);
+}
+
+.featureDescription {
+  color: var(--mantine-color-neutral-6);
+  line-height: 1.6;
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .feature:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .feature.active {
+    transform: scale(0.98);
+    background-color: var(--mantine-color-neutral-1);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--mantine-spacing-md);
+  }
+
+  .feature {
+    padding: var(--mantine-spacing-md);
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .title {
+    font-size: calc(var(--mantine-h2-font-size) * 0.9);
+  }
+}

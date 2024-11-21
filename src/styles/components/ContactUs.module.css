@@ -1,0 +1,112 @@
+/* src/styles/components/ContactUs.module.css */
+
+.container {
+    padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);
+    max-width: var(--mantine-container-size-lg);
+    margin: 0 auto;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: var(--mantine-h2-font-size);
+    font-weight: 600;
+    margin-bottom: var(--mantine-spacing-xl);
+    color: var(--mantine-color-neutral-9);
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--mantine-spacing-xl);
+    align-items: center;
+  }
+  
+  /* Word rotation styling */
+  .wordRotateWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: var(--mantine-spacing-xl);
+  }
+  
+  .rotatingWord {
+    font-size: var(--mantine-h2-font-size);
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(to right, var(--mantine-color-accent-4), var(--mantine-color-accent-6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+  }
+  
+  /* Form styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mantine-spacing-md);
+    background: var(--mantine-color-white);
+    padding: var(--mantine-spacing-xl);
+    border-radius: var(--mantine-radius-lg);
+    box-shadow: var(--mantine-shadow-md);
+  }
+  
+  .input {
+    width: 100%;
+  }
+  
+  .input input,
+  .input textarea {
+    font-size: var(--mantine-font-size-sm);
+    transition: all 150ms ease;
+  }
+  
+  .input input:focus,
+  .input textarea:focus {
+    border-color: var(--mantine-color-accent-6);
+  }
+  
+  .submitButton {
+    margin-top: var(--mantine-spacing-md);
+    width: 100%;
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
+  
+    .wordRotateWrapper {
+      padding: var(--mantine-spacing-md);
+    }
+  
+    .rotatingWord {
+      font-size: 2.5rem;
+    }
+  
+    .form {
+      padding: var(--mantine-spacing-md);
+    }
+  
+    .title {
+      font-size: calc(var(--mantine-h2-font-size) * 0.9);
+    }
+  }
+  
+  /* Touch device optimizations */
+  @media (hover: none) {
+    .input input:focus,
+    .input textarea:focus {
+      outline: none;
+      border-color: var(--mantine-color-accent-6);
+    }
+  
+    .submitButton:active {
+      transform: scale(0.98);
+    }
+    .rotatingWord {
+      font-size: 1.5rem;
+    }
+  }

@@ -1,0 +1,75 @@
+/* src/styles/components/SignupButton.module.css */
+.modal {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-radius: var(--radius);
+  }
+  
+  .modalHeader {
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .modalTitle {
+    color: hsl(var(--foreground));
+    font-weight: var(--font-semibold);
+  }
+  
+  .progressBar {
+    margin: var(--mantine-spacing-xs) 0;
+  }
+  
+  .stepTitle {
+    color: hsl(var(--foreground));
+    font-weight: 500;
+  }
+
+
+  /* Enhanced input styling */
+  .input input {
+    border: 2px solid hsl(var(--border)) !important;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-radius: var(--radius-md);
+    transition: all 150ms ease;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+  }
+  
+  .input input:focus {
+    border-color: hsl(var(--primary)) !important;
+    outline: none;
+  }
+
+  .input input[aria-invalid="true"] {
+    border-color: hsl(var(--destructive)) !important;
+    /* Light red background for error state */
+    background-color: hsl(var(--destructive) / 0.1);
+  }
+  
+  .input input[aria-invalid="true"]:focus {
+    border-color: hsl(var(--destructive));
+    box-shadow: 0 0 0 1px hsl(var(--destructive));
+  }
+  
+  /* Placeholder styling */
+  .input input::placeholder {
+    color: hsl(var(--muted-foreground));
+    opacity: 0.5;
+  }
+  
+  .radioGroup {
+    color: hsl(var(--foreground));
+  }
+
+  .submitButton {
+    width: 100%;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    margin-top: var(--mantine-spacing-md);
+  }
+  
+  .error {
+    color: hsl(var(--destructive));
+    margin-top: var(--mantine-spacing-xs);
+  }

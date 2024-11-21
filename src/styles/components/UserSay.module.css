@@ -1,0 +1,79 @@
+/* src/styles/components/UserSay.module.css */
+.container {
+    padding: var(--mantine-spacing-xl) 0;
+    max-width: var(--mantine-container-size-lg);
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: var(--mantine-h2-font-size);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--mantine-spacing-xl);
+  }
+  
+  .testimonialGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--mantine-spacing-lg);
+    padding: 0 var(--mantine-spacing-md);
+  }
+  
+  .testimonialCard {
+    background-color: var(--background);
+    border: 1px solid var(--mantine-color-gray-200);
+    border-radius: var(--mantine-radius-lg);
+    padding: var(--mantine-spacing-xl);
+    transition: all 150ms ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .testimonialCard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--mantine-shadow-md);
+    border-color: var(--primary-light);
+  }
+  
+  .quoteIconWrapper {
+    /* Fixed dimensions for perfect circle */
+    width: 72px;
+    height: 72px;
+    /* Use 50% or 9999px for circle */
+    border-radius: 50%;
+    /* Center icon inside wrapper */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Background and spacing */
+    background-color: var(--mantine-color-neutral-1);
+    margin-bottom: var(--mantine-spacing-md);
+  }
+  
+  /* Add specific styling for the icon itself */
+  .quoteIcon {
+    color: var(--mantine-color-neutral);
+    /* Slightly smaller than container */
+    width: 24px;
+    height: 24px;
+  }
+  
+  .quoteText {
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 500;
+    color: var(--mantine-color-nuetral);
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .testimonialGrid {
+      grid-template-columns: 1fr;
+      gap: var(--mantine-spacing-md);
+    }
+    
+    .testimonialCard {
+      padding: var(--mantine-spacing-lg);
+    }
+  }

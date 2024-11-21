@@ -1,30 +1,28 @@
 /* src/pages/LandingPage.tsx */
 
 // import CustomBackgroundImage from './CustomBackgroundImage' // Optional: Hero custom background component
-import HeroCenteredBackgroundImage from '@/components/HeroCenteredBackgroundImage'
+import HeroCenteredBackgroundImage from '../components/sections/HeroCenteredBackgroundImage'
 // import HeroSignup from '../components/HeroSignup'; // Hero component variant with Email Signup - internal modal with supabase connection
-import UserSay from '../components/UserSay';
-import UserSayCarousel from '../components/UserSayCarousel';
-import HowItWorksVertical from '../components/HowItWorksVertical';
-import Features from '../components/Features';
-import ShareSection from '../components/ShareSection';
-import FAQDrawerMT from '../components/FAQDrawerMT';
-import LogoClouds from '@/components/LogoClouds';
-import Footer from '@/components/Footer';
-import ContactUs from '@/components/ContactUs';
-import StatsSimple from '../components/StatsSimple';
-import SpotlightImage from '../components/SpotlightImage';
-import SpotlightVideo from '../components/SpotlightVideo';
-import ScrollVelocityWrapper from '@/components/scroll-velocity-wrapper';
-import FinalSell from '../components/FinalSell';
-import MarqueeCardDisplay from '@/components/MarqueeCardDisplay';
-import ComparisonTable from '@/components/ComparisonTable';
-import { TextRevealScroll } from '@/components/TextRevealScroll';
-import NavigationHeader from '../components/NavigationHeader';
-import ThreeCardHorizontal from '@/components/ThreeCardHorizontal';
-
-
-import styles from '../styles/LandingPage.module.css';
+import UserSay from '../components/sections/UserSay';
+import UserSayCarousel from '../components/sections/UserSayCarousel';
+import HowItWorksVertical from '../components/sections/HowItWorksVertical';
+import Features from '../components/sections/Features';
+import ShareSection from '../components/sections/ShareSection';
+import FAQDrawerMT from '../components/sections/FAQDrawerMT';
+import LogoClouds from '../components/sections/LogoClouds';
+import Footer from '../components/layout/Footer';
+import ContactUs from '@/components/sections/ContactUs';
+import StatsSimple from '../components/sections/StatsSimple';
+import SpotlightImage from '../components/sections/SpotlightImage';
+import SpotlightVideo from '../components/sections/SpotlightVideo';
+import ScrollVelocityWrapper from '@/components/sections/scroll-velocity-wrapper';
+import FinalSell from '../components/sections/FinalSell';
+import MarqueeCardDisplay from '@/components/sections/MarqueeCardDisplay';
+import ComparisonTable from '@/components/sections/ComparisonTable';
+import { TextRevealScroll } from '@/components/sections/TextRevealScroll';
+import NavigationHeader from '../components/layout/NavigationHeader';
+import ThreeCardHorizontal from '@/components/sections/ThreeCardHorizontal';
+import styles from '@/styles/components/LandingPage.module.css';
 
 export default function LandingPage() {
 

@@ -5,7 +5,7 @@ import type { AppProps } from 'next/app';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster'; // Import from shadcn
-import { theme as mantineTheme } from '../theme/theme';
+import { theme as mantineTheme } from '../styles/theme';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
