@@ -57,7 +57,7 @@ export default function LandingPage() {
           checklistItems: [
             { text: 'Test ideas faster' },
             { text: 'Focus on users, not tech' },
-            { text: 'Scale your winning product' },
+            { text: 'Easily scale your winning product' },
           ],
         }}
         // backgroundImage={CustomBackgroundImage} // Optional: Use a custom background image
