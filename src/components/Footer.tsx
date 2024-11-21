@@ -1,13 +1,13 @@
 // src/components/Footer.tsx
 import { 
     IconBrandTwitter, 
-    IconBrandFacebook, 
+    //IconBrandFacebook, 
     IconBrandLinkedin, 
     IconBrandInstagram, 
-    IconBrandYoutube, 
+    //IconBrandYoutube, 
     IconBrandProducthunt, 
-    IconBrandTiktok,
-    IconBrandGithub 
+    IconBrandReddit,
+    IconBrandGithub
   } from '@tabler/icons-react';
   import Link from 'next/link';
   import styles from '../styles/Footer.module.css';
@@ -19,12 +19,12 @@ import {
     companyName?: string;
     socials?: {
       twitter?: string;
-      facebook?: string;
+      //facebook?: string;
       linkedin?: string;
       instagram?: string;
-      youtube?: string;
+      //youtube?: string;
       producthunt?: string;
-      tiktok?: string;
+      reddit?: string;
       github?: string;
     };
   }
@@ -35,12 +35,12 @@ import {
     companyName = "dkBuilds",
     socials = {
       twitter: "https://twitter.com/example",
-      facebook: "https://facebook.com/example",
+     // facebook: "https://facebook.com/example",
       linkedin: "https://linkedin.com/company/example",
       instagram: "https://instagram.com/example",
-      youtube: "https://youtube.com/@example",
+      //youtube: "https://youtube.com/@example",
       producthunt: "https://www.producthunt.com/@example",
-      tiktok: "https://tiktok.com/@example",
+      reddit: "https://reddit.com/@example",
       github: "https://github.com/example"
     }
   }: FooterProps) {
@@ -52,12 +52,12 @@ import {
       const socialIcons = {
         github: <IconBrandGithub size={20} stroke={1.5} />,
         twitter: <IconBrandTwitter size={20} stroke={1.5} />,
-        facebook: <IconBrandFacebook size={20} stroke={1.5} />,
+       // facebook: <IconBrandFacebook size={20} stroke={1.5} />,
         linkedin: <IconBrandLinkedin size={20} stroke={1.5} />,
         instagram: <IconBrandInstagram size={20} stroke={1.5} />,
-        youtube: <IconBrandYoutube size={20} stroke={1.5} />,
+        //youtube: <IconBrandYoutube size={20} stroke={1.5} />,
         producthunt: <IconBrandProducthunt size={20} stroke={1.5} />,
-        tiktok: <IconBrandTiktok size={20} stroke={1.5} />
+        reddit: <IconBrandReddit size={20} stroke={1.5} />
       };
   
       return (
