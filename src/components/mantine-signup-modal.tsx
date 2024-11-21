@@ -335,9 +335,11 @@ export function MantineSignupModal({
                 error={form.errors[field.name]}
                 styles={{
                     label: {
-                      fontWeight: 700
-                    }, 
+                      fontWeight: 700,
+                      marginBottom: 8,
+                    }
                   }}
+                mb={'xs'}
               />
               {/* Description now handled in Modal title */}
             </div>
@@ -352,9 +354,11 @@ export function MantineSignupModal({
                 error={form.errors[field.name]}
                 styles={{
                     label: {
-                      fontWeight: 700
+                      fontWeight: 700,
+                      marginBottom: 8,
                     }
                   }}
+                  mb={'md'}
               >
                 <Stack mt="xs">
                   {field.options.map((option) => (
@@ -407,9 +411,9 @@ export function MantineSignupModal({
       onClose={onClose}
       title={
         <Stack gap="xs">
-          <Text fw={500}>{steps[currentStep].title}</Text>
+          <Text fw={500} mb={-10}>{steps[currentStep].title}</Text>
           {steps[currentStep].fields[0].description && (
-            <Text size="sm" c="dimmed">
+            <Text size="xs" c="dimmed">
               {steps[currentStep].fields[0].description}
             </Text>
           )}
@@ -446,6 +450,7 @@ export function MantineSignupModal({
             >
               {currentStep === steps.length - 1 ? 'Submit' : 'Continue'}
             </Button>
+            
           )}
         </Stack>
       </form>
