@@ -49,7 +49,7 @@ interface FeaturesProps {
 }
 
 export default function Features({ 
-  title = "The tagline that solves problems" ,
+  title = "Tagline that simplifies the solution" ,
   subtitle = "FEATURES" 
 }: FeaturesProps) {
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
