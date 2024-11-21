@@ -30,9 +30,9 @@ import {
   }
   
   export default function Footer({ 
-    creatorName = "Declan",
-    creatorUrl = "https://www.declankramper.me",
-    companyName = "dkBuilds",
+    creatorName = "Creator",
+    creatorUrl = "https://www.yourpotfolio.com",
+    companyName = "Company",
     socials = {
       twitter: "https://twitter.com/example",
      // facebook: "https://facebook.com/example",

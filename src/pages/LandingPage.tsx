@@ -190,7 +190,22 @@ export default function LandingPage() {
       </section>
       </main>
 
-      <Footer />
+      <Footer 
+          creatorName = "Declan"
+          creatorUrl = "https://www.declankramper.me"
+          companyName = "dkBuilds"
+          socials = {{
+            twitter: "https://x.com/asbestostrades",
+           // facebook: "https://facebook.com/example",
+            linkedin: "https://www.linkedin.com/in/declan-kramper/",
+            instagram: "https://instagram.com/dkramper",
+            // youtube: "https://youtube.com/@example",
+            producthunt: "https://www.producthunt.com/@declan_kramper",
+            // reddit: "https://reddit.com/@example",
+            github: "https://github.com/declankra"
+          }}
+      
+      />
     </div>
   );
 }
