@@ -181,8 +181,8 @@ export default function LandingPage() {
         {/* Finall Sell Component - large call to action */}
         <FinalSell 
         title="Your compelling final pitch"
-        subtitle="The clear value-add of joining"
-        ctaText="Start {it} Now"
+        subtitle="The clear value-add of using product"
+        ctaText="Start {JTBD} now"
         onCtaClick={() => {
         // Your conversion tracking/signup logic
           }}

@@ -27,8 +27,8 @@ interface FinalSellProps {
 export default function FinalSell({
   // {{REPLACE_COPY}} - Replace these defaults with your product's copy
   title="Your compelling final pitch",
-  subtitle="The clear value-add of joining",
-  ctaText="Start {it} Now",
+  subtitle="The clear value-add of using product",
+  ctaText="Start {JTBD} Now",
   onCtaClick,
   className,
 }: FinalSellProps) {
