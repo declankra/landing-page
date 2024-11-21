@@ -141,11 +141,11 @@ export default function NavigationHeader({
                 className={styles.logo}
               />
             </div>
+            {/* Product Name now inside the link */}
+            <span className={styles.productName} title={productName}>
+              {productName}
+            </span>
           </a>
-          {/* Product Name */}
-          <span className={styles.productName} title={productName}>
-            {productName}
-          </span>
         </div>
 
         {/* Navigation Links */}
