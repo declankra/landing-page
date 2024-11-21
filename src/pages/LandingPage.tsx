@@ -1,5 +1,8 @@
 /* src/pages/LandingPage.tsx */
-import HeroSignup from '../components/HeroSignup';
+
+// import CustomBackgroundImage from './CustomBackgroundImage' // Optional: Hero custom background component
+import HeroCenteredBackgroundImage from '@/components/HeroCenteredBackgroundImage'
+// import HeroSignup from '../components/HeroSignup'; // Hero component variant with Email Signup - internal modal with supabase connection
 import UserSay from '../components/UserSay';
 import UserSayCarousel from '../components/UserSayCarousel';
 import HowItWorksVertical from '../components/HowItWorksVertical';
@@ -19,12 +22,9 @@ import ComparisonTable from '@/components/ComparisonTable';
 import { TextRevealScroll } from '@/components/TextRevealScroll';
 import NavigationHeader from '../components/NavigationHeader';
 import ThreeCardHorizontal from '@/components/ThreeCardHorizontal';
+
+
 import styles from '../styles/LandingPage.module.css';
-import { useState } from 'react';
-import { Button } from '@mantine/core';
-import { MantineSignupModal } from '@/components/mantine-signup-modal';
-
-
 
 export default function LandingPage() {
 
@@ -38,9 +38,6 @@ export default function LandingPage() {
     // Only include sections you want in navigation
   ];
 
-  const [opened, setOpened] = useState(false);
-
-
   return (
     <div className={styles.pageWrapper}>
 
@@ -50,21 +47,27 @@ export default function LandingPage() {
 
       <main className={styles.mainWrapper}>
       <section className={styles.sectionFullWidth}>
-        {/* Hero Component with Email Signup - modal with supabase connection */}
-        <HeroSignup />
 
-        <Button onClick={() => setOpened(true)} >
-        Sign Up
-      </Button>
-
-      <MantineSignupModal
-        opened={opened}
-        onClose={() => setOpened(false)}
+        {/* Hero Component Variant - Background Image with centered text and no initial email input */}
+      <HeroCenteredBackgroundImage
+        title="Ideas need action, not excuses"
+        subtitle={{
+          type: 'checklist',
+          checklistTitle: 'What you’ll achieve:',
+          checklistItems: [
+            { text: 'Test ideas faster' },
+            { text: 'Focus on users, not tech' },
+            { text: 'Scale your winning product' },
+          ],
+        }}
+        // backgroundImage={CustomBackgroundImage} // Optional: Use a custom background image
+        primaryButtonText="Get Early Access"
+        // primaryButtonHref="/signup" // if not using signup modal component
+        secondaryButtonText="Learn More"
+        secondaryButtonHref="https://declankramper.notion.site/Landing-Page-Guide-1446a6685a8c80478177e8fa4ccca5e1?pvs=4"
       />
-
       </section>
 
-      
       
       <section className={styles.sectionAlt}>
         {/* Testimonials Component */}
