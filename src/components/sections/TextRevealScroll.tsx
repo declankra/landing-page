@@ -24,7 +24,7 @@ export function TextRevealScroll() {
       "
     >
       <TextRevealByWord 
-        text="This text will change you, convince you. " 
+        text="The remaining copy is meta. Components built for you." 
         className="
           /* Larger text size that scales with screen size */
           text-3xl sm:text-4xl md:text-5xl lg:text-heading-2
