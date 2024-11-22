@@ -9,7 +9,15 @@ import { MantineSignupModal } from '../shared/mantine-signup-modal';
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { cn } from "@/lib/utils"
+// ... existing imports ...
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
+// ... rest of the file ...
 
 
 type ChecklistItem = {
@@ -21,6 +29,8 @@ type SubtitleProps =
       type: 'checklist'
       checklistTitle: string
       checklistItems: ChecklistItem[]
+      highlightedWord?: string    // Added optional property
+      tooltipText?: string        // Added optional property
     }
   | {
       type: 'paragraph'
@@ -45,10 +55,12 @@ export default function HeroCenteredBackgroundImage({
     type: 'checklist',
     checklistTitle: 'Your problem is solved:',
     checklistItems: [
-      { text: 'Test your ideas faster' },
-      { text: 'Find your winning product' },
-      { text: 'Build momentum instantly' },
+      { text: 'More easy' },
+      { text: 'More time' },
+      { text: 'More winning' },
     ],
+    highlightedWord: 'problem',
+    tooltipText: 'we understand your problem',
   },
   backgroundImage: BackgroundImage = RetroGrid,
   primaryButtonText,
@@ -58,7 +70,32 @@ export default function HeroCenteredBackgroundImage({
 }: HeroCenteredBackgroundImageProps) {
     // Modal state management
     const [modalOpened, setModalOpened] = useState(false);
-
+    const renderHighlightedTitle = (title: string, highlightedWord?: string, tooltipText?: string) => {
+      if (!highlightedWord || !tooltipText) return title;
+  
+      const parts = title.split(new RegExp(`(${highlightedWord})`, 'gi'));
+      return (
+        <TooltipProvider delayDuration={100}>
+          {parts.map((part, index) => 
+            part.toLowerCase() === highlightedWord.toLowerCase() ? (
+              <Tooltip key={index}>
+                <TooltipTrigger asChild>
+                  <span className="italic underline decoration-wavy decoration-primary cursor-default">
+                    {part}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{tooltipText}</p>
+                </TooltipContent>
+              </Tooltip>
+            ) : (
+              part
+            )
+          )}
+        </TooltipProvider>
+      );
+    };
+  
     return (
         <div className="relative isolate px-6 lg:px-8">
           {/* Background component with isolation */}
@@ -76,8 +113,9 @@ export default function HeroCenteredBackgroundImage({
                 {subtitle.type === 'checklist' ? (
                   <div className = "items-center">
                     {/* Checklist title */}
-                    <h2 className="text-xl font-semibold mb-4">{subtitle.checklistTitle}</h2>
-
+                <h2 className="text-xl font-semibold mb-4">
+                  {renderHighlightedTitle(subtitle.checklistTitle, subtitle.highlightedWord, subtitle.tooltipText)}
+                </h2>
                     {/* Checklist items with vertical alignment */}
                     <ul className="flex flex-col items-start space-y-4 text-left">
                       {subtitle.checklistItems.map((item, index) => (

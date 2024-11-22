@@ -51,12 +51,14 @@ export default function LandingPage() {
         title="Ideas need action, not excuses"
         subtitle={{
           type: 'checklist',
-          checklistTitle: 'What you’ll achieve:',
+          checklistTitle: 'Now you can:',
           checklistItems: [
             { text: 'Test ideas faster' },
             { text: 'Focus on users, not tech' },
             { text: 'Easily scale your winning product' },
           ],
+          highlightedWord: 'you',
+          tooltipText: 'Yeah, you. The overthinker with ideas too great to waste.'
         }}
         // backgroundImage={CustomBackgroundImage} // Optional: Use a custom background image
         primaryButtonText="Get Early Access"
