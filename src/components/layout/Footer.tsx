@@ -14,7 +14,7 @@ import {
   
   interface FooterProps {
     // {{REPLACE_CONFIG}} - Replace these with your product's details
-    creatorName?: string;
+    builderName?: string;
     creatorUrl?: string;
     companyName?: string;
     socials?: {
@@ -30,7 +30,7 @@ import {
   }
   
   export default function Footer({ 
-    creatorName = "Creator",
+    builderName = "Creator",
     creatorUrl = "https://www.yourpotfolio.com",
     companyName = "Company",
     socials = {
@@ -99,7 +99,7 @@ import {
                 rel="noopener noreferrer"
                 className={styles.creatorLink}
               >
-                {creatorName}
+                {builderName}
               </Link>
             </p>
           </div>
