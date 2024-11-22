@@ -151,9 +151,9 @@ const buttonVariants = cva(
           // Link specific cursor
           "cursor-pointer",
           // Hover - underline {nope}, opacity
-          "hover:opacity-80",
+          "hover:opacity-70",
           // Active state
-          "active:opacity-80"
+          "active:opacity-90"
         ],
       },
       size: {
