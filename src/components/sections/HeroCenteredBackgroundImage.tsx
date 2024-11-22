@@ -80,11 +80,11 @@ export default function HeroCenteredBackgroundImage({
             part.toLowerCase() === highlightedWord.toLowerCase() ? (
               <Tooltip key={index}>
                 <TooltipTrigger asChild>
-                  <span className="italic underline decoration-wavy decoration-primary cursor-default">
+                  <span className="italic underline decoration-wavy decoration-primary cursor-pointer">
                     {part}
                   </span>
                 </TooltipTrigger>
-                <TooltipContent>
+                <TooltipContent sideOffset={5}>
                   <p>{tooltipText}</p>
                 </TooltipContent>
               </Tooltip>
