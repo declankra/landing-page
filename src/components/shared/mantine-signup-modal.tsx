@@ -426,6 +426,13 @@ export function MantineSignupModal({
         blur: steps[currentStep].fields[0].type === 'successCTA' ? 0 : 3,
       }}
       withCloseButton={false}
+      styles={{
+        content: {
+          border: '1px solid hsl(var(--color-border))',  // Light border that works in both light/dark modes
+          boxShadow: '0 6px 28px rgba(0, 0, 0, 0.35)',     // Subtle but noticeable shadow
+          borderRadius: 'var(--mantine-radius-md)',         // Match your radius system
+        }
+      }}
     >
       {/* Progress bar - only show if multiple steps and not first email step */}
       {steps.length > 1 && !(currentStep === 0 && steps[0].fields[0].type === 'email') && (
