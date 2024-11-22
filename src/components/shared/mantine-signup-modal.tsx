@@ -227,7 +227,7 @@ export function MantineSignupModal({
       form.reset();
       setSignupData(requestEmail ? { email: requestEmail } : {});
     }
-  }, [opened, requestEmail, form]);
+  }, [opened, requestEmail]); // Removed 'form' from dependencies
 
   /**
    * Handles successful signup
