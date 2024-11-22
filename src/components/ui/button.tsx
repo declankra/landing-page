@@ -123,10 +123,14 @@ const buttonVariants = cva(
         ],
         outline: [
           "border border-border bg-background",
+          "-webkit-tap-highlight-color: transparent", // Prevent default mobile tap highlight
+          "outline-none", // Remove default outline
           // Hover - lift effect with subtle background
           "hover:translate-y-[-2px] hover:bg-accent hover:text-accent-foreground",
           // Active state
-          "active:translate-y-[0px] active:bg-accent/90"
+          "active:translate-y-[0px] active:bg-accent/90",
+          // Explicitly set outline color for consistency
+          "[&:focus-visible]:outline-none [&:focus-visible]:ring-2 [&:focus-visible]:ring-border",
         ],
         secondary: [
           "bg-secondary text-secondary-foreground",
