@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Container, Text, UnstyledButton, Stack } from '@mantine/core';
 import { Lightbulb, Zap, Target, Clock, Shield, Heart } from 'lucide-react';
 import styles from '@/styles/components/Features.module.css';
+import { cn } from '@/lib/utils';
 
 // {{REPLACE_FEATURES}} - Replace these with your product's actual features
 const features = [
@@ -51,7 +52,7 @@ interface FeaturesProps {
 
 export default function Features({ 
   title = "Tagline that simplifies the solution" ,
-  subtitle = "FEATURES" 
+  subtitle = "Features" 
 }: FeaturesProps) {
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
 
@@ -59,12 +60,21 @@ export default function Features({
     <Container size="lg" className={styles.container}>
       {/* Header Section */}
       <div className="text-center mb-20">
-        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary !-mb-5">
+        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary !-mb-8">
           {subtitle}
         </h3>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-          {title}
-        </h2>
+        <h2 className={cn(
+      // Use heading-2-fluid size from globals.css
+      "text-[length:var(--heading-2-fluid)]",
+      "leading-[var(--heading-2-line-height)]",
+      "font-[var(--heading-2-weight)]",
+      "tracking-[var(--heading-2-tracking)]",
+      // Additional styling
+      "max-w-4xl mx-auto", // Constrain width for readability
+      "-mb-4 lg:-mb-6"
+    )}>
+      {title}
+    </h2>
       </div>
 
       <div className={styles.grid}>

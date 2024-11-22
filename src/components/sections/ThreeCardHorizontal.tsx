@@ -65,12 +65,21 @@ export default function HowItWorksHorizontal({
     <section className={cn("w-full py-12 md:py-20", className)}>
       {/* Header Section */}
       <div className="text-center mb-20">
-        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary !-mb-5">
+        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary !-mb-8">
           {subtitle}
         </h3>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-          {title}
-        </h2>
+        <h2 className={cn(
+      // Use heading-2-fluid size from globals.css
+      "text-[length:var(--heading-2-fluid)]",
+      "leading-[var(--heading-2-line-height)]",
+      "font-[var(--heading-2-weight)]",
+      "tracking-[var(--heading-2-tracking)]",
+      // Additional styling
+      "max-w-4xl mx-auto", // Constrain width for readability
+      "-mb-4 lg:-mb-6"
+    )}>
+      {title}
+    </h2>
       </div>
 
       {/* Cards Container */}
