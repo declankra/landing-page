@@ -123,7 +123,7 @@ const buttonVariants = cva(
         ],
         outline: [
           "border border-border bg-background",
-          "-webkit-tap-highlight-color: transparent", // Prevent default mobile tap highlight
+          "[&_svg]:text-foreground", // Force SVG color to match text
           "outline-none", // Remove default outline
           // Hover - lift effect with subtle background
           "hover:translate-y-[-2px] hover:bg-accent hover:text-accent-foreground",
