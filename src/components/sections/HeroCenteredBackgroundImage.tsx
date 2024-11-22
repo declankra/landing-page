@@ -124,6 +124,12 @@ export default function HeroCenteredBackgroundImage({
           <MantineSignupModal
             opened={modalOpened}
             onClose={() => setModalOpened(false)}
+              // Optional: Pass requestEmail if you have it
+              // requestEmail={userEmail}
+              // Optional: Pass custom steps
+              // steps={customSteps}
+              // Optional: Custom table name
+              // supabaseTable="early_access_signups"
           />
         </div>
       )
