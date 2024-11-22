@@ -22,9 +22,71 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
 ## Directory Structure
 
 ```bash
-.
-├── Coming soon         # App workspace
-└── README.md           # This README file #
+your-project/        
+├── public/                    
+│   ├── backgrounds/           # Background images
+│   │   ├── HeroBackgroundWaves.webp
+│   │   └── ...
+│   │
+│   ├── icons/                 # Small SVGs or icon assets
+│   │   ├── favicon.ico        # Favicon for the website
+│   │   └── ...
+│   │
+│   ├── images/                # General images for the project
+│   │   └── ...
+│   │
+│   ├── logos/                 # Logos for branding, partners, etc.
+│   │   ├── ProjectLogo.webp
+│   │   └── ...
+│
+├── src/                       
+│   ├── components/            # Modular, reusable UI components
+│   │   ├── ui/                # Shadcn/UI (+MagicUI) base components
+│   │   │   ├── button.tsx     
+│   │   │   ├── card.tsx       
+│   │   │   └── ...
+│   │   │
+│   │   ├── layout/            # Layout components
+│   │   │   ├── Header/        
+│   │   │   ├── Footer/        
+│   │   │   └── ...
+│   │   │
+│   │   ├── sections/          # Landing page sections
+│   │   │   ├── HeroSection/   
+│   │   │   ├── FeaturesSection/  
+│   │   │   └── ...
+│   │   │
+│   │   └── shared/            # Shared utilities & smaller components
+│   │       ├── signup-modal/  
+│   │       └── ...
+│   │
+│   ├── styles/
+│   │   ├── globals.css        # Global styles
+│   │   ├── theme.ts           # Mantine theme
+│   │   ├── fonts/             # Optional fonts
+│   │   └── components/        # Component-specific CSS modules
+│   │       ├── Header.module.css
+│   │       ├── Features.module.css
+│   │       └── ...
+│   │
+│   ├── hooks/                 # Custom React hooks
+│   │   ├── use-toast.ts       
+│   │   └── ...
+│   │
+│   ├── pages/                 # Next.js pages
+│   │   ├── _app.tsx           # App configuration with providers
+│   │   ├── _document.tsx      # Document level customization
+│   │   ├── index.tsx          # Main entry point (serves LandingPage.tsx)
+│   │   └── LandingPage.tsx    # Main component for content structure
+│   │
+│   └── lib/                   # Utilities & configurations
+│       ├── utils.ts           # Helper functions
+│       └── supaBaseClient.ts  # Supabase database client configuration
+│
+├── .env.local                 # Local environment variables
+├── README.md                  # This README file
+├── components.json            # Index for shadcn/UI components
+└── tailwind.config.ts         # Tailwind CSS configuration
 ```
 
 ## Prerequisites
@@ -39,8 +101,11 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
 ## Roadmap
 
 
+## Contact
+
+
 ## Recognition
 
 
-## Contact
+
 
