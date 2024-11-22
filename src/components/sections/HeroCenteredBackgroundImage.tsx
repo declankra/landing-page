@@ -212,6 +212,8 @@ export default function HomePage() {
           { text: 'User-Friendly Interface' },
           { text: '24/7 Customer Support' },
         ],
+        highlightedWord: '', // optional
+        tooltipText: '' // optional
       }}
       // Optional: Use a custom background image
       // backgroundImage={CustomBackgroundImage}
