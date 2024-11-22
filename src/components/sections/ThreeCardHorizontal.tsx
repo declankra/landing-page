@@ -41,21 +41,21 @@ export default function HowItWorksHorizontal({
       number: 1,
       title: "Quick Start",
       description: "Simple first step that is painless and frictionless. Only request required information.",
-      imagePath: "/step1-placeholder.webp",
+      imagePath: "/images/step1-placeholder.webp",
       imageAlt: "Step 1 visualization"
     },
     {
       number: 2,
       title: "See Aha",
       description: "This is when you can see the value in the tool. Optimize the experience to get to this key point as soon as possible.",
-      imagePath: "/step2-placeholder.webp",
+      imagePath: "/images/step2-placeholder.webp",
       imageAlt: "Step 2 visualization"
     },
     {
       number: 3,
       title: "See Results",
       description: "After understanding value, see the value realized into something tangible that solves the problem.",
-      imagePath: "/step3-placeholder.webp",
+      imagePath: "/images/step3-placeholder.webp",
       imageAlt: "Step 3 visualization"
     }
   ],

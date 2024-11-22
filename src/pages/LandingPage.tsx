@@ -126,7 +126,7 @@ export default function LandingPage() {
         highlightedText="problem solved"
         highlightColor='var(--mantine-primary)'
         videoSrc="https://www.youtube.com/embed/QGIUa2sSYFI"
-        thumbnailSrc="/SteveJobs16x9.webp"
+        thumbnailSrc="/images/SteveJobs16x9.webp"
         ctaText="See it for yourself"
       />
       </section>
@@ -143,7 +143,7 @@ export default function LandingPage() {
         {/* Image spotlight component - reusable configuration */}
         <SpotlightImage
           title="Title to sell customer with the dopest feature, visually"
-          imagePath="/HeroBackgroundBox.webp"
+          imagePath="/backgrounds/HeroBackgroundBox.webp"
           imageAlt="Dopest feature"
         />
       </section>
@@ -189,7 +189,7 @@ export default function LandingPage() {
       </main>
 
       <Footer 
-          creatorName = "Declan"
+          builderName = "Declan"
           creatorUrl = "https://www.declankramper.me"
           companyName = "dkBuilds"
           socials = {{

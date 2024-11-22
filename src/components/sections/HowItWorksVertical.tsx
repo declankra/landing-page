@@ -16,12 +16,12 @@ const sections: Section[] = [
   {
     title: "Start onboarding to solve problem",
     description: "You know you have the problem. So lets gather the mininum required information from you in the quickest way possible. ",
-    imagePath: "/ProjectLogo.webp" // {{REPLACE_IMAGE_PATH}}
+    imagePath: "/logos/ProjectLogo.webp" // {{REPLACE_IMAGE_PATH}}
   },
   {
     title: "Aha moment",
     description: "Be amazed as you interact with the key feature and realize why this product is a must. See immediate results.",
-    imagePath: "/ExStep2.webp" // {{REPLACE_IMAGE_PATH}}
+    imagePath: "/images/ExStep2.webp" // {{REPLACE_IMAGE_PATH}}
   },
   {
     title: "Achieve Your Goals",

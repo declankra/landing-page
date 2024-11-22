@@ -6,7 +6,7 @@ import { IconArrowRight } from '@tabler/icons-react';
 
 interface SpotlightVideoProps {
   // {{REPLACE_PROPS}} - Configure these based on your product needs
-  title: string;
+  title?: string;
   highlightedText?: string;
   highlightColor?: string;
   videoSrc: string;
@@ -34,9 +34,10 @@ interface SpotlightVideoProps {
  *    - Preload thumbnail for immediate display
  */
 export default function SpotlightVideo({
-  title,
-  highlightedText,
-  highlightColor, // Default highlight color
+  // {{REPLACE_COPY}} - Replace these defaults with your product's copy
+  title = 'Experience your problem solved with out solution',
+  highlightedText = 'problem solved',
+  highlightColor = 'var(--mantine-primary)',
   videoSrc,
   thumbnailSrc,
   thumbnailAlt = 'Product demo video thumbnail',

@@ -6,8 +6,8 @@ const LOGO_LIST = [
   { name: "Google", src: "https://cdn.worldvectorlogo.com/logos/google-1-1.svg" },
   { name: "Nvidia", src: "https://cdn.worldvectorlogo.com/logos/nvidia-image-logo.svg" },
   { name: "Indeed", src: "https://cdn.worldvectorlogo.com/logos/indeed-1.svg" },
-  { name: "Publicis Sapient", src: "/PS_Logo.svg" },
-  { name: "Deloitte", src: "/DeloitteLogo.svg" },
+  { name: "Publicis Sapient", src: "/logos/PS_Logo.svg" },
+  { name: "Deloitte", src: "/logos/DeloitteLogo.svg" },
 ];
 
 /**
