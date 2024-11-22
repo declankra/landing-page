@@ -79,8 +79,8 @@ export default function HowItWorksHorizontal({
       "-mb-6 lg:-mb-6"
     )}>
       {title}
-    </h2>
-      </div>
+      </h2>
+    </div>
 
       {/* Cards Container */}
       <div className="container mx-auto px-4">

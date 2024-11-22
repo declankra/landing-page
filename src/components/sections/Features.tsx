@@ -60,7 +60,7 @@ export default function Features({
     <Container size="lg" className={styles.container}>
       {/* Header Section */}
       <div className="text-center mb-20">
-        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary !-mb-8">
+        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary -mb-2 lg:-mb-8">
           {subtitle}
         </h3>
         <h2 className={cn(
@@ -70,12 +70,12 @@ export default function Features({
       "font-[var(--heading-2-weight)]",
       "tracking-[var(--heading-2-tracking)]",
       // Additional styling
-      "max-w-4xl mx-auto", // Constrain width for readability
-      "-mb-4 lg:-mb-6"
+      "mx-auto", // Constrain width for readability
+      "-mb-6 lg:-mb-6"
     )}>
       {title}
-    </h2>
-      </div>
+      </h2>
+    </div>
 
       <div className={styles.grid}>
         {features.map((feature, index) => {
