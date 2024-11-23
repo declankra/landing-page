@@ -43,7 +43,7 @@ export default function NavigationHeader({
   // {{REPLACE_CONFIG}} - Replace with your product's details
   logoSrc = "/logos/RocketBulb.svg",
   logoAlt = "Project Logo",
-  productName = "IdeaValidate", 
+  productName = "ValidateIdea", 
   links = [
     { label: "How It Works", href: "#how-it-works" },
     { label: "Features", href: "#features" },
