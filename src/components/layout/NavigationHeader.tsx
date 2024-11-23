@@ -41,9 +41,9 @@ interface NavigationHeaderProps {
  */
 export default function NavigationHeader({ 
   // {{REPLACE_CONFIG}} - Replace with your product's details
-  logoSrc = "/logos/RocketLaunchIcon-Light.svg",
+  logoSrc = "/logos/RocketBulb.svg",
   logoAlt = "Project Logo",
-  productName = "Idea(L)anding Page", 
+  productName = "IdeaValidate", 
   links = [
     { label: "How It Works", href: "#how-it-works" },
     { label: "Features", href: "#features" },

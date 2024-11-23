@@ -1,0 +1,24 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text { font: bold 24px sans-serif; }
+  </style>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f0f0f0"/>
+  
+  <!-- Lightbulb -->
+  <path d="M100 30 Q130 30 130 70 Q130 90 115 105 L115 120 L85 120 L85 105 Q70 90 70 70 Q70 30 100 30Z" fill="#FFD700"/>
+  <rect x="90" y="120" width="20" height="10" fill="#B8860B"/>
+  
+  <!-- Checkmark -->
+  <path d="M75 100 L90 115 L120 85" stroke="#4CAF50" stroke-width="8" fill="none"/>
+  
+  <!-- Rocket -->
+  <path d="M110 110 L130 130 L140 120 L120 100Z" fill="#FF4500"/>
+  <circle cx="125" cy="115" r="3" fill="white"/>
+  
+  <!-- Text -->
+  <text x="100" y="180" text-anchor="middle" class="text" fill="#333">
+    IdeaValidate.now
+  </text>
+</svg>

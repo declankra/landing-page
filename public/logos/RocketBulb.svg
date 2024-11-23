@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Target Circles in Background -->
+  <g opacity="0.15">
+    <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="8"/>
+    <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="6"/>
+    <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="4"/>
+    <circle cx="100" cy="100" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+  </g>
+
+  <g transform="rotate(45, 100, 100) scale(1.2) translate(-30, -30)">
+    <!-- Light Bulb/Rocket Body -->
+    <path 
+      d="M100 40
+         C130 40 130 85 115 100
+         L85 100
+         C70 85 70 40 100 40"
+      fill="currentColor"
+      opacity="0.9"
+    />
+    
+    <!-- Sleek Base -->
+    <path
+      d="M85 100
+         L115 100
+         L110 120
+         L90 120
+         Z"
+      fill="currentColor"
+      opacity="0.95"
+    />
+
+    <!-- Rocket Nozzle -->
+    <path
+      d="M90 120
+         L110 120
+         L108 125
+         L92 125
+         L90 130
+         L110 130"
+      fill="currentColor"
+      opacity="0.85"
+    />
+
+    <!-- Rocket Flames -->
+    <g class="flames">
+      <!-- Main Flame -->
+      <path 
+        d="M90 130 
+           Q100 170 110 130"
+        fill="hsl(var(--color-primary))"
+        opacity="0.7"
+      >
+        <animate 
+          attributeName="d" 
+          dur="0.4s" 
+          repeatCount="indefinite" 
+          values="
+            M90 130 Q100 170 110 130;
+            M90 130 Q100 160 110 130;
+            M90 130 Q100 170 110 130"
+        />
+      </path>
+      
+      <!-- Side Flames -->
+      <path 
+        d="M87 128 Q92 150 97 132" 
+        fill="hsl(var(--color-primary))"
+        opacity="0.5"
+      >
+        <animate 
+          attributeName="d" 
+          dur="0.3s" 
+          repeatCount="indefinite" 
+          values="
+            M87 128 Q92 150 97 132;
+            M87 128 Q92 140 97 132;
+            M87 128 Q92 150 97 132"
+        />
+      </path>
+      
+      <path 
+        d="M103 132 Q108 150 113 128" 
+        fill="hsl(var(--color-primary))"
+        opacity="0.5"
+      >
+        <animate 
+          attributeName="d" 
+          dur="0.3s" 
+          repeatCount="indefinite" 
+          values="
+            M103 132 Q108 150 113 128;
+            M103 132 Q108 140 113 128;
+            M103 132 Q108 150 113 128"
+        />
+      </path>
+    </g>
+  </g>
+</svg>
