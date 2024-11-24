@@ -78,7 +78,7 @@ export default function WhyProductWorks({
             "-mb-6 lg:-mb-6",
             // Use global colors for gradient
             "bg-clip-text text-transparent",
-            "bg-gradient-to-r from-foreground to-muted-foreground"
+            "bg-gradient-to-b from-foreground to-muted-foreground"
           )}>
             {title}
           </h2>
