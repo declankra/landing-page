@@ -101,7 +101,7 @@ export default function HeroCenteredBackgroundImage({
           {/* Background component with isolation */}
           <BackgroundImage className="absolute inset-0 -z-10" />
     
-          <div className="mx-auto max-w-2xl py-20 sm:py-24 lg:py-32">
+          <div className="mx-auto max-w-2xl py-10">
             <div className="text-center">
               {/* Main headline */}
               <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
