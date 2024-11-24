@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Target background -->
+  <circle cx="100" cy="100" r="80" stroke="black" stroke-width="2" fill="transparent" />
+  <circle cx="100" cy="100" r="60" stroke="grey" stroke-width="2" fill="transparent" />
+  <circle cx="100" cy="100" r="40" stroke="black" stroke-width="2" fill="transparent" />
+
+  <!-- Lightning check mark -->
+  <polyline id="check-mark" points="70,100 90,130 140,60" fill="none" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Animation -->
+  <style>
+    #check-mark {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: draw-check 1s ease-in-out forwards;
+    }
+
+    @keyframes draw-check {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+</svg>

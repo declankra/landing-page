@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Target background -->
+  <circle cx="100" cy="100" r="80" stroke="black" stroke-width="2" fill="transparent" />
+  <circle cx="100" cy="100" r="60" stroke="grey" stroke-width="2" fill="transparent" />
+  <circle cx="100" cy="100" r="40" stroke="black" stroke-width="2" fill="transparent" />
+
+  <!-- Lightning check mark -->
+  <polyline id="check-mark" points="70,100 90,130 140,60" fill="none" stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Rocket Ship -->
+  <g id="rocket" transform="translate(150, 150) scale(0.5)">
+    <polygon points="0,-50 15,-15 -15,-15" fill="black" />
+    <rect x="-5" y="-15" width="10" height="30" fill="grey" />
+    <polygon points="-10,15 10,15 0,40" fill="orange" />
+  </g>
+
+  <!-- Animation -->
+  <style>
+    #check-mark {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: draw-check 1s ease-in-out forwards;
+    }
+
+    #rocket {
+      animation: rocket-fly 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes draw-check {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes rocket-fly {
+      0% {
+        transform: translate(150px, 150px) scale(0.5);
+      }
+      100% {
+        transform: translate(140px, 90px) scale(0.5);
+      }
+    }
+  </style>
+</svg>

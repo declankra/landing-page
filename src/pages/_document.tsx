@@ -36,7 +36,7 @@ export default function Document() {
         {/* Favicon with fallback */}
         <link 
           rel="icon" 
-          href="/favicon.ico"
+          href="/CheckTargetFavicon.ico"
           // If favicon.ico fails to load, use the fallback
           onError={(e) => {
             const target = e.target as HTMLLinkElement;
