@@ -7,7 +7,8 @@ export default function Document() {
     title: 'ValidateIdea.now', // {{REPLACE_WITH_PRODUCT_NAME}}
     description: 'Validate your idea while building your product', // {{REPLACE_WITH_PRODUCT_DESCRIPTION}}
     siteUrl: 'www.validateidea.now', // {{REPLACE_WITH_SITE_URL}} e.g., https://yourproduct.com
-    themeColor: '#ffffff'
+    themeColor: '#ffffff',
+    siteImage: '/public/logos/ProjectLogo.svg'
   };
 
   // Simple base64 transparent favicon as fallback
@@ -54,6 +55,8 @@ export default function Document() {
         <meta property="og:url" content={siteConfig.siteUrl} />
         <meta property="og:title" content={siteConfig.title} />
         <meta property="og:description" content={siteConfig.description} />
+        <meta property="og:image" content={siteConfig.siteImage} />
+
         
         {/* Basic Twitter Card */}
         <meta name="twitter:card" content="summary" />
