@@ -22,6 +22,7 @@ import ComparisonTable from '@/components/sections/ComparisonTable';
 import { TextRevealScroll } from '@/components/sections/TextRevealScroll';
 import NavigationHeader from '../components/layout/NavigationHeader';
 import ThreeCardHorizontal from '@/components/sections/ThreeCardHorizontal';
+import WhyProductWorks from '@/components/sections/WhyItWorks';
 import styles from '@/styles/components/LandingPage.module.css';
 
 export default function LandingPage() {
@@ -66,8 +67,7 @@ export default function LandingPage() {
         </section>
 
         <section id="testimonials" className={styles.section}>
-          {/* Testimonials Component */}
-          <UserSay />
+
         </section>
 
 
@@ -130,6 +130,15 @@ export default function LandingPage() {
 
           {/* Scrolling Marque Card Wrapper Component - show problem-centric statement, pain point questions, or testomonials */}
           <MarqueeCardDisplay />
+        </section>
+
+
+        <section className={styles.section}>
+          {/* Value Proposition Component */}
+          <WhyProductWorks />
+
+          {/* Testimonials Component */}
+          <UserSay />
         </section>
 
 
