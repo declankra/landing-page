@@ -25,6 +25,7 @@
 /* Full width section that breaks out of container */
 .sectionFullWidth {
   width: 100%;
+  padding-top: var(--section-space-md);
   padding-bottom: var(--section-space-md);
 }
 
