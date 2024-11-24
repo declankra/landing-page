@@ -152,7 +152,7 @@ export default function Testimonials({
 
                   {/* Testimonial Quote */}
                   <p className="text-card-foreground mb-4 italic">
-                    "{testimonial.quote}"
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
 
                   {/* Author Info */}
