@@ -126,7 +126,7 @@ export default function WhyProductWorks({
                 <div className={cn(
                   "absolute inset-0 opacity-0 transition-opacity duration-300",
                   "hover:opacity-100 pointer-events-none",
-                  "bg-gradient-to-r from-transparent via-muted to-transparent",
+                  "bg-gradient-to-b from-transparent via-muted to-transparent",
                   "-z-10"
                 )} />
               </Card>
