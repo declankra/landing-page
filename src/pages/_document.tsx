@@ -4,9 +4,9 @@ import Script from 'next/script';
 export default function Document() {
   // These would be replaced with actual values from your config or CMS
   const siteConfig = {
-    title: '{{REPLACE_WITH_PRODUCT_NAME}}',
-    description: '{{REPLACE_WITH_PRODUCT_DESCRIPTION}}',
-    siteUrl: '{{REPLACE_WITH_SITE_URL}}', // e.g., https://yourproduct.com
+    title: 'ValidateIdea.now', // {{REPLACE_WITH_PRODUCT_NAME}}
+    description: 'Validate your idea while building your product', // {{REPLACE_WITH_PRODUCT_DESCRIPTION}}
+    siteUrl: 'www.validateidea.now', // {{REPLACE_WITH_SITE_URL}} e.g., https://yourproduct.com
     themeColor: '#ffffff'
   };
 
