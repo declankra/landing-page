@@ -23,6 +23,7 @@ import { TextRevealScroll } from '@/components/sections/TextRevealScroll';
 import NavigationHeader from '../components/layout/NavigationHeader';
 import ThreeCardHorizontal from '@/components/sections/ThreeCardHorizontal';
 import WhyProductWorks from '@/components/sections/WhyItWorks';
+import Testimonials from '@/components/sections/Testimonials';
 import styles from '@/styles/components/LandingPage.module.css';
 
 export default function LandingPage() {
@@ -66,8 +67,12 @@ export default function LandingPage() {
           />
         </section>
 
-        <section id="testimonials" className={styles.section}>
 
+        <section id="testimonials" className={styles.section}>
+        <Testimonials 
+          title="Your Idea Just Got Real"
+          subtitle="TESTIMONIALS"
+        />
         </section>
 
 
