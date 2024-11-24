@@ -1,8 +1,8 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
-
-      // These would be replaced with actual values from your config or CMS
+  // These would be replaced with actual values from your config or CMS
   const siteConfig = {
     title: '{{REPLACE_WITH_PRODUCT_NAME}}',
     description: '{{REPLACE_WITH_PRODUCT_DESCRIPTION}}',
@@ -13,13 +13,11 @@ export default function Document() {
   // Simple base64 transparent favicon as fallback
   const fallbackFavicon = 'data:image/x-icon;base64,AAABAAEAAQEAAAEAGAAsAAAAFgAAACgAAAABAAAAAgAAAAEAGAAAAAAACAAAABMLAAATCwAAAAAAAAAAAAD/AA==';
 
-
   return (
     <Html lang="en">
       <Head>
-
-         {/* Essential meta tags */}
-         <meta charSet="utf-8" />
+        {/* Essential meta tags */}
+        <meta charSet="utf-8" />
 
         {/* Best Font Option: Google Fonts */}
         <link
@@ -27,6 +25,13 @@ export default function Document() {
           rel="stylesheet"
         />
 
+        {/* Analytics Script */}
+        <Script
+          defer
+          data-domain="www.validateidea.now"
+          src="https://getanalyzr.vercel.app/tracking-script.js"
+          strategy="afterInteractive" // Load after page becomes interactive
+        />
 
         {/* Favicon with fallback */}
         <link 
@@ -39,9 +44,8 @@ export default function Document() {
           }}
         />
 
-
-         {/* Essential Meta Tags */}
-         <meta name="title" content={siteConfig.title} />
+        {/* Essential Meta Tags */}
+        <meta name="title" content={siteConfig.title} />
         <meta name="description" content={siteConfig.description} />
         <meta name="theme-color" content={siteConfig.themeColor} />
         
@@ -55,7 +59,6 @@ export default function Document() {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={siteConfig.title} />
         <meta name="twitter:description" content={siteConfig.description} />
-
       </Head>
       <body>
         <Main />
