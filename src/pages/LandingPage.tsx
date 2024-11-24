@@ -50,7 +50,7 @@ export default function LandingPage() {
               type: 'checklist',
               checklistTitle: 'Now you can:',
               checklistItems: [
-                { text: 'Test ideas faster' },
+                { text: 'Validate ideas faster' },
                 { text: 'Focus on users, not tech' },
                 { text: 'Easily scale your winning product' },
               ],
