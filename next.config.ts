@@ -8,11 +8,16 @@ const nextConfig: NextConfig = {
   webpack: (config) => {
     config.watchOptions = {
       ...(config.watchOptions || {}),
-      ignored: [...(config.watchOptions?.ignored || []), '**/supabase/functions/**'],
+      ignored: [
+        ...(Array.isArray(config.watchOptions?.ignored) 
+          ? config.watchOptions.ignored 
+          : []),
+        '**/supabase/functions/**'
+      ],
     };
     return config;
   },
-  
+
 };
 
 export default nextConfig;
