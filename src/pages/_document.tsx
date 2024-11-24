@@ -8,7 +8,7 @@ export default function Document() {
     description: 'Validate your idea while building your product', // {{REPLACE_WITH_PRODUCT_DESCRIPTION}}
     siteUrl: 'www.validateidea.now', // {{REPLACE_WITH_SITE_URL}} e.g., https://yourproduct.com
     themeColor: '#ffffff',
-    siteImage: '/public/logos/ProjectLogo.svg'
+    siteImage: '/public/logos/ProjectLogo.webp'
   };
 
   // Simple base64 transparent favicon as fallback
