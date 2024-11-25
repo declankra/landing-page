@@ -4,11 +4,15 @@ export const GA_MEASUREMENT_ID = 'G-12GW5RLXXD'
 
 // Extend Window object to include gtag
 declare global {
-  interface Window {
-    dataLayer: any[]
-    gtag: (...args: any[]) => void
+    interface Window {
+      dataLayer: Array<Record<string, unknown>>
+      gtag: (
+        command: string,
+        targetId: string,
+        config?: Record<string, unknown>
+      ) => void
+    }
   }
-}
 
 // Log page views
 export const pageview = (url: string) => {
