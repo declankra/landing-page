@@ -31,7 +31,7 @@ serve(async (req) => {
       react: WelcomeEmail({
         email: email_address,
         projectURL: 'https://www.validateidea.now',
-        portfolioUrl: 'https://declankramper.me',
+        portfolioUrl: 'https://dub.sh/declankramper',
         guideUrl: 'https://declankramper.notion.site/ValidateIdea-now-Guide-1446a6685a8c80478177e8fa4ccca5e1?pvs=4',
         socialLinks: {
           linkedin: 'https://linkedin.com/in/declan-kramper',
