@@ -39,7 +39,7 @@ serve(async (req) => {
           producthunt: 'https://www.producthunt.com/@declan_kramper',
           twitter: 'https://twitter.com/asbestostrades',
         }
-      })
+      }),
       click_tracking: true,
       tracking_domain: 'track.validateidea.now'
     })
