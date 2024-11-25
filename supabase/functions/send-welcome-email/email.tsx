@@ -56,7 +56,7 @@ export const WelcomeEmail = ({
                     <Text style={text}>
                         Hey there,<br /><br />
                         My name is Declan - I'm the creator of ValidateIdea. Thank you for expressing interest in my project!<br /><br />
-                        I built ValidateIdea because I was struggling to <strong> overcome decision paralysis</strong> on seemingly endless <strong>ideas that never became <em>real</em></strong>. <br />
+                        I built ValidateIdea because I was struggling to <strong> overcome decision paralysis</strong> on seemingly endless <strong>ideas that never became <em>real</em></strong>. <br /> <br />
                         Now there's a simple way to <strong>answer the question "what should I build?"</strong> (hint: it works)
                     </Text>
 
@@ -122,9 +122,11 @@ export const WelcomeEmail = ({
 }
 
 // Styles
+// Replace the existing style objects with these updated ones that match your design system
+
 const main = {
-    backgroundColor: '#ffffff',
-    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+    backgroundColor: 'hsl(var(--color-base-100))', // Use your light background
+    fontFamily: 'var(--font-sans)', // Use your Inter font
 }
 
 const container = {
@@ -134,57 +136,57 @@ const container = {
 }
 
 const section = {
-    padding: '24px 0',
+    padding: 'var(--section-space-sm)', // Using your spacing system
 }
 
 const h1 = {
-    color: '#1a1a1a',
-    fontSize: '24px',
-    fontWeight: '600',
-    lineHeight: '1.3',
+    color: 'hsl(var(--color-base-content))', // Primary text color
+    fontSize: 'var(--heading-1-fluid)', // Using your fluid typography
+    fontWeight: 'var(--heading-1-weight)',
+    lineHeight: 'var(--heading-1-line-height)',
     margin: '16px 0',
 }
 
 const h2 = {
-    color: '#1a1a1a',
-    fontSize: '20px',
-    fontWeight: '600',
-    lineHeight: '1.3',
+    color: 'hsl(var(--color-base-content))',
+    fontSize: 'var(--heading-2-fluid)',
+    fontWeight: 'var(--heading-2-weight)',
+    lineHeight: 'var(--heading-2-line-height)',
     margin: '16px 0',
 }
 
 const text = {
-    color: '#4a4a4a',
-    fontSize: '16px',
-    lineHeight: '1.5',
+    color: 'hsl(var(--color-base-content-secondary))', // Secondary text color
+    fontSize: 'var(--text-base)', // Base text size
+    lineHeight: 'var(--leading-normal)',
     margin: '16px 0',
 }
 
 const button = {
-    backgroundColor: '#0070f3',
-    borderRadius: '4px',
-    color: '#fff',
+    backgroundColor: 'hsl(var(--color-primary))', // Primary brand color
+    borderRadius: 'var(--radius-md)', // Using your radius system
+    color: 'hsl(var(--color-primary-content))', // Text color on primary
     display: 'inline-block',
-    fontSize: '16px',
-    fontWeight: '600',
-    padding: '12px 24px',
+    fontSize: 'var(--text-base)',
+    fontWeight: 'var(--font-semibold)',
+    padding: 'var(--space-sm) var(--space-md)', // Using your spacing system
     textDecoration: 'none',
     textAlign: 'center' as const,
 }
 
 const link = {
-    color: '#0070f3',
+    color: 'hsl(var(--color-primary))', // Primary brand color
     textDecoration: 'none',
 }
 
 const footer = {
-    borderTop: '1px solid #e6ebf1',
-    marginTop: '32px',
-    paddingTop: '32px',
+    borderTop: `1px solid hsl(var(--color-base-300))`, // Border color
+    marginTop: 'var(--space-xl)',
+    paddingTop: 'var(--space-lg)',
 }
 
 const footerText = {
-    fontSize: '12px',
-    lineHeight: '1.5',
-    color: '#8898aa',
+    fontSize: 'var(--text-xs)',
+    lineHeight: 'var(--leading-normal)',
+    color: 'hsl(var(--color-base-content-secondary))', // Muted text color
 }
