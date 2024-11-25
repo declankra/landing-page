@@ -125,8 +125,8 @@ export const WelcomeEmail = ({
 // Replace the existing style objects with these updated ones that match your design system
 
 const main = {
-    backgroundColor: 'hsl(var(--color-base-100))', // Use your light background
-    fontFamily: 'var(--font-sans)', // Use your Inter font
+    backgroundColor: '#FFFFFF', // --color-base-100 light value
+    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif', // --font-sans
 }
 
 const container = {
@@ -136,57 +136,72 @@ const container = {
 }
 
 const section = {
-    padding: 'var(--section-space-sm)', // Using your spacing system
+    padding: '2rem', // --section-space-sm: clamp(2rem, 4vw, 3rem)
 }
 
 const h1 = {
-    color: 'hsl(var(--color-base-content))', // Primary text color
-    fontSize: 'var(--heading-1-fluid)', // Using your fluid typography
-    fontWeight: 'var(--heading-1-weight)',
-    lineHeight: 'var(--heading-1-line-height)',
+    color: '#171717', // --color-base-content
+    fontSize: '2.5rem', // --heading-1-fluid: clamp(2.5rem, 5vw + 1rem, 3.75rem)
+    fontWeight: '900', // --heading-1-weight
+    lineHeight: '1.3', // --heading-1-line-height
+    letterSpacing: '-0.02em', // --heading-1-tracking
     margin: '16px 0',
 }
 
 const h2 = {
-    color: 'hsl(var(--color-base-content))',
-    fontSize: 'var(--heading-2-fluid)',
-    fontWeight: 'var(--heading-2-weight)',
-    lineHeight: 'var(--heading-2-line-height)',
+    color: '#171717',
+    fontSize: '2rem', // --heading-2-fluid: clamp(2rem, 4vw + 1rem, 3rem)
+    fontWeight: '700', // --heading-2-weight
+    lineHeight: '1.35', // --heading-2-line-height
+    letterSpacing: '-0.01em', // --heading-2-tracking
     margin: '16px 0',
 }
 
 const text = {
-    color: 'hsl(var(--color-base-content-secondary))', // Secondary text color
-    fontSize: 'var(--text-base)', // Base text size
-    lineHeight: 'var(--leading-normal)',
+    color: '#525252', // --color-base-content-secondary
+    fontSize: '1rem', // --text-base
+    lineHeight: '1.5', // --leading-normal
     margin: '16px 0',
 }
 
 const button = {
-    backgroundColor: 'hsl(var(--color-primary))', // Primary brand color
-    borderRadius: 'var(--radius-md)', // Using your radius system
-    color: 'hsl(var(--color-primary-content))', // Text color on primary
+    backgroundColor: '#0EA5E9', // --color-primary (Neon Sky Blue)
+    borderRadius: '0.375rem', // --radius-md
+    color: '#FFFFFF', // --color-primary-content
     display: 'inline-block',
-    fontSize: 'var(--text-base)',
-    fontWeight: 'var(--font-semibold)',
-    padding: 'var(--space-sm) var(--space-md)', // Using your spacing system
+    fontSize: '1rem',
+    fontWeight: '600',
+    padding: '0.75rem 1.5rem',
     textDecoration: 'none',
     textAlign: 'center' as const,
 }
 
 const link = {
-    color: 'hsl(var(--color-primary))', // Primary brand color
+    color: '#0EA5E9', // --color-primary
     textDecoration: 'none',
 }
 
 const footer = {
-    borderTop: `1px solid hsl(var(--color-base-300))`, // Border color
-    marginTop: 'var(--space-xl)',
-    paddingTop: 'var(--space-lg)',
+    borderTop: '1px solid #E5E5E5', // --color-base-300
+    marginTop: '4rem', // --space-xl
+    paddingTop: '2rem', // --space-lg
 }
 
 const footerText = {
-    fontSize: 'var(--text-xs)',
-    lineHeight: 'var(--leading-normal)',
-    color: 'hsl(var(--color-base-content-secondary))', // Muted text color
+    fontSize: '0.75rem', // --text-xs
+    lineHeight: '1.5',
+    color: '#737373', // A bit lighter than base-content-secondary for footer
+}
+
+// Update social links styles too
+export const socialLink = {
+    color: '#8898aa',
+    fontSize: '0.75rem', // Consistent with footerText
+    textDecoration: 'none',
+    marginRight: '12px',
+}
+
+export const socialLinksContainer = {
+    marginTop: '12px',
+    marginBottom: '12px',
 }
