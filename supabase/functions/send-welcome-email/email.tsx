@@ -74,7 +74,7 @@ export const WelcomeEmail = ({
                         >
                             Read the Guide
                         </Button>
-                        <br /><br />
+                        <br /><br /><br />
                     </Section>
 
                     {/* PS - Reply Section */}
