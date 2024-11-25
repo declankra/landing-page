@@ -13,12 +13,16 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     // Using Mantine's provider on the outside to allow shadcn components to override when needed
     // set defaultTheme = "system" when ready for dark mode
+
     <>
+      {/* OpenPanel at root level */}
+      < OpenPanelComponent
+        clientId={process.env.NEXT_PUBLIC_OPENPANEL_PROJECT_KEY!}
+        trackScreenViews={true}
+      />
       <ColorSchemeScript />
       <ThemeProvider attribute="class" defaultTheme="light">
         <MantineProvider theme={mantineTheme}>
-        <OpenPanelComponent clientId={process.env.OPENPANEL_CLIENT_ID!}
-        trackScreenViews={true} />
           <Component {...pageProps} />
           <Toaster /> {/* shadcn Toaster */}
         </MantineProvider>
