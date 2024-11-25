@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ColorSchemeScript />
       <ThemeProvider attribute="class" defaultTheme="light">
         <MantineProvider theme={mantineTheme}>
-        <OpenPanelComponent clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID!}
+        <OpenPanelComponent clientId={process.env.OPENPANEL_CLIENT_ID!}
         trackScreenViews={true} />
           <Component {...pageProps} />
           <Toaster /> {/* shadcn Toaster */}
