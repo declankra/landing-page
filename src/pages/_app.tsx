@@ -9,7 +9,7 @@ import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster'; // Import from shadcn
 import { theme as mantineTheme } from '../styles/theme';
 import { OpenPanelProvider } from '@/lib/analytics/OpenPanelProvider';
-import GoogleAnalytics from '@/hooks/analytics/GoogleAnalytics';
+import { AnalyticsProvider } from '@/hooks/analytics/google/GoogleAnalyticsProvider';
 // Amplitude Analytics import
 import { initAmplitude, Analytics } from '@/lib/analytics/amplitude';
 import { useScrollTracking } from '@/hooks/analytics/useScrollTracking';
@@ -62,7 +62,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <OpenPanelProvider >
             <Component {...pageProps} />
             <Toaster /> {/* shadcn Toaster */}
-            <GoogleAnalytics /> {/* Add this component */}
+            <AnalyticsProvider /> {/* Google Analytics */}
           </OpenPanelProvider >
         </MantineProvider>
       </ThemeProvider>

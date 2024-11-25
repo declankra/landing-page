@@ -5,10 +5,9 @@
 import Script from 'next/script'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
-import { pageview } from '@/lib/analytics/gtag'
-import { GA_MEASUREMENT_ID } from '@/lib/analytics/gtag'
+import { pageview, GA_MEASUREMENT_ID } from './gtag'
 
-export default function GoogleAnalytics() {
+export function useAnalytics() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -16,6 +15,11 @@ export default function GoogleAnalytics() {
     const url = pathname + searchParams.toString()
     pageview(url)
   }, [pathname, searchParams])
+
+  // Return null if GA is not configured
+  if (!GA_MEASUREMENT_ID) {
+    return null
+  }
 
   return (
     <>
