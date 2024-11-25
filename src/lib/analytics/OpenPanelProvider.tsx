@@ -2,7 +2,7 @@
 import { OpenPanelComponent, type TrackHandlerPayload } from '@openpanel/nextjs';
 
 // Filtering function to exclude unwanted events
-const opFilter = ((event: TrackHandlerPayload) => {
+const opFilter = ((_event: TrackHandlerPayload) => {
   // Add any event filtering logic here
   return true;
 }).toString();
