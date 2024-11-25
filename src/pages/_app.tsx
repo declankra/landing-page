@@ -6,7 +6,7 @@ import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster'; // Import from shadcn
 import { theme as mantineTheme } from '../styles/theme';
-import { OpenPanelComponent } from '@openpanel/nextjs';
+import { OpenPanelProvider } from '@/lib/analytics/OpenPanelProvider';
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -15,16 +15,13 @@ export default function App({ Component, pageProps }: AppProps) {
     // set defaultTheme = "system" when ready for dark mode
 
     <>
-      {/* OpenPanel at root level */}
-      < OpenPanelComponent
-        clientId={process.env.NEXT_PUBLIC_OPENPANEL_PROJECT_KEY!}
-        trackScreenViews={true}
-      />
       <ColorSchemeScript />
       <ThemeProvider attribute="class" defaultTheme="light">
         <MantineProvider theme={mantineTheme}>
+        <OpenPanelProvider >
           <Component {...pageProps} />
           <Toaster /> {/* shadcn Toaster */}
+          </OpenPanelProvider >
         </MantineProvider>
       </ThemeProvider>
     </>
