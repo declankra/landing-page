@@ -30,6 +30,7 @@ serve(async (req) => {
       subject: 'Welcome to ValidateIdea.now - Let\'s Build Something Great!',
       react: WelcomeEmail({
         email: email_address,
+        projectURL: 'https://www.validateidea.now',
         portfolioUrl: 'https://declankramper.me',
         guideUrl: 'https://declankramper.notion.site/ValidateIdea-now-Guide-1446a6685a8c80478177e8fa4ccca5e1?pvs=4',
         socialLinks: {
