@@ -131,7 +131,7 @@ const section = {
 
 const h1 = {
     color: '#171717', // --color-base-content
-    fontSize: '2.5rem', // --heading-1-fluid: clamp(2.5rem, 5vw + 1rem, 3.75rem)
+    fontSize: '1.75rem', // --heading-1-fluid: clamp(2.5rem, 5vw + 1rem, 3.75rem)
     fontWeight: '900', // --heading-1-weight
     lineHeight: '1.3', // --heading-1-line-height
     letterSpacing: '-0.02em', // --heading-1-tracking
@@ -140,7 +140,7 @@ const h1 = {
 
 const h2 = {
     color: '#171717',
-    fontSize: '2rem', // --heading-2-fluid: clamp(2rem, 4vw + 1rem, 3rem)
+    fontSize: '1.5rem', // --heading-2-fluid: clamp(2rem, 4vw + 1rem, 3rem)
     fontWeight: '700', // --heading-2-weight
     lineHeight: '1.35', // --heading-2-line-height
     letterSpacing: '-0.01em', // --heading-2-tracking
