@@ -56,8 +56,8 @@ export const WelcomeEmail = ({
                     <Text style={text}>
                         Hey there,<br /><br />
                         My name is Declan - I'm the creator of ValidateIdea. Thank you for expressing interest in my project!<br /><br />
-                        I built ValidateIdea because I was struggling to <strong> overcome decision paralysis</strong> on seemingly endless <strong>ideas that never became real</strong>. <br />
-                        A simple way to <strong>answer the question "what should I build?"</strong> (hint: it works)
+                        I built ValidateIdea because I was struggling to <strong> overcome decision paralysis</strong> on seemingly endless <strong>ideas that never became <em>real</em></strong>. <br />
+                        Now there's a simple way to <strong>answer the question "what should I build?"</strong> (hint: it works)
                     </Text>
 
                     {/* Main Content Section */}
@@ -106,7 +106,7 @@ export const WelcomeEmail = ({
                                     alt="Logo"
                                 />
                                 <Link href={projectURL} style={link}>
-                                    ValidateIdea.now
+                                    ValidateIdea.now<br></br>
                                 </Link>
                                 <SocialLinks links={socialLinks} />
                                 <Text style={footerText}>
