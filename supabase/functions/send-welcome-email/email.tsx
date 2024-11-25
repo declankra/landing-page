@@ -47,7 +47,7 @@ export const WelcomeEmail = ({
                 {/* Header Section */}
                 <Container style={container}>
                     <Img
-                        src={`${projectURL}/logo.png`}
+                        src={`${projectURL}/logos/CheckTarget.svg`}
                         width="40"
                         height="40"
                         alt="Logo"
@@ -55,7 +55,7 @@ export const WelcomeEmail = ({
                     <Heading style={h1}>Welcome to ValidateIdea!</Heading>
                     <Text style={text}>
                         Hey there,<br /><br />
-                        My name is Declan - I'm the creator of ValidateIdea. Thank you for expressing interest in my project!<br /><br />
+                        My name is <a href="https://dub.sh/declankramper" target="_blank">Declan</a> - I'm the creator of ValidateIdea. Thank you for expressing interest in my project!<br /><br />
                         I built ValidateIdea because I was struggling to <strong> overcome decision paralysis</strong> on seemingly endless <strong>ideas that never became <em>real</em></strong>. <br /> <br />
                         Now there's a simple way to <strong>answer the question "what should I build?"</strong> (hint: it works)
                     </Text>
@@ -80,33 +80,23 @@ export const WelcomeEmail = ({
                     <Section style={section}>
                         <Text style={text}>
                             <strong>PS: Why did you signup? What brought you here?</strong><br />
-                            Hit "Reply" and let me know. I read and reply to every email :)
+                            Hit "reply" and let me know. I read and reply to every email :)
                         </Text>
                     </Section>
 
-
-                    {/* Portfolio Link Section */}
-                    <Section style={section}>
-                        <Text style={text}>
-                            Want to learn more about my other projects? Check out my portfolio:
-                        </Text>
-                        <Link href={portfolioUrl} style={link}>
-                            declankramper.me
-                        </Link>
-                    </Section>
 
                     {/* Footer Section */}
                     <Section style={footer}>
                         <Row>
                             <Column>
                                 <Img
-                                    src={`${projectURL}/logo.png`}
+                                    src={`${projectURL}/logos/CheckTarget.svg`}
                                     width="32"
                                     height="32"
                                     alt="Logo"
                                 />
                                 <Link href={projectURL} style={link}>
-                                    ValidateIdea.now<br></br>
+                                    ValidateIdea.now<br /><br />
                                 </Link>
                                 <SocialLinks links={socialLinks} />
                                 <Text style={footerText}>
@@ -136,7 +126,7 @@ const container = {
 }
 
 const section = {
-    padding: '2rem', // --section-space-sm: clamp(2rem, 4vw, 3rem)
+    padding: '0rem', // --section-space-sm: clamp(2rem, 4vw, 3rem)
 }
 
 const h1 = {
