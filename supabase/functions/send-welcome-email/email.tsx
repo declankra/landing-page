@@ -55,7 +55,7 @@ export const WelcomeEmail = ({
                     <Heading style={h1}>Welcome to ValidateIdea!</Heading>
                     <Text style={text}>
                         Hey there,<br /><br />
-                        My name is <Link href={portfolioUrl} style={nameLink}>Declan</Link> - I'm the creator of ValidateIdea. Thank you for expressing interest in my project!<br /><br />
+                        I'm <Link href={portfolioUrl} style={nameLink}>Declan</Link> - the creator of ValidateIdea. Thank you for expressing interest in my project!<br /><br />
                         I built ValidateIdea because I was struggling to <strong> overcome decision paralysis</strong> on seemingly endless <strong>ideas that never became <em>real</em></strong>. <br /> <br />
                         Now there's a simple way to <strong>answer the question "what should I build?"</strong> (hint: it works)
                     </Text>
