@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.11.9",
     "@mantine/core": "^7.13.4",
     "@mantine/form": "^7.13.4",
     "@mantine/hooks": "^7.13.4",
