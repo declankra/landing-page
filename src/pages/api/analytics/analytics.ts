@@ -41,7 +41,7 @@ export default async function analyticsHandler(
 // Helper function for server-side event tracking
 export async function logServerEvent(
   eventName: string,
-  properties?: Record<string, any>
+  properties?: Record<string, unknown>
 ) {
   try {
     await opServer.track(eventName, properties);
