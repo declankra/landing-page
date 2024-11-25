@@ -1,8 +1,8 @@
 // src/lib/analytics/OpenPanelProvider.tsx
-import { OpenPanelComponent, type TrackHandlerPayload } from '@openpanel/nextjs';
+import { OpenPanelComponent } from '@openpanel/nextjs';
 
 // Filtering function to exclude unwanted events
-const opFilter = ((_event: TrackHandlerPayload) => {
+const opFilter = (() => {
   // Add any event filtering logic here
   return true;
 }).toString();
