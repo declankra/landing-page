@@ -7,7 +7,7 @@ import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster'; // Import from shadcn
 import { theme as mantineTheme } from '../styles/theme';
 import { OpenPanelProvider } from '@/lib/analytics/OpenPanelProvider';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import GoogleAnalytics from '@/hooks/analytics/GoogleAnalytics';
 
 
 export default function App({ Component, pageProps }: AppProps) {
