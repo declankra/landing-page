@@ -37,7 +37,7 @@ export const WelcomeEmail = ({
     guideUrl,
     socialLinks
 }: WelcomeEmailProps) => {
-    const previewText = `Welcome to ValidateIdea.now - Let\'s Build Something Great!`
+    const previewText = `Welcome to ValidateIdea - Let\'s Build Something Great!`
 
     return (
         <Html>
@@ -52,12 +52,12 @@ export const WelcomeEmail = ({
                         height="40"
                         alt="Logo"
                     />
-                    <Heading style={h1}>Welcome to IdeaValidate!</Heading>
+                    <Heading style={h1}>Welcome to ValidateIdea!</Heading>
                     <Text style={text}>
                         Hey there,<br /><br />
-                        My name is Declan - I'm the creator of IdeaValidate. Thank you for expressing interest in my project!<br />
-                        I built IdeaValidate because I was struggling to overcome <italic>decision paralysis</italic> on seemingly endless <italic>ideas that never became real</italic>. <br />
-                        A simple way to answer the question <strong>"what should I build?"</strong> (hint: it works)
+                        My name is Declan - I'm the creator of ValidateIdea. Thank you for expressing interest in my project!<br /><br />
+                        I built ValidateIdea because I was struggling to <strong> overcome decision paralysis</strong> on seemingly endless <strong>ideas that never became real</strong>. <br />
+                        A simple way to <strong>answer the question "what should I build?"</strong> (hint: it works)
                     </Text>
 
                     {/* Main Content Section */}
@@ -66,7 +66,7 @@ export const WelcomeEmail = ({
                             Your Next Steps
                         </Heading>
                         <Text style={text}>
-                            This isn't just another landing page template - it's your complete toolkit for validating ideas quickly and effectively. I've documented everything you need to know in a comprehensive guide - hope it helps!
+                            This isn't just another landing page template - it's your complete toolkit for validating ideas quickly and effectively. I've documented everything you need to know in a comprehensive guide.
                         </Text>
                         <Button
                             href={guideUrl}
@@ -79,12 +79,9 @@ export const WelcomeEmail = ({
                     {/* PS - Reply Section */}
                     <Section style={section}>
                         <Text style={text}>
-                            PS - Why did you signup? What brought you here?<br />
+                            <strong>PS: Why did you signup? What brought you here?</strong><br />
                             Hit "Reply" and let me know. I read and reply to every email :)
                         </Text>
-                        <Link href={portfolioUrl} style={link}>
-                            declankramper.me
-                        </Link>
                     </Section>
 
 
