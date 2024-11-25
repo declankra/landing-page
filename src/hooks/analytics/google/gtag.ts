@@ -11,11 +11,14 @@ if (!GA_MEASUREMENT_ID) {
 // Type definitions
 declare global {
   interface Window {
-    dataLayer: any[]
-    gtag: (...args: any[]) => void
+    dataLayer: unknown[] // Changed from any[]
+    gtag: (
+      command: string,
+      targetId: string,
+      config?: Record<string, unknown>
+    ) => void // Changed from (...args: any[]) => void
   }
 }
-
 // Log page views - now with validation
 export const pageview = (url: string) => {
   if (!GA_MEASUREMENT_ID) return // Skip if GA not configured
