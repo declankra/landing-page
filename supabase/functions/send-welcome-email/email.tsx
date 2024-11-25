@@ -14,8 +14,8 @@ import {
     Row,
   } from '@react-email/components'
   import { SocialLinks } from '../components/social-links'
-  import * as React from 'react'
-  
+  import React from 'https://esm.sh/react@18.2.0'
+    
   interface WelcomeEmailProps {
     email: string
     portfolioUrl: string
