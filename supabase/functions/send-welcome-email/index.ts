@@ -40,6 +40,8 @@ serve(async (req) => {
           twitter: 'https://twitter.com/asbestostrades',
         }
       })
+      click_tracking: true,
+      tracking_domain: 'track.validateidea.now'
     })
 
     return new Response(
