@@ -1,3 +1,4 @@
+// /supabase/functions/send-welcome-email/email.tsx
 import {
     Body,
     Container,
@@ -13,7 +14,7 @@ import {
     Column,
     Row,
 } from 'https://esm.sh/@react-email/components'
-  import { SocialLinks } from '../components/social-links'
+  import { SocialLinks } from './social-links.tsx'
   import React from 'https://esm.sh/react@18.2.0'
 
   interface WelcomeEmailProps {
