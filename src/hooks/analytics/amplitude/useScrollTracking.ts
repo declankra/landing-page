@@ -1,6 +1,6 @@
 // src/hooks/useScrollTracking.ts
 import { useEffect, useRef } from 'react';
-import Analytics, { AMPLITUDE_EVENTS } from '@/lib/analytics/amplitude';
+import Analytics, { AMPLITUDE_EVENTS } from '@/lib/analytics/amplitude/amplitude';
 
 // Define scroll depth milestones
 const SCROLL_DEPTHS = {

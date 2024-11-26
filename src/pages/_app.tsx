@@ -11,8 +11,8 @@ import { theme as mantineTheme } from '../styles/theme';
 import { OpenPanelProvider } from '@/lib/analytics/OpenPanelProvider';
 import { AnalyticsProvider } from '@/hooks/analytics/google/GoogleAnalyticsProvider';
 // Amplitude Analytics import
-import { initAmplitude, Analytics } from '@/lib/analytics/amplitude';
-import { useScrollTracking } from '@/hooks/analytics/useScrollTracking';
+import { initAmplitude, Analytics } from '@/lib/analytics/amplitude/amplitude';
+import { useScrollTracking } from '@/hooks/analytics/amplitude/useScrollTracking';
 
 
 export default function App({ Component, pageProps }: AppProps) {
