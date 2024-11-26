@@ -4,6 +4,7 @@ import { Container, Title, Text } from '@mantine/core';
 import { PulsatingButtonCustom } from '@/components/ui/pulsating-button-custom';
 import { MantineSignupModal } from '@/components/shared/mantine-signup-modal';
 import { cn } from "@/lib/utils";
+import { SignupSource } from '@/lib/analytics/amplitude/signup-analytics';
 
 interface FinalSellProps {
   // {{REPLACE_PROPS}} - Configure these based on your product needs
@@ -104,6 +105,7 @@ export default function FinalSell({
       <MantineSignupModal
         opened={modalOpened}
         onClose={() => setModalOpened(false)}
+        source={SignupSource.FINAL_SELL}  // Track CTA source
       />
     </section>
   );

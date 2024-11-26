@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ShinyButton from '@/components/ui/shiny-button';
 import { MantineSignupModal } from '@/components/shared/mantine-signup-modal';
 import { cn } from "@/lib/utils";
+import { SignupSource } from '@/lib/analytics/amplitude/signup-analytics';
 
 interface SignupButtonShinyMantineModalProps {
   /**
@@ -110,6 +111,7 @@ export default function SignupButtonShinyMantineModal({
         opened={modalOpened}
         onClose={handleClose}
         onSuccess={handleSuccess}
+        source={SignupSource.NAVIGATION}  // Track CTA source
       />
     </>
   );

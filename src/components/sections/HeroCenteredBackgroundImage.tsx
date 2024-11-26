@@ -9,16 +9,13 @@ import { MantineSignupModal } from '../shared/mantine-signup-modal';
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { cn } from "@/lib/utils"
-// ... existing imports ...
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-
-// ... rest of the file ...
-
+import { SignupSource } from '@/lib/analytics/amplitude/signup-analytics';
 
 type ChecklistItem = {
   text: string
@@ -168,6 +165,7 @@ export default function HeroCenteredBackgroundImage({
               // steps={customSteps}
               // Optional: Custom table name
               // supabaseTable="early_access_signups"
+              source={SignupSource.HERO}  // Track CTA source
           />
         </div>
       )

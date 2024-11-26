@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { 
   Modal,
-  TextInput,
+  TextInput, 
   Radio,
   Stack,
   Text,
@@ -10,10 +10,11 @@ import {
   Progress,
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { Link2 } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 import { useToast } from "@/hooks/use-toast";
-import { Link2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { signupAnalytics, SignupSource } from '@/lib/analytics/amplitude/signup-analytics';
 
 // Types for form configuration
 type FormFieldBase = {
@@ -59,7 +60,6 @@ type SignupData = {
   email?: string;
 };
 
-// Props interface
 interface MantineSignupModalProps {
   /** Pre-filled email if already collected */
   requestEmail?: string | null;
@@ -81,16 +81,17 @@ interface MantineSignupModalProps {
   
   /** Callback on successful signup */
   onSuccess?: (data: SignupData) => void;
+
+  /** Track which CTA triggered the modal */
+  source: SignupSource;
 }
 
 // Map form field names to Supabase column names
-// {{REPLACE_MAPPING}} - Update these to match your Supabase table columns
 const SUPABASE_COLUMN_MAPPING = {
-    email: 'email_address',         // maps email form field to email_address column
-    disappointment: 'disappointment',    // maps disappointment radio to disappointment column
-    excitement: 'excitement_to_focus',   // maps excitement text to excitement_to_focus column
-  } as const;
-
+    email: 'email_address',
+    disappointment: 'disappointment',
+    excitement: 'excitement_to_focus',
+} as const;
 
 // Default steps configuration
 const defaultSteps: StepConfig[] = [
@@ -105,12 +106,12 @@ const defaultSteps: StepConfig[] = [
       description: 'Get {core benefit} before everyone else'
     }],
     validation: {
-        email: (value: string | undefined) => {
+        email: (value) => {
           if (!value || !value.trim()) return 'Email is required';
           return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? null : 'Please enter a valid email address';
         }
+    },
   },
-},
   {
     title: "Quick Question",
     fields: [{
@@ -130,7 +131,7 @@ const defaultSteps: StepConfig[] = [
     title: "Last Step",
     fields: [{
       type: 'text',
-      name: 'excitement', // 
+      name: 'excitement',
       label: 'What excites you most about this product?',
       placeholder: "I'm most excited about...",
       required: true,
@@ -145,16 +146,13 @@ const defaultSteps: StepConfig[] = [
       label: 'Thank you for signing up',
       buttonText: 'Copy Invite Link',
       message: 'Help your friends discover {benefit of product} too!',
-      shareLink: 'https://your-product.com?ref=invite',  // {{REPLACE_LINK}} - Update tracking link
+      shareLink: 'https://your-product.com?ref=invite',
       triggerToast: true,
       description: 'Share with your friends'
     }]
   }
 ];
 
-/**
- * Triggers confetti animation on successful signup
- */
 const triggerConfetti = () => {
   const end = Date.now() + 4 * 1000;
   const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
@@ -184,15 +182,6 @@ const triggerConfetti = () => {
   frame();
 };
 
-/**
- * A reusable signup modal component using Mantine that supports:
- * - Customizable multi-step flows
- * - Email collection (or pre-filled email)
- * - Survey questions
- * - Success CTA with sharing
- * - Supabase integration
- * - Success animations
- */
 export function MantineSignupModal({
   requestEmail = null,
   steps = defaultSteps,
@@ -201,6 +190,7 @@ export function MantineSignupModal({
   opened,
   onClose,
   onSuccess,
+  source,
 }: MantineSignupModalProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -215,10 +205,20 @@ export function MantineSignupModal({
     validate: steps[currentStep]?.validation || {}
   });
 
-  // Calculate progress percentage - start at 50% if multi-step
+  // Calculate progress percentage
   const progress = steps.length > 1 
     ? 50 + ((currentStep) / (steps.length - 1)) * 50 
     : 0;
+
+  // Track modal open/close
+  useEffect(() => {
+    if (opened) {
+      signupAnalytics.trackSignupStart(source);
+    } else if (!opened && currentStep > 0 && currentStep < steps.length - 1) {
+      // Only track abandonment if they started but didn't finish
+      signupAnalytics.trackSignupAbandoned('modal_closed');
+    }
+  }, [opened, currentStep, source]);
 
   // Reset state when modal closes
   useEffect(() => {
@@ -227,11 +227,8 @@ export function MantineSignupModal({
       form.reset();
       setSignupData(requestEmail ? { email: requestEmail } : {});
     }
-  }, [opened, requestEmail]); // Removed 'form' from dependencies
+  }, [opened, requestEmail, form]);
 
-  /**
-   * Handles successful signup
-   */
   const handleSuccess = async (finalData: SignupData) => {
     if (successAnimation) {
       triggerConfetti();
@@ -247,12 +244,10 @@ export function MantineSignupModal({
       onClose();
     }
 
+    signupAnalytics.trackSignupComplete();
     onSuccess?.(finalData);
   };
 
-  /**
-   * Handles share link copying for success CTA
-   */
   const handleShareLink = (link: string) => {
     navigator.clipboard.writeText(link);
     toast({
@@ -262,11 +257,7 @@ export function MantineSignupModal({
     });
   };
 
-  /**
-   * Handles form submission for each step
-   */
   const handleSubmit = async (values: SignupData) => {
-
     const currentField = steps[currentStep].fields[0];
     if (!values[currentField.name] && currentField.required) {
       form.setFieldError(currentField.name, `Please ${currentField.type === 'radio' ? 'select an option' : 'fill out this field'}`);
@@ -275,6 +266,12 @@ export function MantineSignupModal({
 
     try {
       setLoading(true);
+
+      // Track step completion
+      signupAnalytics.trackSignupStep(currentStep + 1, 
+        steps[currentStep].title,
+        true
+      );
 
       // Merge new values with existing signup data
       const updatedData = { ...signupData, ...values };
@@ -299,12 +296,22 @@ export function MantineSignupModal({
         await handleSuccess(updatedData);
       }
       
-      // Move to next step
+      // Move to next step and track view
       if (currentStep < steps.length - 1) {
-        setCurrentStep(prev => prev + 1);
+        setCurrentStep(prev => {
+          const nextStepIndex = prev + 1;
+          // Track next step view
+          signupAnalytics.trackSignupStep(
+            nextStepIndex + 1,
+            steps[nextStepIndex].title,
+            false
+          );
+          return nextStepIndex;
+        });
       }
     } catch (error) {
       console.error('Error in signup process:', error);
+      signupAnalytics.trackSignupAbandoned('error');
       toast({
         variant: "destructive",
         title: "Error",
@@ -315,9 +322,6 @@ export function MantineSignupModal({
     }
   };
 
-  /**
-   * Renders fields based on current step configuration
-   */
   const renderFields = () => {
     const currentFields = steps[currentStep].fields;
 
@@ -334,14 +338,13 @@ export function MantineSignupModal({
                 {...form.getInputProps(field.name)}
                 error={form.errors[field.name]}
                 styles={{
-                    label: {
-                      fontWeight: 700,
-                      marginBottom: 8,
-                    }
-                  }}
+                  label: {
+                    fontWeight: 700,
+                    marginBottom: 8,
+                  }
+                }}
                 mb={'xs'}
               />
-              {/* Description now handled in Modal title */}
             </div>
           );
 
@@ -353,12 +356,12 @@ export function MantineSignupModal({
                 onChange={(value) => form.setFieldValue(field.name, value)}
                 error={form.errors[field.name]}
                 styles={{
-                    label: {
-                      fontWeight: 700,
-                      marginBottom: 8,
-                    }
-                  }}
-                  mb={'md'}
+                  label: {
+                    fontWeight: 700,
+                    marginBottom: 8,
+                  }
+                }}
+                mb={'md'}
               >
                 <Stack mt="xs">
                   {field.options.map((option) => (
@@ -408,7 +411,7 @@ export function MantineSignupModal({
   return (
     <Modal
       opened={opened}
-      onClose={onClose}
+      onClose={() => !loading && onClose()}
       title={
         <Stack gap="xs">
           <Text fw={500} mb={-10}>{steps[currentStep].title}</Text>
@@ -426,15 +429,8 @@ export function MantineSignupModal({
         blur: steps[currentStep].fields[0].type === 'successCTA' ? 0 : 3,
       }}
       withCloseButton={false}
-      styles={{
-        content: {
-          border: '1px solid hsl(var(--color-border))',  // Light border that works in both light/dark modes
-          boxShadow: '0 6px 28px rgba(0, 0, 0, 0.35)',     // Subtle but noticeable shadow
-          borderRadius: 'var(--mantine-radius-md)',         // Match your radius system
-        }
-      }}
     >
-      {/* Progress bar - only show if multiple steps and not first email step */}
+      {/* Progress bar */}
       {steps.length > 1 && !(currentStep === 0 && steps[0].fields[0].type === 'email') && (
         <Progress 
           value={progress} 
@@ -457,14 +453,12 @@ export function MantineSignupModal({
             >
               {currentStep === steps.length - 1 ? 'Submit' : 'Continue'}
             </Button>
-            
           )}
         </Stack>
       </form>
     </Modal>
   );
 }
-
 
 /*
 
@@ -493,6 +487,7 @@ const [modalOpened, setModalOpened] = useState(false);
   <MantineSignupModal
     opened={modalOpened}
     onClose={() => setModalOpened(false)}
+    source={SignupSource.SOURCE_NAME}  // Track CTA source
     requestEmail={email}  // Pass collected email here
   />
 </div>
@@ -515,6 +510,7 @@ const [modalOpened, setModalOpened] = useState(false);
   <MantineSignupModal
     opened={modalOpened}
     onClose={() => setModalOpened(false)}
+    source={SignupSource.SOURCE_NAME}  // Track CTA source
   />
 </div>
 
