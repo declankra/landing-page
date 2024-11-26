@@ -7,9 +7,8 @@ import type { AppProps } from 'next/app';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster'; // Import from shadcn
-import { theme as mantineTheme } from '../styles/theme';
-import { OpenPanelProvider } from '@/lib/analytics/OpenPanelProvider';
-import { AnalyticsProvider } from '@/hooks/analytics/google/GoogleAnalyticsProvider';
+import { theme as mantineTheme } from '../styles/theme'; // Custom Mantine Theme
+import { AnalyticsProvider } from '@/hooks/analytics/google/GoogleAnalyticsProvider'; // Google Analytics import
 // Amplitude Analytics import
 import { initAmplitude, Analytics } from '@/lib/analytics/amplitude/amplitude';
 import { useScrollTracking } from '@/hooks/analytics/amplitude/useScrollTracking';
@@ -59,11 +58,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <ColorSchemeScript />
       <ThemeProvider attribute="class" defaultTheme="light">
         <MantineProvider theme={mantineTheme}>
-          <OpenPanelProvider >
             <Component {...pageProps} />
             <Toaster /> {/* shadcn Toaster */}
             <AnalyticsProvider /> {/* Google Analytics */}
-          </OpenPanelProvider >
         </MantineProvider>
       </ThemeProvider>
     </>
