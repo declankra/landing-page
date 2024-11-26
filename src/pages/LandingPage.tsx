@@ -63,7 +63,7 @@ export default function LandingPage() {
             primaryButtonText="Get Early Access"
             // primaryButtonHref="/signup" // if not using signup modal component
             secondaryButtonText="Learn More"
-            secondaryButtonHref="https://declankramper.notion.site/Landing-Page-Guide-1446a6685a8c80478177e8fa4ccca5e1?pvs=4"
+            secondaryButtonHref="https://declankramper.notion.site/validateidea-now-guide"
           />
         </section>
 
