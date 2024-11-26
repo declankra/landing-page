@@ -8,7 +8,7 @@ import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster'; // Import from shadcn
 import { theme as mantineTheme } from '../styles/theme'; // Custom Mantine Theme
-import { AnalyticsProvider } from '@/hooks/analytics/google/GoogleAnalyticsProvider'; // Google Analytics import
+import { AnalyticsProvider } from '@/lib/analytics/google/GoogleAnalyticsProvider'; // Google Analytics import
 // Amplitude Analytics import
 import { initAmplitude, Analytics } from '@/lib/analytics/amplitude/amplitude';
 import { useScrollTracking } from '@/hooks/analytics/amplitude/useScrollTracking';
