@@ -80,6 +80,12 @@ export const identifyUser = (userId: string, userProperties?: UserProperties) =>
     }
   };
 
+  // Create a type for the learn more click properties
+type LearnMoreClickProperties = {
+  location: string;
+  destination_url: string;
+  [key: string]: string | number | boolean; // For any additional properties
+};
 
 // Analytics tracking functions - simplified to use Amplitude's built-in functionality
 export const Analytics = {
@@ -147,7 +153,19 @@ export const Analytics = {
       identify.set(key, value);
     });
     amplitude.identify(identify);
-  }
+  },
+   // Add new method for tracking learn more clicks
+   trackLearnMoreClick: (properties: LearnMoreClickProperties) => {
+    amplitude.track(AMPLITUDE_EVENTS.LEARN_MORE_CLICKED, {
+      ...properties,
+      timestamp: new Date().toISOString(),
+      // Automatically capture UTM parameters if present
+      ...(typeof window !== 'undefined' 
+        ? Object.fromEntries(new URLSearchParams(window.location.search))
+        : {}
+      )
+    });
+  },
 };
 
 export default Analytics;

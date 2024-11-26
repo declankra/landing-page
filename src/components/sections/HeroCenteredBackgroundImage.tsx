@@ -16,6 +16,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { SignupSource } from '@/lib/analytics/amplitude/signup-analytics';
+import Analytics from '@/lib/analytics/amplitude/amplitude';
+
 
 type ChecklistItem = {
   text: string
@@ -92,6 +94,14 @@ export default function HeroCenteredBackgroundImage({
         </TooltipProvider>
       );
     };
+
+      // Add the click handler
+  const handleLearnMoreClick = () => {
+    Analytics.trackLearnMoreClick({
+      location: 'hero_section',
+      destination_url: secondaryButtonHref,
+    });
+  };
   
     return (
         <div className="relative isolate px-6 lg:px-8">
@@ -147,7 +157,7 @@ export default function HeroCenteredBackgroundImage({
     
                 {/* Secondary Link Button - Uses minimal variant */}
                 <Link href={secondaryButtonHref}>
-                  <Button variant="link">
+                  <Button variant="link" onClick={handleLearnMoreClick}>
                     {secondaryButtonText} <span aria-hidden="true">→</span>
                   </Button>
                 </Link>
