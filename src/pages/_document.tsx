@@ -26,14 +26,6 @@ export default function Document() {
           rel="stylesheet"
         />
 
-        {/* Analytics Script */}
-        <Script
-          defer
-          data-domain="www.validateidea.now"
-          src="https://getanalyzr.vercel.app/tracking-script.js"
-          strategy="afterInteractive" // Load after page becomes interactive
-        />
-
         {/* Favicon with fallback */}
         <link 
           rel="icon" 
