@@ -1,6 +1,5 @@
 // lib/analytics/posthog/index.ts
 import posthog from 'posthog-js';
-import { NextRouter } from 'next/router';
 
 // PostHog environment variables
 export const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
