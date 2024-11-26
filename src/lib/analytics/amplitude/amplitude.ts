@@ -60,6 +60,7 @@ export const AMPLITUDE_EVENTS = {
   VIDEO_STARTED: 'video_playback_started',
   VIDEO_PROGRESS: 'video_playback_progress',
   VIDEO_COMPLETED: 'video_playback_completed',
+  VIDEO_PLAY_CLICKED: 'video_play_clicked', // Track when user clicks play button
   
   // Scroll Depth Events
   SCROLL_DEPTH: 'scroll_depth'
@@ -124,9 +125,18 @@ export const Analytics = {
     title: string,
     position: number,
     duration: number,
-    percent_complete?: number
+    percent_complete?: number,
+    is_play_click?: boolean
   }) => {
-    amplitude.track(eventName, videoProperties);
+    amplitude.track(eventName, {
+      ...videoProperties,
+      event_type: videoProperties.is_play_click ? 'play_click' : 'video_progress',
+      timestamp: new Date().toISOString(),
+      // Include UTM parameters if present
+      ...(typeof window !== 'undefined'
+        ? Object.fromEntries(new URLSearchParams(window.location.search)) 
+        : {})
+    });
   },
 
   // Scroll depth tracking
