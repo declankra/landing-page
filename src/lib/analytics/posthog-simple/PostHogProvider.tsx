@@ -7,6 +7,11 @@ import posthog from 'posthog-js'
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 
+declare global {
+  interface Window {
+    pageLoadTime: number;
+  }
+}
 export default function PostHogPageview() {
   const router = useRouter()
   const oldUrlRef = useRef(typeof window !== 'undefined' ? window.location.href : '')
@@ -39,13 +44,13 @@ export default function PostHogPageview() {
     const handleRouteChangeStart = () => {
       posthog?.capture('$pageleave', {
         $current_url: oldUrlRef.current,
-        time_on_page: Date.now() - (window as any).pageLoadTime,
+        time_on_page: Date.now() - (window as Window).pageLoadTime,
       })
     }
 
     // Track initial page load
     if (typeof window !== 'undefined') {
-      (window as any).pageLoadTime = Date.now()
+      (window as Window).pageLoadTime = Date.now()
       posthog?.capture('$pageview')
     }
 
@@ -57,7 +62,7 @@ export default function PostHogPageview() {
     const handleBeforeUnload = () => {
       posthog?.capture('$pageleave', {
         $current_url: window.location.href,
-        time_on_page: Date.now() - (window as any).pageLoadTime,
+        time_on_page: Date.now() - (window as Window).pageLoadTime,
         exit_type: 'site_exit'
       })
     }
