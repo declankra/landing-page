@@ -13,10 +13,21 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
   <a href="#roadmap">Roadmap</a>
 </p>
 
-**Everything you need** to build a production-ready SaaS, but more importanty, **vet your idea**. It's an oppinionated starter based on **my own learnings** with a focus on solving your problem of **deciding what to build**.
+**Everything you need** to build a production-ready SaaS, but more importanty, **vet your idea**. It's an oppinionated starter based on **my own learnings** with a focus on solving your problem of **deciding what to build** by allowing you to **quickly launch a landing page** and **track what your users are excited about**.
 
 ## What's Included
 - [Coming soon](#)
+
+
+
+
+## Prerequisites
+
+
+## Getting Started
+
+
+## How to use
 
 
 ## Directory Structure
@@ -81,6 +92,7 @@ your-project/
 │   │
 │   └── lib/                   # Utilities & configurations
 │       ├── utils.ts           # Helper functions
+│       ├── analytics/         # Analytics integrations
 │       └── supaBaseClient.ts  # Supabase database client configuration
 │
 ├── .env.local                 # Local environment variables
@@ -88,14 +100,6 @@ your-project/
 ├── components.json            # Index for shadcn/UI components
 └── tailwind.config.ts         # Tailwind CSS configuration
 ```
-
-## Prerequisites
-
-
-## Getting Started
-
-
-## How to use
 
 
 ## Roadmap
