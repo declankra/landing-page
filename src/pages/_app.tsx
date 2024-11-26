@@ -9,10 +9,12 @@ import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster'; // Import from shadcn
 import { theme as mantineTheme } from '../styles/theme'; // Custom Mantine Theme
 import { AnalyticsProvider } from '@/lib/analytics/google/GoogleAnalyticsProvider'; // Google Analytics import
+import PostHogPageview from '@/lib/analytics/posthog-simple/PostHogProvider'; // PostHog Analytics import
 // Amplitude Analytics import
 import { initAmplitude, Analytics } from '@/lib/analytics/amplitude/amplitude';
 import { useScrollTracking } from '@/lib/analytics/amplitude/useScrollTracking';
 import { OpenPanelProvider } from '@/lib/analytics/openpanel/OpenPanelProvider';
+
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -59,6 +61,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ColorSchemeScript />
       <ThemeProvider attribute="class" defaultTheme="light">
         <MantineProvider theme={mantineTheme}>
+          <PostHogPageview />
           <OpenPanelProvider>
             <Component {...pageProps} />
             <Toaster /> {/* shadcn Toaster */}
