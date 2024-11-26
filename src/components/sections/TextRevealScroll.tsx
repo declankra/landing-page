@@ -1,7 +1,11 @@
 // src/components/TextRevealScroll.tsx
 import TextRevealByWord from "@/components/ui/text-reveal";
  
-export function TextRevealScroll() {
+interface TextRevealScrollProps {
+  text?: string;
+}
+
+export const TextRevealScroll: React.FC<TextRevealScrollProps> = ({ text }) => {
   return (
     <div 
       className="
@@ -24,7 +28,7 @@ export function TextRevealScroll() {
       "
     >
       <TextRevealByWord 
-        text="The remaining copy is meta. Components built for you." 
+        text={text || "This text will reveal itself as you scroll."} 
         className="
           /* Larger text size that scales with screen size */
           text-3xl sm:text-4xl md:text-5xl lg:text-heading-2
@@ -50,4 +54,4 @@ export function TextRevealScroll() {
       />
     </div>
   );
-}
+};
