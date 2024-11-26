@@ -88,7 +88,32 @@ export default function LandingPage() {
 
         <section id="how-it-works" className={styles.sectionAlt}>
           {/* Three Card Horizontal - static component */}
-          <ThreeCardHorizontal />
+          <ThreeCardHorizontal 
+            title="Discover your idea's potential in three steps"
+            steps={[
+              {
+                number: 1,
+                title: "View the guide",
+                description: "Signup with your email to get access to the guide for free.",
+                imagePath: "/images/step1-placeholder.webp",
+                imageAlt: "Step 1 visualization"
+              },
+              {
+                number: 2,
+                title: "Launch your landing page",
+                description: "Use the guide to launch your landing page and start validating your idea with the product-led approach to understanding your users.",
+                imagePath: "/images/step2-placeholder.webp",
+                imageAlt: "Step 2 visualization"
+              },
+              {
+                number: 3,
+                title: "Validate your idea",
+                description: "Given the data you've collected on user interest, decide if it's worth building further.",
+                imagePath: "/images/step3-placeholder.webp",
+                imageAlt: "Step 3 visualization"
+              }
+            ]}
+          />
         </section>
 
 
@@ -125,7 +150,9 @@ export default function LandingPage() {
 
         <section className={styles.sectionFullWidth}>
           {/* Fancy animated text that reveals itself in center of screen while user scrolls */}
-          <TextRevealScroll />
+          <TextRevealScroll 
+            text="Custom components built to sell your idea."
+          />
         </section>
 
 
