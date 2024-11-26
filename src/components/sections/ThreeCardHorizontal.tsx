@@ -13,7 +13,7 @@ interface Step {
   imageAlt?: string;
 }
 
-interface HowItWorksProps {
+interface ThreeCardHorizontalProps {
   // {{REPLACE_PROPS}} - Configure these based on your product needs
   title?: string;
   subtitle?: string;
@@ -22,7 +22,7 @@ interface HowItWorksProps {
 }
 
 /**
- * HowItWorksHorizontal Component
+ * ThreeCardHorizontalHorizontal Component
  * 
  * A section component that displays a 3-step process with numbered cards,
  * images, and descriptions laid out horizontally.
@@ -32,7 +32,7 @@ interface HowItWorksProps {
  * @param steps - Array of step objects containing content
  * @param className - Optional additional styling
  */
-export default function HowItWorksHorizontal({
+export default function ThreeCardHorizontalHorizontal({
   // {{REPLACE_COPY}} - Replace these defaults with your product's copy
   title = "Find {benefit opportunities} in 3 steps",
   subtitle = "HOW IT WORKS?",
@@ -60,7 +60,7 @@ export default function HowItWorksHorizontal({
     }
   ],
   className
-}: HowItWorksProps) {
+}: ThreeCardHorizontalProps) {
   return (
     <section className={cn("w-full py-12 md:py-20", className)}>
       {/* Header Section */}
