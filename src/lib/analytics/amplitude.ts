@@ -1,28 +1,31 @@
 // src/lib/analytics/amplitude.ts
 import * as amplitude from '@amplitude/analytics-browser';
+import { sessionReplayPlugin } from "@amplitude/plugin-session-replay-browser";
+
 
 // Initialize Amplitude only on the client side
 // Should be called as early as possible in the app lifecycle
 export const initAmplitude = () => {
-  if (typeof window !== 'undefined') {
-    amplitude.init(process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY || '', {
-      // Enable autocapture for automatic event tracking
-      autocapture: true,
-      
-      // Configure default event tracking
-      defaultTracking: {
-        // Amplitude will automatically track page views
-        pageViews: true,
-        // Track session events
-        sessions: true,
-        // Track form interactions
-        formInteractions: true,
-        // Track file downloads
-        fileDownloads: true,
-      },
-      
-    });
-  }
+
+    // Create and configure Session Replay plugin
+    const sessionReplay = sessionReplayPlugin({
+        sampleRate: 1
+      });
+
+      if (typeof window !== 'undefined') {
+        amplitude.init(process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY || '', {
+            autocapture: true,
+            defaultTracking: {
+                pageViews: true,
+                sessions: true,
+                formInteractions: true,
+                fileDownloads: true,
+            },
+        });
+        
+        // Add session replay plugin inside the if block
+        amplitude.add(sessionReplay);
+    }
 };
 
 // Event Names - Centralized constants for consistency
@@ -76,6 +79,7 @@ export const identifyUser = (userId: string, userProperties?: UserProperties) =>
       amplitude.identify(identify);
     }
   };
+
 
 // Analytics tracking functions - simplified to use Amplitude's built-in functionality
 export const Analytics = {
