@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useWindowScroll } from '@mantine/hooks';
 import { Menu } from 'lucide-react';
-import SignupButtonShiny from '../shared/SignupButtonShiny';
+import SignupButtonShinyMantineModal from '../shared/SignupButtonShinyMantineModal';
 import styles from '@/styles/components/NavigationHeader.module.css';
 import { cn } from "@/lib/utils";
 
@@ -177,9 +177,9 @@ export default function NavigationHeader({
 
         {/* Signup Button */}
         <div className={styles.buttonWrapper}>
-          <SignupButtonShiny>
+          <SignupButtonShinyMantineModal>
             Get Access
-          </SignupButtonShiny>
+          </SignupButtonShinyMantineModal>
         </div>
       </nav>
 
