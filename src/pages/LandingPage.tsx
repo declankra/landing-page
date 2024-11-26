@@ -195,7 +195,7 @@ export default function LandingPage() {
             subtitle="The clear value-add of using product"
             ctaText="Start {JTBD} now"
             onCtaClick={() => {
-              // Your conversion tracking/signup logic
+              // Your conversion tracking/signup logic, defaults to signup modal
             }}
           />
         </section>

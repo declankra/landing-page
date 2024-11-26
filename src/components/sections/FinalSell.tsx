@@ -1,6 +1,8 @@
 // src/components/sections/FinalSell.tsx
+import { useState } from 'react';
 import { Container, Title, Text } from '@mantine/core';
 import { PulsatingButtonCustom } from '@/components/ui/pulsating-button-custom';
+import { MantineSignupModal } from '@/components/shared/mantine-signup-modal';
 import { cn } from "@/lib/utils";
 
 interface FinalSellProps {
@@ -32,6 +34,15 @@ export default function FinalSell({
   onCtaClick,
   className,
 }: FinalSellProps) {
+  // Add state for modal control
+  const [modalOpened, setModalOpened] = useState(false);
+
+  // Handler for button click
+  const handleButtonClick = () => {
+    setModalOpened(true);
+    onCtaClick?.(); // Call the original onCtaClick if provided
+  };
+
   return (
     <section 
       className={cn(
@@ -81,13 +92,19 @@ export default function FinalSell({
             pulseIntensity="medium"
             pulseColor="hsl(var(--primary))"
             duration="2s"
-            onClick={onCtaClick}
+            onClick={handleButtonClick}
             className="text-lg font-semibold px-8 py-4"
           >
             {ctaText}
           </PulsatingButtonCustom>
         </div>
       </Container>
+
+      {/* Signup Modal */}
+      <MantineSignupModal
+        opened={modalOpened}
+        onClose={() => setModalOpened(false)}
+      />
     </section>
   );
 }
