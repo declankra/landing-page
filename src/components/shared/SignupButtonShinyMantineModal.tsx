@@ -35,7 +35,7 @@ interface SignupButtonShinyMantineModalProps {
   /**
    * Optional callback when signup completes successfully
    */
-  onSignupSuccess?: (data: any) => void;
+  onSignupSuccess?: (data: unknown) => void;
 }
 
 /**
@@ -89,7 +89,7 @@ export default function SignupButtonShinyMantineModal({
   };
 
   // Handle successful signup
-  const handleSuccess = (data: any) => {
+  const handleSuccess = (data: unknown) => {
     onSignupSuccess?.(data);
   };
 
