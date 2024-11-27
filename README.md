@@ -17,23 +17,23 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
 
 
 ## What's Included
+
 **Frontend**
 - **Framework**: [Next.js](https://nextjs.org/) with Typescript
 - **Styling:** [TailwindCSS](https://tailwindcss.com/) | CSS modules
 - **UI component library:** [Shadcn](https://ui.shadcn.com/)  | [Mantine](https://mantine.dev/)
-    - **Advanced components:** [MagicUI](https://magicui.design/)
+- **Advanced components:** [MagicUI](https://magicui.design/)
 - **Animations library:** [Framer motion](https://www.framer.com/)
 
-**Hosting / Deployment:** [Vercel](https://vercel.com/)
-**Database (serverless):** [Supabase](https://supabase.com/)
-**Analytics:** [Amplitude](https://amplitude.com/) ([PostHog](https://posthog.com/) | [OpenPanel](https://openpanel.dev/) coming soon)
+**Hosting / Deployment:** [Vercel](https://vercel.com/) \n
+**Database (serverless):** [Supabase](https://supabase.com/) \n
+**Analytics:** [Amplitude](https://amplitude.com/) ([PostHog](https://posthog.com/) | [OpenPanel](https://openpanel.dev/) coming soon) \n
 
 **Emails**
 - **Delivery**: [Resend](https://resend.com/)
 - **Templates:** [React Email](https://react.email/)
 
-**Links**: [dub.co](http://dub.co)
-
+**Links**: [dub.co](http://dub.co) \n
 — coming soon —
 **Payments**: [Stripe](https://stripe.com/)
 **LLM:** [OpenAI API](https://openai.com/api/)
