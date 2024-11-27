@@ -23,13 +23,17 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
 - **UI component library:** [Shadcn](https://ui.shadcn.com/)  | [Mantine](https://mantine.dev/)
     - **Advanced components:** [MagicUI](https://magicui.design/)
 - **Animations library:** [Framer motion](https://www.framer.com/)
+
 **Hosting / Deployment:** [Vercel](https://vercel.com/)
 **Database (serverless):** [Supabase](https://supabase.com/)
 **Analytics:** [Amplitude](https://amplitude.com/) ([PostHog](https://posthog.com/) | [OpenPanel](https://openpanel.dev/) coming soon)
+
 **Emails**
 - **Delivery**: [Resend](https://resend.com/)
 - **Templates:** [React Email](https://react.email/)
+
 **Links**: [dub.co](http://dub.co)
+
 — coming soon —
 **Payments**: [Stripe](https://stripe.com/)
 **LLM:** [OpenAI API](https://openai.com/api/)
