@@ -18,20 +18,20 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
 
 ## What's Included
 
-**Framework**: [Next.js](https://nextjs.org/) with Typescript
-**Styling:** [TailwindCSS](https://tailwindcss.com/) | CSS modules
-**UI component library:** [Shadcn](https://ui.shadcn.com/)  | [Mantine](https://mantine.dev/)
-**Advanced components:** [MagicUI](https://magicui.design/)
-**Animations library:** [Framer motion](https://www.framer.com/)
-**Hosting / Deployment:** [Vercel](https://vercel.com/) 
-**Database (serverless):** [Supabase](https://supabase.com/) 
-**Analytics:** [Amplitude](https://amplitude.com/) ([PostHog](https://posthog.com/) | [OpenPanel](https://openpanel.dev/) coming soon) 
-**Email delivery**: [Resend](https://resend.com/)
-**Email templates**: [React Email](https://react.email/)
-**Links**: [dub.co](http://dub.co) 
-**Payments**: [Stripe](https://stripe.com/)
-**LLM:** [OpenAI API](https://openai.com/api/)
-**Authentication:** [NextAuth](https://next-auth.js.org/) (Auth.js) or [Supabase Auth](https://supabase.com/docs/guides/auth)
+- **Framework**: [Next.js](https://nextjs.org/) with Typescript
+- **Styling**: [TailwindCSS](https://tailwindcss.com/) | CSS modules
+- **UI component library**: [Shadcn](https://ui.shadcn.com/)  | [Mantine](https://mantine.dev/)
+- **Advanced components**: [MagicUI](https://magicui.design/)
+- **Animations library**: [Framer motion](https://www.framer.com/)
+- **Hosting / Deployment**: [Vercel](https://vercel.com/) 
+- **Database (serverless)**: [Supabase](https://supabase.com/) 
+- **Analytics**: [Amplitude](https://amplitude.com/) ([PostHog](https://posthog.com/) | [OpenPanel](https://openpanel.dev/) coming soon) 
+- **Email delivery**: [Resend](https://resend.com/)
+- **Email templates**: [React Email](https://react.email/)
+- **Links**: [dub.co](http://dub.co) 
+- **Payments**: [Stripe](https://stripe.com/) (coming soon)
+- **LLM**: [OpenAI API](https://openai.com/api/) (coming soon)
+- **Authentication**: [NextAuth](https://next-auth.js.org/) (Auth.js) or [Supabase Auth](https://supabase.com/docs/guides/auth) (coming soon)
 
 
 ## Beauty of this stack
@@ -56,7 +56,6 @@ Before you begin, ensure you have the following installed:
 - [Amplitude](https://amplitude.com/) account for analytics
 
 
-## Getting Started
 ## Getting Started
 
 1. **Clone the repository**
