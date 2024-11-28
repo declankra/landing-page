@@ -22,6 +22,7 @@ interface HeroVideoProps {
   thumbnailSrc: string;
   thumbnailAlt?: string;
   className?: string;
+  onVideoPlay?: () => void;  // Add this new prop
 }
 
 const animationVariants = {
@@ -73,15 +74,22 @@ export default function HeroVideoDialog({
   thumbnailSrc,
   thumbnailAlt = "Video thumbnail",
   className,
+  onVideoPlay,
 }: HeroVideoProps) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const selectedAnimation = animationVariants[animationStyle];
+
+    // Add this handler
+    const handleVideoClick = () => {
+      setIsVideoOpen(true);
+    onVideoPlay?.(); // Call the tracking callback
+  };
 
   return (
     <div className={cn("relative", className)}>
     <div
         className="relative cursor-pointer group"
-        onClick={() => setIsVideoOpen(true)}
+        onClick={handleVideoClick}  // Change from setIsVideoOpen to handleVideoClick
       >
         {/* Replace img with Next.js Image component */}
         <div className="relative w-full aspect-video">

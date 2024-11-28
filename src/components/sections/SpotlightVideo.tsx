@@ -75,6 +75,11 @@ export default function SpotlightVideo({
     onCtaClick?.();
   };
 
+  // Handle video play by adding a tracking event
+  const handleVideoPlay = () => {
+    Analytics.track(AMPLITUDE_EVENTS.VIDEO_PLAY_CLICKED);
+  };
+
   return (
     <Container size="xl" className={styles.container}>
       {/* Header Section - Using consistent title styling */}
@@ -122,6 +127,7 @@ export default function SpotlightVideo({
               thumbnailAlt={thumbnailAlt}
               animationStyle="from-center"
               className={styles.video}
+              onVideoPlay={handleVideoPlay}  // Add this prop
             />
           </div>
         </div>
