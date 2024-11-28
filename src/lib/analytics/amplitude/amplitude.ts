@@ -63,7 +63,11 @@ export const AMPLITUDE_EVENTS = {
   VIDEO_PLAY_CLICKED: 'video_play_clicked', // Track when user clicks play button
   
   // Scroll Depth Events
-  SCROLL_DEPTH: 'scroll_depth'
+  SCROLL_DEPTH: 'scroll_depth',
+
+  // Video Demo ComponentCTA Clicked
+  VIDEO_CTA_CLICKED: 'video_cta_clicked', // Video button click tracking
+
 } as const;
 
 // Create a type for user properties

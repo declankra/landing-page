@@ -4,6 +4,7 @@ import HeroVideoDialog from '@/components/ui/hero-video-dialog';
 import styles from '@/styles/components/SpotlightVideo.module.css';
 import { cn } from "@/lib/utils";
 import { IconArrowRight } from '@tabler/icons-react';
+import { AMPLITUDE_EVENTS, Analytics } from '@/lib/analytics/amplitude/amplitude';
 
 interface SpotlightVideoProps {
   // {{REPLACE_PROPS}} - Configure these based on your product needs
@@ -63,6 +64,15 @@ export default function SpotlightVideo({
     );
   };
 
+  // Handle CTA button click by adding a tracking event`
+  const handleCtaClick = () => {
+    // Track the video button click
+    Analytics.track(AMPLITUDE_EVENTS.VIDEO_CTA_CLICKED);
+    
+    // Call the original onCtaClick if provided
+    onCtaClick?.();
+  };
+
   return (
     <Container size="xl" className={styles.container}>
       {/* Header Section - Using consistent title styling */}
@@ -80,7 +90,7 @@ export default function SpotlightVideo({
           "font-[var(--heading-2-weight)]",
           "tracking-[var(--heading-2-tracking)]",
           // Additional styling
-          "mx-auto max-w-[80%]", // Constrain width for readability
+          "mx-auto lg:max-w-[80%]", // Constrain width for readability
           "-mb-6 lg:-mb-6"
         )}>
           {renderTitle()}
@@ -91,7 +101,7 @@ export default function SpotlightVideo({
           variant="default"
           size="compact-lg"
           className={styles.ctaButton}
-          onClick={onCtaClick}
+          onClick={handleCtaClick}  // Changed from onCtaClick to handleCtaClick
           rightSection={<IconArrowRight size={20}/>}
         >
           {ctaText}
