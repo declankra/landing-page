@@ -125,7 +125,7 @@ export default function LandingPage() {
             highlightColor='var(--mantine-primary)'
             videoSrc="https://www.youtube.com/embed/QGIUa2sSYFI"
             thumbnailSrc="/images/SteveJobs16x9.webp"
-            ctaText="See it for yourself"
+            ctaText="Do it for yourself"
           />
         </section>
 

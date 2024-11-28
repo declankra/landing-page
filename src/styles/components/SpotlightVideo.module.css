@@ -7,35 +7,15 @@
   overflow: hidden;
 }
 
-/* Header section styling */
-.header {
-  text-align: center;
-  margin-bottom: var(--mantine-spacing-xl);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--mantine-spacing-lg);
-}
-
-.title {
-  font-size: var(--heading-2-fluid);
-  font-weight: var(--heading-2-weight);
-  line-height: var(--heading-2-line-height);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Highlight styling */
+/* Title section styling */
 .highlight {
-  position: relative;
-  z-index: 1;
   padding: 0 0.5rem;
   border-radius: var(--mantine-radius-sm);
-  color: inherit !important; /* Ensure text remains visible */
 }
 
 /* CTA Button styling */
 .ctaButton {
+  margin-top: var(--mantine-spacing-xl);
   min-width: 200px;
   height: 48px;
   font-weight: 600;
@@ -43,38 +23,35 @@
   transition: all 0.3s ease;
   background-color: var(--mantine-color-neutral-1);
   color: var(--mantine-color-nuetral);
+  
+  &:hover {
+    transform: translateY(-2px);
+    background-color: var(--mantine-color-neutral-9);
+    color: var(--mantine-color-white);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
 }
 
-.ctaButton:hover {
-  transform: translateY(-2px);
-  background-color: var(--mantine-color-neutral-9);
-  color: var(--mantine-color-white);
-}
-
-.ctaButton:active {
-  transform: translateY(0);
-}
-
-
-/* Video container with aspect ratio box */
+/* Video container and aspect ratio handling */
 .videoContainer {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--mantine-spacing-md);
+  padding: 0 var(--mantine-spacing-xs);
 }
 
-/* Aspect ratio container using padding trick */
 .aspectRatioBox {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
   background: var(--mantine-color-gray-100);
   border-radius: var(--mantine-radius-lg);
   overflow: hidden;
 }
 
-/* Content wrapper that fills aspect ratio box */
 .videoContent {
   position: absolute;
   top: 0;
@@ -86,7 +63,6 @@
   justify-content: center;
 }
 
-/* Video styling */
 .video {
   width: 100%;
   height: 100%;
@@ -106,24 +82,13 @@
     padding: var(--mantine-spacing-lg) var(--mantine-spacing-xs);
   }
 
-  .header {
-    gap: var(--mantine-spacing-md);
-  }
-
-  .title {
-    font-size: clamp(1.5rem, 4vw, 2rem);
+  .videoContainer {
+    padding: 0 var(--mantine-spacing-xs);
   }
 
   .ctaButton {
     min-width: 180px;
     height: 44px;
-  }
-  .videoContainer {
-    padding: 0 var(--mantine-spacing-xs);
-  }
-
-  .videoWrapper {
-    max-height: 50vh; /* Reduced maximum height on mobile */
   }
 }
 

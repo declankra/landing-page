@@ -1,16 +1,18 @@
 // src/components/sections/SpotlightVideo.tsx
-import { Title, Button, Container, Mark } from '@mantine/core';
+import { Button, Container, Mark } from '@mantine/core';
 import HeroVideoDialog from '@/components/ui/hero-video-dialog';
 import styles from '@/styles/components/SpotlightVideo.module.css';
+import { cn } from "@/lib/utils";
 import { IconArrowRight } from '@tabler/icons-react';
 
 interface SpotlightVideoProps {
   // {{REPLACE_PROPS}} - Configure these based on your product needs
   title?: string;
+  subtitle?: string;
   highlightedText?: string;
   highlightColor?: string;
-  videoSrc: string;
-  thumbnailSrc: string;
+  videoSrc?: string;
+  thumbnailSrc?: string;
   thumbnailAlt?: string;
   ctaText?: string;
   onCtaClick?: () => void;
@@ -35,13 +37,14 @@ interface SpotlightVideoProps {
  */
 export default function SpotlightVideo({
   // {{REPLACE_COPY}} - Replace these defaults with your product's copy
-  title = 'Experience your problem solved with out solution',
+  title = 'Experience your problem solved with our solution',
+  subtitle,
   highlightedText = 'problem solved',
   highlightColor = 'var(--mantine-primary)',
-  videoSrc,
-  thumbnailSrc,
+  videoSrc = "https://www.youtube.com/embed/QGIUa2sSYFI",
+  thumbnailSrc = "/images/SteveJobs16x9.webp",
   thumbnailAlt = 'Product demo video thumbnail',
-  ctaText = 'Try Now',
+  ctaText = 'See it for yourself',
   onCtaClick,
 }: SpotlightVideoProps) {
   // Process title to wrap highlighted text in Mark component if provided
@@ -62,11 +65,26 @@ export default function SpotlightVideo({
 
   return (
     <Container size="xl" className={styles.container}>
-      {/* Title Section */}
-      <div className={styles.header}>
-        <Title order={2} className={styles.title}>
+      {/* Header Section - Using consistent title styling */}
+      <div className="text-center mb-10">
+        {/* Subtitle */}
+        <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary -mb-2 lg:-mb-8">
+          {subtitle}
+        </h3>
+        
+        {/* Main Title */}
+        <h2 className={cn(
+          // Use heading-2-fluid size from globals.css
+          "text-[length:var(--heading-2-fluid)]",
+          "leading-[var(--heading-2-line-height)]",
+          "font-[var(--heading-2-weight)]",
+          "tracking-[var(--heading-2-tracking)]",
+          // Additional styling
+          "mx-auto max-w-[80%]", // Constrain width for readability
+          "-mb-6 lg:-mb-6"
+        )}>
           {renderTitle()}
-        </Title>
+        </h2>
 
         {/* CTA Button */}
         <Button
@@ -80,8 +98,8 @@ export default function SpotlightVideo({
         </Button>
       </div>
 
-     {/* Video Section with aspect ratio container */}
-     <div className={styles.videoContainer}>
+      {/* Video Section with aspect ratio container */}
+      <div className={styles.videoContainer}>
         <div className={styles.aspectRatioBox}>
           <div className={styles.videoContent}>
             <HeroVideoDialog
