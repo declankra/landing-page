@@ -75,7 +75,7 @@ export default function ThreeCardHorizontalHorizontal({
       "font-[var(--heading-2-weight)]",
       "tracking-[var(--heading-2-tracking)]",
       // Additional styling
-      "mx-auto", // Constrain width for readability
+      "mx-auto lg:max-w-[80%]", // Constrain width for readability
       "-mb-6 lg:-mb-6"
     )}>
       {title}
