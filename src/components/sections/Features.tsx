@@ -59,7 +59,7 @@ export default function Features({
   return (
     <Container size="lg" className={styles.container}>
       {/* Header Section */}
-      <div className="text-center mb-20">
+      <div className="w-full text-center mb-20">
         <h3 className="!text-sm !font-semibold tracking-wide uppercase text-primary -mb-2 lg:-mb-8">
           {subtitle}
         </h3>
