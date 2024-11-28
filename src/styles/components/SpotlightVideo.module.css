@@ -40,7 +40,8 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--mantine-spacing-xs);
+  margin-top: var(--mantine-spacing-xl);
+  padding: 0 var(--mantine-spacing-sm);
 }
 
 .aspectRatioBox {

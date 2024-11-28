@@ -17,6 +17,7 @@ interface SpotlightVideoProps {
   thumbnailAlt?: string;
   ctaText?: string;
   onCtaClick?: () => void;
+  hideButton?: boolean; // New prop to optionally hide the button
 }
 
 /**
@@ -47,6 +48,7 @@ export default function SpotlightVideo({
   thumbnailAlt = 'Product demo video thumbnail',
   ctaText = 'See it for yourself',
   onCtaClick,
+  hideButton = false, // Defaults to showing the button
 }: SpotlightVideoProps) {
   // Process title to wrap highlighted text in Mark component if provided
   const renderTitle = () => {
@@ -97,15 +99,17 @@ export default function SpotlightVideo({
         </h2>
 
         {/* CTA Button */}
-        <Button
-          variant="default"
-          size="compact-lg"
-          className={styles.ctaButton}
-          onClick={handleCtaClick}  // Changed from onCtaClick to handleCtaClick
-          rightSection={<IconArrowRight size={20}/>}
-        >
-          {ctaText}
-        </Button>
+        {!hideButton && (
+          <Button
+            variant="default"
+            size="compact-lg"
+            className={styles.ctaButton}
+            onClick={handleCtaClick} // changed from onCtaClick to handleCtaClick
+            rightSection={<IconArrowRight size={20}/>}
+          >
+            {ctaText}
+          </Button>
+        )}
       </div>
 
       {/* Video Section with aspect ratio container */}
