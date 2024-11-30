@@ -3,26 +3,17 @@
 // import CustomBackgroundImage from './CustomBackgroundImage' // Optional: Hero custom background component
 import HeroCenteredBackgroundImage from '../components/sections/HeroCenteredBackgroundImage'
 // import HeroSignup from '../components/HeroSignup'; // Hero component variant with Email Signup - internal modal with supabase connection
-import UserSay from '../components/sections/UserSay';
-import UserSayCarousel from '../components/sections/UserSayCarousel';
-import HowItWorksVertical from '../components/sections/HowItWorksVertical';
+
 import Features from '../components/sections/Features';
 import ShareSection from '../components/sections/ShareSection';
-import FAQDrawerMT from '../components/sections/FAQDrawerMT';
-import LogoClouds from '../components/sections/LogoClouds';
 import Footer from '../components/layout/Footer';
 import ContactUs from '@/components/sections/ContactUs';
-import StatsSimple from '../components/sections/StatsSimple';
-import SpotlightImage from '../components/sections/SpotlightImage';
 import SpotlightVideo from '../components/sections/SpotlightVideo';
 import ScrollVelocityWrapper from '@/components/sections/scroll-velocity-wrapper';
 import FinalSell from '../components/sections/FinalSell';
-import MarqueeCardDisplay from '@/components/sections/MarqueeCardDisplay';
-import ComparisonTable from '@/components/sections/ComparisonTable';
 import { TextRevealScroll } from '@/components/sections/TextRevealScroll';
 import NavigationHeader from '../components/layout/NavigationHeader';
 import ThreeCardHorizontal from '@/components/sections/ThreeCardHorizontal';
-import WhyProductWorks from '@/components/sections/WhyItWorks';
 import Testimonials from '@/components/sections/Testimonials';
 import styles from '@/styles/components/LandingPage.module.css';
 
@@ -34,7 +25,6 @@ export default function LandingPage() {
     { label: "Demo", href: "#demo" },
     { label: "Features", href: "#features" },
     { label: "Contact", href: "#contact" },
-    { label: "FAQ", href: "#faq" },
     // Only include sections you want in navigation
   ];
 
@@ -141,13 +131,6 @@ export default function LandingPage() {
           <ShareSection />
         </section>
 
-
-        <section id="contact" className={styles.sectionAlt}>
-          {/* Contact Us Component - contact form with Supabase connection*/}
-          <ContactUs />
-        </section>
-
-
         <section className={styles.sectionFullWidth}>
           {/* Fancy animated text that reveals itself in center of screen while user scrolls */}
           <TextRevealScroll 
@@ -155,63 +138,9 @@ export default function LandingPage() {
           />
         </section>
 
-
-        <section className={styles.sectionFullWidth}>
-          {/* Testimonials - Carousel Component */}
-          <UserSayCarousel />
-
-          {/* Scrolling Marque Card Wrapper Component - show problem-centric statement, pain point questions, or testomonials */}
-          <MarqueeCardDisplay />
-        </section>
-
-
-        <section className={styles.section}>
-          {/* Value Proposition Component */}
-          <WhyProductWorks />
-
-          {/* Testimonials Component */}
-          <UserSay />
-        </section>
-
-
-        <section className={styles.sectionAlt}>
-          {/* Fun Logo Clouds for ethos */}
-          <LogoClouds />
-
-          {/* Stats component - simple grid row */}
-          <StatsSimple />
-        </section>
-
-
-        <section className={styles.section}>
-          {/* How It Works - Stepper vertical scroll component */}
-          <HowItWorksVertical />
-        </section>
-
-
-        <section className={styles.section}>
-          {/* Image spotlight component - reusable configuration */}
-          <SpotlightImage
-            title="Title to sell customer with the dopest feature, visually"
-            imagePath="/backgrounds/HeroBackgroundBox.webp"
-            imageAlt="Dopest feature"
-          />
-        </section>
-
-
-        <section className={styles.sectionAlt}>
-          {/* Comparison Table component - table format to highlight your unique offering compared to competitors */}
-          <ComparisonTable
-            title="Why we're different: The {highlighted} choice"
-            highlightedWord="uniquely better"
-            competitors={["Product A", "Product B", "Product C"]}
-          />
-        </section>
-
-
-        <section id="faq" className={styles.section}>
-          {/* FAQ Component optimized for SEO */}
-          <FAQDrawerMT />
+        <section id="contact" className={styles.sectionAlt}>
+          {/* Contact Us Component - contact form with Supabase connection*/}
+          <ContactUs />
         </section>
 
 
@@ -242,7 +171,6 @@ export default function LandingPage() {
           // reddit: "https://reddit.com/@example",
           github: "https://github.com/declankra"
         }}
-
       />
     </div>
   );

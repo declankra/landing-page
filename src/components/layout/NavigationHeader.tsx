@@ -6,6 +6,9 @@ import { Menu } from 'lucide-react';
 import SignupButtonShinyMantineModal from '../shared/SignupButtonShinyMantineModal';
 import styles from '@/styles/components/NavigationHeader.module.css';
 import { cn } from "@/lib/utils";
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
 
 interface NavigationLink {
   label: string;
@@ -39,11 +42,11 @@ interface NavigationHeaderProps {
  * @param logoAlt - Alt text for logo
  * @param links - Array of navigation links
  */
-export default function NavigationHeader({ 
+export default function NavigationHeader({
   // {{REPLACE_CONFIG}} - Replace with your product's details
   logoSrc = "/logos/CheckTarget.svg",
   logoAlt = "Project Logo",
-  productName = "ValidateIdea", 
+  productName = "ValidateIdea",
   links = [
     { label: "How It Works", href: "#how-it-works" },
     { label: "Features", href: "#features" },
@@ -52,6 +55,7 @@ export default function NavigationHeader({
   ],
   activeOffset = 80 // Pixels from top to consider section active
 }: NavigationHeaderProps) {
+  const router = useRouter();
   // Track active section
   const [activeSection, setActiveSection] = useState<string>('');
   const [{ y: scrollY }] = useWindowScroll();
@@ -60,17 +64,17 @@ export default function NavigationHeader({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
-   // Handle scroll behavior
-   useEffect(() => {
+  // Handle scroll behavior
+  useEffect(() => {
     const handleScroll = () => {
       if (scrollY < lastScrollY || scrollY < 50) {
         setIsVisible(true);
-      } 
+      }
       else if (scrollY > 50 && scrollY > lastScrollY) {
         setIsVisible(false);
         setIsMobileMenuOpen(false); // Close mobile menu on scroll
       }
-      
+
       setLastScrollY(scrollY);
 
       // Active section detection
@@ -93,31 +97,44 @@ export default function NavigationHeader({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollY, lastScrollY, links, activeOffset]);
 
-  // Smooth scroll handler
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    
-    if (href === '#') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const element = document.querySelector(href);
-      if (element) {
-        const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - offset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+    // For homepage navigation
+    if (href === '/') {
+      router.push('/').then(() => {
+        // After navigation, scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    // Handle section links on homepage
+    if (href.startsWith('#')) {
+      if (router.pathname !== '/') {
+        // If we're not on homepage, navigate there first
+        router.push('/' + href);
+      } else {
+        // If on homepage, scroll to section
+        const element = document.querySelector(href);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       }
     }
-    
+
     setIsMobileMenuOpen(false); // Close menu after click
   };
 
   return (
-    <header 
+    <header
       className={cn(
         styles.header,
         isVisible ? styles.visible : styles.hidden
@@ -126,11 +143,11 @@ export default function NavigationHeader({
       <nav className={styles.nav}>
         {/* Logo and Product Name Section */}
         <div className={styles.logoContainer}>
-          <a 
-            href="#" 
+          <Link
+            href="/"
             className={styles.logoLink}
-            onClick={(e) => handleNavClick(e, '#')}
-            aria-label="Go to top of page"
+            onClick={(e) => handleNavClick(e, '/')}
+            aria-label="Go to homepage"
           >
             <div className={styles.logoWrapper}>
               <Image
@@ -145,13 +162,13 @@ export default function NavigationHeader({
             <span className={styles.productName} title={productName}>
               {productName}
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Navigation Links */}
         <div className={styles.linkContainer}>
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className={cn(
@@ -161,7 +178,7 @@ export default function NavigationHeader({
               onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -186,7 +203,7 @@ export default function NavigationHeader({
       {/* Mobile Navigation Menu */}
       <div className={cn(styles.mobileNav, isMobileMenuOpen && styles.mobileNavOpen)}>
         {links.map((link) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             className={cn(
@@ -199,7 +216,7 @@ export default function NavigationHeader({
             }}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
       </div>
     </header>
