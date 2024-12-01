@@ -1,4 +1,5 @@
 // src/pages/examples.tsx
+
 import NavigationHeader from '@/components/layout/NavigationHeader';
 import Footer from '@/components/layout/Footer';
 import styles from '@/styles/components/LandingPage.module.css';
@@ -15,15 +16,19 @@ import FAQDrawerMT from '@/components/sections/FAQDrawerMT';
 
 // Add navigation links for Examples page
 const navigationLinks = [
-    { label: "Home", href: "/" },  // Changed from '#' to '/'
-  // Add any other navigation links specific to examples page
+  { label: "Home", href: "/", type: "page" as const },  // Add type assertion
 ];
 
 export default function ExamplesPage() {
   return (
     <div className={styles.pageWrapper}>
       {/* Reuse same header with different navigation */}
-      <NavigationHeader links={navigationLinks} />
+      <NavigationHeader         
+        logoSrc="/logos/CheckTarget.svg"
+        logoAlt="Project Logo"
+        productName="ValidateIdea"
+        links={navigationLinks}  
+      />
 
       <main className={styles.mainWrapper}>
         {/* Add your examples content here */}
