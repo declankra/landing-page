@@ -16,7 +16,7 @@ import FAQDrawerMT from '@/components/sections/FAQDrawerMT';
 
 // Add navigation links for Examples page
 const navigationLinks = [
-  { label: "Home", href: "/", type: "page" as const },  // Add type assertion
+  { label: "Home", href: "/", type: "page"},  // Add type assertion
 ];
 
 export default function ExamplesPage() {
