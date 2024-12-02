@@ -7,7 +7,7 @@ import SignupButtonShinyMantineModal from '../shared/SignupButtonShinyMantineMod
 import styles from '@/styles/components/NavigationHeader.module.css';
 import { cn } from "@/lib/utils";
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
 
 interface NavigationLink {
   label: string;
@@ -119,6 +119,16 @@ export default function NavigationHeader({
     }
     setIsMobileMenuOpen(false);
   };
+  
+  const router = useRouter();
+  const handleLogoClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (router.pathname !== '/') {
+      await router.push('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <header
@@ -133,7 +143,7 @@ export default function NavigationHeader({
           <Link
             href="/"
             className={styles.logoLink}
-            onClick={(e) => handleNavClick(e, '/', 'page')}
+            onClick={handleLogoClick}
             aria-label="Go to homepage"
           >
             <div className={styles.logoWrapper}>
