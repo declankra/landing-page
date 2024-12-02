@@ -119,7 +119,7 @@ export default function NavigationHeader({
     }
     setIsMobileMenuOpen(false);
   };
-  
+
   const router = useRouter();
   const handleLogoClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -178,8 +178,6 @@ export default function NavigationHeader({
             </Link>
 
           ))}
-
-          <Link href="/examples">Examples</Link>
         </div>
 
         {/* Mobile Menu Button */}
