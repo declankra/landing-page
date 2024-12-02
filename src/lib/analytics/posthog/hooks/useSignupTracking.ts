@@ -1,5 +1,5 @@
 // lib/analytics/posthog/hooks/useSignupTracking.ts
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { Analytics } from '../index';
 import type { SignupSource } from '../index';
 
@@ -22,12 +22,12 @@ export const useSignupTracking = (source: SignupSource) => {
     }
   };
 
-  const trackAbandon = (step: number) => {
+const trackAbandon = useCallback((step: number) => {
     if (hasStarted.current) {
       const timeSpent = Date.now() - startTime.current;
       Analytics.trackSignupAbandoned(source, timeSpent, step);
     }
-  };
+  }, [source]);
 
   // Reset tracking on unmount if incomplete
   useEffect(() => {
