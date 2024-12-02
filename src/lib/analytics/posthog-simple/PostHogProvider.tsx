@@ -1,4 +1,4 @@
-// src/components/providers/PostHogProvider.tsx 
+// src/lib/analytics/posthog-simple/PostHogProvider.tsx 
 // handles default autocapture settings for posthog and page leave
 // more info: https://posthog.com/docs/libraries/next-js?tab=Pages+router 
 'use client';
@@ -22,8 +22,8 @@ export default function PostHogPageview() {
       api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
       person_profiles: 'identified_only',
       loaded: (posthog) => {
-        // Enable debug mode in development
-        if (process.env.NODE_ENV === 'development') posthog.debug()
+       // Explicitly disable debug mode
+       posthog.debug(false);
       },
       bootstrap: {
         distinctID: posthog.get_distinct_id(),
