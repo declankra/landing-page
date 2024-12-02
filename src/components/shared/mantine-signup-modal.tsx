@@ -225,6 +225,14 @@ export function MantineSignupModal({
     onClose();
   }, [currentStep, form, onClose, requestEmail]);
 
+  // Use handleModalOpen in a useEffect
+  useEffect(() => {
+    if (opened) {
+      handleModalOpen();
+    }
+  }, [opened, handleModalOpen]);
+
+
   // Share link handler
   const handleShareLink = useCallback((link: string) => {
     navigator.clipboard.writeText(link);
@@ -313,12 +321,7 @@ export function MantineSignupModal({
   const renderFields = () => {
     const currentFields = steps[currentStep].fields;
 
-    // Use handleModalOpen in a useEffect
-    useEffect(() => {
-      if (opened) {
-        handleModalOpen();
-      }
-    }, [opened, handleModalOpen]);
+
 
     return currentFields.map((field, index) => {
       switch (field.type) {
