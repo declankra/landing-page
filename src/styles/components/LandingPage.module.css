@@ -21,15 +21,15 @@
   width: 100%;
   max-width: var(--mantine-container-size-xl);
   margin: 0 auto;
-  padding: var(--section-space-md) var(--space-lg);
+  padding: var(--section-space-lg) var(--space-lg);
   position: relative;
 }
 
 /* Full width section that breaks out of container */
 .sectionFullWidth {
   width: 100%;
-  padding-top: var(--section-space-md);
-  padding-bottom: var(--section-space-md);
+  padding-top: var(--section-space-lg);
+  padding-bottom: var(--section-space-lg);
   position: relative;
 }
 
@@ -38,7 +38,7 @@
   width: 100%;
   max-width: var(--mantine-container-size-xl);
   margin: 0 auto;
-  padding: var(--section-space-md) var(--space-lg);
+  padding: var(--section-space-lg) var(--space-lg);
   background: linear-gradient(
     to bottom,
     var(--background) 0%,
