@@ -14,9 +14,13 @@ import PostHogPageview from '@/lib/analytics/posthog-simple/PostHogProvider'; //
 import { initAmplitude, Analytics } from '@/lib/analytics/amplitude/amplitude';
 import { useScrollTracking } from '@/lib/analytics/amplitude/useScrollTracking';
 import { OpenPanelProvider } from '@/lib/analytics/openpanel/OpenPanelProvider';
+import Layout from '@/components/layout/Layout';
+
 
 
 export default function App({ Component, pageProps }: AppProps) {
+  // Get navigation links from page props or use default
+  const navigationLinks = pageProps.navigationLinks || [];
   const router = useRouter();
 
   // Initialize scroll tracking
@@ -61,7 +65,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <MantineProvider theme={mantineTheme}>
           <PostHogPageview />
           <OpenPanelProvider>
-            <Component {...pageProps} />
+          <Layout navigationLinks={navigationLinks}>
+              <Component {...pageProps} />
+            </Layout>
             <Toaster /> {/* shadcn Toaster */}
             <AnalyticsProvider /> {/* Google Analytics */}
           </OpenPanelProvider>

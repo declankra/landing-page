@@ -10,17 +10,24 @@ interface LayoutProps {
   navigationLinks?: Array<{
     label: string;
     href: string;
-    type?: 'section' | 'page';
+    type: 'section' | 'page'
   }>;
 }
 
 export default function Layout({ children, navigationLinks = [] }: LayoutProps) {
   return (
     <div className={styles.pageWrapper}>
-      <NavigationHeader links={navigationLinks} />
+      <NavigationHeader 
+        logoSrc="/logos/CheckTarget.svg"
+        logoAlt="Project Logo"
+        productName="ValidateIdea"
+        links={navigationLinks} 
+      />
+      
       <main className={styles.mainWrapper}>
         {children}
       </main>
+
       <Footer 
         builderName="Declan"
         creatorUrl="https://www.declankramper.me"
