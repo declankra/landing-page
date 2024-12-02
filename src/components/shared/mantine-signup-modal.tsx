@@ -1,5 +1,5 @@
 // src/components/shared/mantine-signup-modal.tsx
-import { useState, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { 
   Modal,
   TextInput, 
@@ -61,36 +61,36 @@ type SignupData = {
 };
 
 interface MantineSignupModalProps {
-  /** Pre-filled email if already collected */
-  requestEmail?: string | null;
+    /** Pre-filled email if already collected */
+    requestEmail?: string | null;
+    
+    /** Custom steps for the modal flow */
+    steps?: StepConfig[];
+    
+    /** Supabase table to insert data into */
+    supabaseTable?: string;
+    
+    /** Whether to show success animation */
+    successAnimation?: boolean;
+    
+    /** Modal open state */
+    opened: boolean;
+    
+    /** Callback when modal closes */
+    onClose: () => void;
+    
+    /** Callback on successful signup */
+    onSuccess?: (data: SignupData) => void;
   
-  /** Custom steps for the modal flow */
-  steps?: StepConfig[];
-  
-  /** Supabase table to insert data into */
-  supabaseTable?: string;
-  
-  /** Whether to show success animation */
-  successAnimation?: boolean;
-  
-  /** Modal open state */
-  opened: boolean;
-  
-  /** Callback when modal closes */
-  onClose: () => void;
-  
-  /** Callback on successful signup */
-  onSuccess?: (data: SignupData) => void;
-
-  /** Track which CTA triggered the modal */
-  source: SignupSource;
+    /** Track which CTA triggered the modal */
+    source: SignupSource;
 }
 
-// Map form field names to Supabase column names
+// Supabase column mapping
 const SUPABASE_COLUMN_MAPPING = {
-    email: 'email_address',
-    disappointment: 'disappointment',
-    excitement: 'excitement_to_focus',
+  email: 'email_address',
+  disappointment: 'disappointment',
+  excitement: 'excitement_to_focus',
 } as const;
 
 // Default steps configuration
@@ -106,10 +106,10 @@ const defaultSteps: StepConfig[] = [
       description: 'Get {core benefit} before everyone else'
     }],
     validation: {
-        email: (value) => {
-          if (!value || !value.trim()) return 'Email is required';
-          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? null : 'Please enter a valid email address';
-        }
+      email: (value) => {
+        if (!value || !value.trim()) return 'Email is required';
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? null : 'Please enter a valid email address';
+      }
     },
   },
   {
@@ -192,77 +192,70 @@ export function MantineSignupModal({
   onSuccess,
   source,
 }: MantineSignupModalProps) {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(requestEmail ? 1 : 0);
   const [loading, setLoading] = useState(false);
-  const [signupData, setSignupData] = useState<SignupData>({
-    email: requestEmail ?? undefined
-  });
   const { toast } = useToast();
 
-  // Initialize form with validation and proper initial values
+  // Initialize form with all possible field values
   const form = useForm({
     initialValues: {
       email: requestEmail ?? '',
-      // Add other default values as needed
+      disappointment: '',
+      excitement: '',
     },
     validate: steps[currentStep]?.validation || {}
   });
 
-  // Calculate progress percentage
+  // Progress calculation
   const progress = steps.length > 1 
     ? 50 + ((currentStep) / (steps.length - 1)) * 50 
     : 0;
 
-  // Track modal open/close
-  useEffect(() => {
-    if (opened) {
-      signupAnalytics.trackSignupStart(source);
-    } else if (!opened && currentStep > 0 && currentStep < steps.length - 1) {
-      // Only track abandonment if they started but didn't finish
+  // Modal state handlers
+  const handleModalOpen = useCallback(() => {
+    signupAnalytics.trackSignupStart(source);
+  }, [source]);
+
+  const handleModalClose = useCallback(() => {
+    if (currentStep > 0 && currentStep < steps.length - 1) {
       signupAnalytics.trackSignupAbandoned('modal_closed');
     }
-  }, [opened, currentStep, source]);
+    setCurrentStep(requestEmail ? 1 : 0);
+    form.reset();
+    onClose();
+  }, [currentStep, form, onClose, requestEmail]);
 
-  // Reset state when modal closes
-  useEffect(() => {
-    if (!opened) {
-      setCurrentStep(0);
-      form.reset();
-      setSignupData({
-        email: requestEmail ?? undefined
-      });
-    }
-  }, [opened, requestEmail, form]);
-
-  const handleSuccess = async (finalData: SignupData) => {
-    if (successAnimation) {
-      triggerConfetti();
-    }
-
-    // Check if we should show toast or CTA
-    const currentField = steps[currentStep].fields[0];
-    if (currentField.type === 'successCTA' && currentField.triggerToast) {
-      toast({
-        title: "Welcome aboard! 🎉",
-        description: "Speed wins - you'll receive an email shortly with next steps.",
-      });
-      onClose();
-    }
-
-    signupAnalytics.trackSignupComplete();
-    onSuccess?.(finalData);
-  };
-
-  const handleShareLink = (link: string) => {
+  // Share link handler
+  const handleShareLink = useCallback((link: string) => {
     navigator.clipboard.writeText(link);
     toast({
       title: "Link copied!",
       description: "Share it with your friends",
       duration: 1800,
     });
-  };
+  }, [toast]);
 
-  const handleSubmit = async (values: SignupData) => {
+  // Success handler
+  const handleSuccess = useCallback(async (finalData: SignupData) => {
+    if (successAnimation) {
+      triggerConfetti();
+    }
+    // Check if we should show toast or CTA 
+    const currentField = steps[currentStep].fields[0];
+    if (currentField.type === 'successCTA' && currentField.triggerToast) {
+      toast({
+        title: "Welcome aboard! 🎉",
+        description: "Speed wins - you'll receive an email shortly with next steps.",
+      });
+      handleModalClose();
+    }
+
+    signupAnalytics.trackSignupComplete();
+    onSuccess?.(finalData);
+  }, [currentStep, handleModalClose, onSuccess, steps, successAnimation, toast]);
+
+  // Form submission handler
+  const handleSubmit = useCallback(async (values: SignupData) => {
     const currentField = steps[currentStep].fields[0];
     if (!values[currentField.name] && currentField.required) {
       form.setFieldError(currentField.name, `Please ${currentField.type === 'radio' ? 'select an option' : 'fill out this field'}`);
@@ -271,25 +264,17 @@ export function MantineSignupModal({
 
     try {
       setLoading(true);
-
       // Track step completion
-      signupAnalytics.trackSignupStep(currentStep + 1, 
-        steps[currentStep].title,
-        true
-      );
-
-      // Merge new values with existing signup data
-      const updatedData = { ...signupData, ...values };
-      setSignupData(updatedData);
+      signupAnalytics.trackSignupStep(currentStep + 1, steps[currentStep].title, true);
 
       // Map form field names to Supabase column names
-      const supabaseData = Object.entries(updatedData).reduce((acc, [key, value]) => {
+      const supabaseData = Object.entries(values).reduce((acc, [key, value]) => {
         const columnName = SUPABASE_COLUMN_MAPPING[key as keyof typeof SUPABASE_COLUMN_MAPPING] || key;
         acc[columnName] = value;
         return acc;
       }, {} as Record<string, string | undefined>);
 
-      // If this is the final non-CTA step, save to Supabase
+      // Handle final step
       const nextStep = steps[currentStep + 1];
       if (!nextStep || nextStep.fields[0].type === 'successCTA') {
         const { error: supabaseError } = await supabase
@@ -298,21 +283,18 @@ export function MantineSignupModal({
 
         if (supabaseError) throw supabaseError;
 
-        await handleSuccess(updatedData);
+        await handleSuccess(values);
       }
       
-      // Move to next step and track view
+      // Move to next step if not complete
       if (currentStep < steps.length - 1) {
-        setCurrentStep(prev => {
-          const nextStepIndex = prev + 1;
-          // Track next step view
-          signupAnalytics.trackSignupStep(
-            nextStepIndex + 1,
-            steps[nextStepIndex].title,
-            false
-          );
-          return nextStepIndex;
-        });
+        const nextStepIndex = currentStep + 1;
+        signupAnalytics.trackSignupStep(
+          nextStepIndex + 1,
+          steps[nextStepIndex].title,
+          false
+        );
+        setCurrentStep(nextStepIndex);
       }
     } catch (error) {
       console.error('Error in signup process:', error);
@@ -325,10 +307,18 @@ export function MantineSignupModal({
     } finally {
       setLoading(false);
     }
-  };
+  }, [currentStep, form, handleSuccess, steps, supabaseTable, toast]);
 
+  // Field renderer
   const renderFields = () => {
     const currentFields = steps[currentStep].fields;
+
+    // Use handleModalOpen in a useEffect
+    useEffect(() => {
+      if (opened) {
+        handleModalOpen();
+      }
+    }, [opened, handleModalOpen]);
 
     return currentFields.map((field, index) => {
       switch (field.type) {
@@ -406,17 +396,10 @@ export function MantineSignupModal({
     });
   };
 
-  // Skip email step if email is provided
-  useEffect(() => {
-    if (requestEmail != null && currentStep === 0 && steps[0]?.fields[0]?.type === 'email') {
-      setCurrentStep(1);
-    }
-  }, [requestEmail, currentStep, steps]);
-
   return (
     <Modal
       opened={opened}
-      onClose={() => !loading && onClose()}
+      onClose={() => !loading && handleModalClose()}
       title={
         <Stack gap="xs">
           <Text fw={500} mb={-10}>{steps[currentStep].title}</Text>
@@ -435,21 +418,14 @@ export function MantineSignupModal({
       }}
       withCloseButton={false}
     >
-      {/* Progress bar */}
       {steps.length > 1 && !(currentStep === 0 && steps[0].fields[0].type === 'email') && (
-        <Progress 
-          value={progress} 
-          size="md" 
-          mb="lg"
-        />
+        <Progress value={progress} size="md" mb="lg" />
       )}
 
-      {/* Form */}
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack>
           {renderFields()}
 
-          {/* Don't show button on success CTA step */}
           {steps[currentStep].fields[0].type !== 'successCTA' && (
             <Button 
               type="submit"
