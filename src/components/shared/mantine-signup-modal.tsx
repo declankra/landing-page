@@ -223,7 +223,7 @@ export function MantineSignupModal({
     setCurrentStep(requestEmail ? 1 : 0);
     form.reset();
     onClose();
-  }, [currentStep, form, onClose, requestEmail]);
+  }, [currentStep, form, onClose, requestEmail, steps.length]);
 
   // Use handleModalOpen in a useEffect
   useEffect(() => {

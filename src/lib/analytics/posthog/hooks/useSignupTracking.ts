@@ -36,7 +36,7 @@ export const useSignupTracking = (source: SignupSource) => {
         trackAbandon(-1); // -1 indicates component unmount
       }
     };
-  }, []);
+  }, [trackAbandon]);
 
   return { trackStart, trackComplete, trackAbandon };
 };
