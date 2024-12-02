@@ -5,6 +5,7 @@
     max-width: var(--mantine-container-size-xl);
     margin: 0 auto;
     overflow: hidden;
+    position: relative;
   }
   
   /* Title styling */
