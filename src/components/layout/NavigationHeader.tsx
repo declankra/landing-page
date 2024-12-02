@@ -136,26 +136,6 @@ export default function NavigationHeader({
     setIsMobileMenuOpen(false); // Close menu after click
   };
 
-  useEffect(() => {
-    console.log('Current path:', router.pathname);
-    const handleRouteChange = (url: string) => console.log('Navigating to:', url);
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => router.events.off('routeChangeComplete', handleRouteChange);
-  }, [router]);
-
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      console.log('Route changed to:', url);
-    };
-  
-    router.events.on('routeChangeComplete', handleRouteChange);
-  
-    // Cleanup to avoid multiple listeners
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router]);
-
   return (
     <header
       className={cn(
