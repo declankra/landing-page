@@ -138,7 +138,7 @@ export default function Home() {
         images={[
             { src: "/images/examples/usersay.webp", alt: "User Say component" },
             { src: "/images/examples/table.webp", alt: "Table component" },
-            { src: "/images/examples/valueProp.webp", alt: "Value Prop component" },
+            { src: "/images/examples/ValueProp.webp", alt: "Value Prop component" },
             { src: "/images/examples/howitworks.webp", alt: "How It Works component" },
             // Add more images as needed
           ]}
