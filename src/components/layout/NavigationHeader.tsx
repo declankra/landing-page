@@ -98,7 +98,10 @@ export default function NavigationHeader({
   }, [scrollY, lastScrollY, links, activeOffset]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+    if (!href.startsWith('#')) {
+      return; // Remove preventDefault() to allow normal navigation
+    }
+    e.preventDefault(); // Only prevent default for hash links
 
     // For homepage navigation
     if (href === '/') {
@@ -132,6 +135,26 @@ export default function NavigationHeader({
 
     setIsMobileMenuOpen(false); // Close menu after click
   };
+
+  useEffect(() => {
+    console.log('Current path:', router.pathname);
+    const handleRouteChange = (url: string) => console.log('Navigating to:', url);
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => router.events.off('routeChangeComplete', handleRouteChange);
+  }, [router]);
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      console.log('Route changed to:', url);
+    };
+  
+    router.events.on('routeChangeComplete', handleRouteChange);
+  
+    // Cleanup to avoid multiple listeners
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router]);
 
   return (
     <header
@@ -179,7 +202,10 @@ export default function NavigationHeader({
             >
               {link.label}
             </Link>
+
           ))}
+
+          <Link href="/examples">Examples</Link>
         </div>
 
         {/* Mobile Menu Button */}
