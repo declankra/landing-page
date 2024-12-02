@@ -19,12 +19,12 @@ import styles from '@/styles/components/LandingPage.module.css';
 export default function Home() {
 
   const navigationLinks = [
-    { label: "Testimonials", href: "#testimonials"},
-    { label: "How It Works", href: "#how-it-works"},
+    { label: "Testimonials", href: "#testimonials", type: "section"},
+    { label: "How It Works", href: "#how-it-works", type: "section"},
     { label: "Demo", href: "#demo", type: "section"},
     { label: "Features", href: "#features", type: "section"},
     { label: "Contact", href: "#contact", type: "section"},
-    // Only include sections you want in navigation
+    { label: "Examples", href: "/examples", type: "page"},
   ];
 
   return (
