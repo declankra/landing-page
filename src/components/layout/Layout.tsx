@@ -1,4 +1,6 @@
 // components/layout/Layout.tsx
+
+// {{{ OPTIONAL LAYOUT FOR SINGLUE USE LAYOUT COMPONENT INSTEAD OF REUSING LAYOUT IN PAGES }}}
 import NavigationHeader from './NavigationHeader';
 import Footer from './Footer';
 import styles from '@/styles/components/LandingPage.module.css';
