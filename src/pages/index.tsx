@@ -122,23 +122,11 @@ export default function Home() {
       </section>
 
 
-      <section id="features" className={styles.section}>
+      <section id="features" className={styles.sectionAlt}>
         {/* Features Component - Card Grid*/}
         <Features />
       </section>
 
-
-      <section className={styles.section}>
-        {/* Sharing site for reach */}
-        <ShareSection />
-      </section>
-
-      <section className={styles.sectionFullWidth}>
-        {/* Fancy animated text that reveals itself in center of screen while user scrolls */}
-        <TextRevealScroll
-          text="Custom components built to sell your idea."
-        />
-      </section>
 
       <section className={styles.section}>
         {/* Image Marquee Component - vertical scrolling images */}
@@ -156,6 +144,21 @@ export default function Home() {
           ]}
         />
       </section>
+
+
+      <section className={styles.sectionFullWidth}>
+        {/* Fancy animated text that reveals itself in center of screen while user scrolls */}
+        <TextRevealScroll
+          text="Scrolling won't solve your problem."
+        />
+      </section>
+
+
+      <section className={styles.section}>
+        {/* Sharing site for reach */}
+        <ShareSection />
+      </section>
+
 
       <section id="contact" className={styles.sectionAlt}>
         {/* Contact Us Component - contact form with Supabase connection*/}
