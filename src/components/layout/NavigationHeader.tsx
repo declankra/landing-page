@@ -6,13 +6,13 @@ import { Menu } from 'lucide-react';
 import SignupButtonShinyMantineModal from '../shared/SignupButtonShinyMantineModal';
 import styles from '@/styles/components/NavigationHeader.module.css';
 import { cn } from "@/lib/utils";
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 
 interface NavigationLink {
   label: string;
   href: string;
+  type: 'section' | 'page';
 }
 
 interface NavigationHeaderProps {
@@ -48,14 +48,13 @@ export default function NavigationHeader({
   logoAlt = "Project Logo",
   productName = "ValidateIdea",
   links = [
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Features", href: "#features" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "FAQ", href: "#faq" }
+    { label: "How It Works", href: "#how-it-works", type: "section" },
+    { label: "Testimonials", href: "#testimonials", type: "section" },
+    { label: "Features", href: "#features", type: "section" },
+    { label: "FAQ", href: "#faq", type: "section" }
   ],
   activeOffset = 80 // Pixels from top to consider section active
 }: NavigationHeaderProps) {
-  const router = useRouter();
   // Track active section
   const [activeSection, setActiveSection] = useState<string>('');
   const [{ y: scrollY }] = useWindowScroll();
@@ -97,43 +96,28 @@ export default function NavigationHeader({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollY, lastScrollY, links, activeOffset]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (!href.startsWith('#')) {
-      return; // Remove preventDefault() to allow normal navigation
-    }
-    e.preventDefault(); // Only prevent default for hash links
-
-    // For homepage navigation
-    if (href === '/') {
-      router.push('/').then(() => {
-        // After navigation, scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-      setIsMobileMenuOpen(false);
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, type: string) => {
+    if (type === 'page') {
+      // For page navigation, we should just let the default behavior happen
+      // Remove the special case for home page as it's causing issues
       return;
     }
 
-    // Handle section links on homepage
+    // For section navigation
+    e.preventDefault();
     if (href.startsWith('#')) {
-      if (router.pathname !== '/') {
-        // If we're not on homepage, navigate there first
-        router.push('/' + href);
-      } else {
-        // If on homepage, scroll to section
-        const element = document.querySelector(href);
-        if (element) {
-          const offset = 80;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.scrollY - offset;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
+      const element = document.querySelector(href);
+      if (element) {
+        const offset = 30;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     }
-
-    setIsMobileMenuOpen(false); // Close menu after click
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -149,7 +133,7 @@ export default function NavigationHeader({
           <Link
             href="/"
             className={styles.logoLink}
-            onClick={(e) => handleNavClick(e, '/')}
+            onClick={(e) => handleNavClick(e, '/', 'page')}
             aria-label="Go to homepage"
           >
             <div className={styles.logoWrapper}>
@@ -178,7 +162,7 @@ export default function NavigationHeader({
                 styles.link,
                 activeSection === link.href && styles.active
               )}
-              onClick={(e) => handleNavClick(e, link.href)}
+              onClick={(e) => handleNavClick(e, link.href, link.type || 'section')}
             >
               {link.label}
             </Link>
@@ -217,7 +201,7 @@ export default function NavigationHeader({
               activeSection === link.href && styles.active
             )}
             onClick={(e) => {
-              handleNavClick(e, link.href);
+              handleNavClick(e, link.href, link.type || 'section');
               setIsMobileMenuOpen(false);
             }}
           >

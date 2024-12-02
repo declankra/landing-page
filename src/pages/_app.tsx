@@ -16,7 +16,6 @@ import { useScrollTracking } from '@/lib/analytics/amplitude/useScrollTracking';
 import { OpenPanelProvider } from '@/lib/analytics/openpanel/OpenPanelProvider';
 
 
-
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
@@ -42,7 +41,6 @@ export default function App({ Component, pageProps }: AppProps) {
       Analytics.trackPageView({
         previous_page: router.asPath,
         current_page: url,  // Added this line
-        // Add any additional custom properties
       });
     };
 
