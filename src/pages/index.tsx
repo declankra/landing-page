@@ -13,6 +13,7 @@ import { TextRevealScroll } from '@/components/sections/TextRevealScroll';
 import ThreeCardHorizontal from '@/components/sections/ThreeCardHorizontal';
 import Testimonials from '@/components/sections/Testimonials';
 import styles from '@/styles/components/LandingPage.module.css';
+import ImageMarqueeVertical from '@/components/sections/ImageMarqueeVertical';
 
 export async function getStaticProps() {
   const navigationLinks = [
@@ -136,6 +137,23 @@ export default function Home() {
         {/* Fancy animated text that reveals itself in center of screen while user scrolls */}
         <TextRevealScroll
           text="Custom components built to sell your idea."
+        />
+      </section>
+
+      <section className={styles.section}>
+        {/* Image Marquee Component - vertical scrolling images */}
+      <ImageMarqueeVertical
+        title="Custom components to sell your idea"
+        subtitle='Free, forever'
+        actionText="See Examples"
+        actionUrl="/examples"
+        images={[
+            { src: "/images/examples/usersay.webp", alt: "User Say component" },
+            { src: "/images/examples/table.webp", alt: "Table component" },
+            { src: "/images/examples/valueProp.webp", alt: "Value Prop component" },
+            { src: "/images/examples/howitworks.webp", alt: "How It Works component" },
+            // Add more images as needed
+          ]}
         />
       </section>
 
