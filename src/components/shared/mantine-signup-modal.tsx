@@ -195,13 +195,16 @@ export function MantineSignupModal({
   const [currentStep, setCurrentStep] = useState(0);
   const [loading, setLoading] = useState(false);
   const [signupData, setSignupData] = useState<SignupData>({
-    ...(requestEmail ? { email: requestEmail } : {})
+    email: requestEmail ?? undefined
   });
   const { toast } = useToast();
 
-  // Initialize form with validation
+  // Initialize form with validation and proper initial values
   const form = useForm({
-    initialValues: requestEmail ? { email: requestEmail } : {},
+    initialValues: {
+      email: requestEmail ?? '',
+      // Add other default values as needed
+    },
     validate: steps[currentStep]?.validation || {}
   });
 
@@ -225,7 +228,9 @@ export function MantineSignupModal({
     if (!opened) {
       setCurrentStep(0);
       form.reset();
-      setSignupData(requestEmail ? { email: requestEmail } : {});
+      setSignupData({
+        email: requestEmail ?? undefined
+      });
     }
   }, [opened, requestEmail, form]);
 
@@ -403,7 +408,7 @@ export function MantineSignupModal({
 
   // Skip email step if email is provided
   useEffect(() => {
-    if (requestEmail && currentStep === 0 && steps[0].fields[0].type === 'email') {
+    if (requestEmail != null && currentStep === 0 && steps[0]?.fields[0]?.type === 'email') {
       setCurrentStep(1);
     }
   }, [requestEmail, currentStep, steps]);

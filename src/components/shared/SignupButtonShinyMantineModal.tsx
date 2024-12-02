@@ -67,7 +67,7 @@ interface SignupButtonShinyMantineModalProps {
  * ```
  */
 export default function SignupButtonShinyMantineModal({ 
-  className,
+  className = '',
   children = 'Sign Up Now', // {{REPLACE_COPY}} - Default button text
   onModalOpen,
   onModalClose,
@@ -111,7 +111,7 @@ export default function SignupButtonShinyMantineModal({
         opened={modalOpened}
         onClose={handleClose}
         onSuccess={handleSuccess}
-        source={SignupSource.NAVIGATION}  // Track CTA source
+        source={SignupSource.NAVIGATION}
       />
     </>
   );
