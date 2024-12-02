@@ -31,7 +31,7 @@ export const TextRevealScroll: React.FC<TextRevealScrollProps> = ({ text }) => {
         text={text || "This text will reveal itself as you scroll."} 
         className="
           /* Larger text size that scales with screen size */
-          text-3xl sm:text-4xl md:text-5xl lg:text-heading-2
+          text-4xl sm:text-45l md:text-6xl lg:text-heading-2
 
           /* Force text centering */
           text-center
