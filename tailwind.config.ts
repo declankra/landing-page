@@ -134,6 +134,7 @@ const config: Config = {
   			marquee: 'marquee var(--duration) infinite linear',
   			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
 			grid: "grid 15s linear infinite",
+			'shiny-text': 'shiny-text 8s infinite',
   		},
   		keyframes: {
   			'accordion-down': {
@@ -270,6 +271,14 @@ const config: Config = {
 				"0%": { transform: "translateY(-50%)" },
 				"100%": { transform: "translateY(0)" },
 			},
+			'shiny-text': {
+  				'0%, 90%, 100%': {
+  					'background-position': 'calc(-100% - var(--shiny-width)) 0'
+  				},
+  				'30%, 60%': {
+  					'background-position': 'calc(100% + var(--shiny-width)) 0'
+  				}
+  			}
   		},
   	}
   },
