@@ -33,11 +33,11 @@ export default function Layout({ children, navigationLinks = [] }: LayoutProps) 
         creatorUrl="https://www.declankramper.me"
         companyName="dkBuilds"
         socials={{
-          twitter: "https://x.com/asbestostrades",
-          linkedin: "https://www.linkedin.com/in/declan-kramper/",
-          instagram: "https://instagram.com/dkramper",
           producthunt: "https://www.producthunt.com/@declan_kramper",
-          github: "https://github.com/declankra"
+          linkedin: "https://www.linkedin.com/in/declan-kramper/",
+          github: "https://github.com/declankramper",
+          twitter: "https://x.com/asbestostrades",
+          instagram: "https://instagram.com/dkramper",
         }}
       />
     </div>
