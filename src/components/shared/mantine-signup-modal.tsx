@@ -96,14 +96,14 @@ const SUPABASE_COLUMN_MAPPING = {
 // Default steps configuration
 const defaultSteps: StepConfig[] = [
   {
-    title: "Join Us",
+    title: "Join for free (forever)",
     fields: [{
       type: 'email',
       name: 'email',
       label: 'Email',
       placeholder: 'sign@me.up',
       required: true,
-      description: 'Get {core benefit} before everyone else'
+      description: 'Get your product idea validated before everyone else'
     }],
     validation: {
       email: (value) => {
@@ -145,7 +145,7 @@ const defaultSteps: StepConfig[] = [
       name: 'share',
       label: 'Thank you for signing up',
       buttonText: 'Copy Invite Link',
-      message: 'Help your friends discover {benefit of product} too!',
+      message: 'Help your friends build products people love, too!',
       shareLink: 'https://your-product.com?ref=invite',
       triggerToast: true,
       description: 'Share with your friends'
