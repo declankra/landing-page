@@ -1,46 +1,46 @@
 // src/components/sections/Features.tsx
 import { useState } from 'react';
 import { Container, Text, UnstyledButton, Stack } from '@mantine/core';
-import { Lightbulb, Zap, Target, Clock, Shield, Heart } from 'lucide-react';
+import {Zap, Puzzle, Eye, Rocket, ChartBar, Users } from 'lucide-react';
 import styles from '@/styles/components/Features.module.css';
 import { cn } from '@/lib/utils';
 
 // {{REPLACE_FEATURES}} - Replace these with your product's actual features
 const features = [
   {
-    icon: Lightbulb,
-    title: "Effortless Ideation",
-    description: "Quickly convey why your idea matters to test early interest.",
+    icon: Rocket,
+    title: "Rapid Deployment",
+    description: "Launch your landing page in minutes with our pre-configured starter kit.",
     colorIndex: 8 // Using accent[4] - #38BDF8
   },
   {
     icon: Zap,
-    title: "Lightning Fast",
+    title: "Modern Tech Stack",
     description: "Experience blazing fast performance with industry-leading tech stack.",
     colorIndex: 8 // Using accent[5] - #0EA5E9
   },
   {
-    icon: Target,
-    title: "Precision Targeting",
-    description: "Customize to reach your target audience based on next-level feedback.",
+    icon: ChartBar,
+    title: "Pre-built Analytics",
+    description: "Gain immediate insights into user engagement with built-in analytics.",
     colorIndex: 8 // Using accent[6] - #0284C7
   },
   {
-    icon: Clock,
-    title: "Rapid Validation",
-    description: "Spend more time gathering insights and validating your concept.",
+    icon: Users,
+    title: "Product-Led Signup Flow",
+    description: "Capture user interest and understand their needs.",
     colorIndex: 8 // Using accent[4] - #38BDF8
   },
   {
-    icon: Shield,
-    title: "Built for Security",
-    description: "Production-ready from the start with secure handling.",
+    icon: Puzzle,
+    title: "Seamless Integrations",
+    description: "Connect with your favorite tools like Supabase, Vercel, and Resend effortlessly.",
     colorIndex: 8 // Using accent[5] - #0EA5E9
     },
   {
-    icon: Heart,
-    title: "User Friendly",
-    description: "Intuitive interface that anyone can master in minutes.",
+    icon: Eye,
+    title: "Clarity and Focus",
+    description: "A clean, intuitive design that highlights your idea, making it easy for visitors to understand and engage",
     colorIndex: 8 // Using accent[6] - #0284C7
   }
 ];

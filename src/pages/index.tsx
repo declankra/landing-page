@@ -124,7 +124,10 @@ export default function Home() {
 
       <section id="features" className={styles.sectionAlt}>
         {/* Features Component - Card Grid*/}
-        <Features />
+        <Features 
+          title="Everything you need to build something people love"
+          subtitle="Features"
+        />
       </section>
 
 
