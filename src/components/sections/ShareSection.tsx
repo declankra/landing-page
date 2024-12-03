@@ -19,7 +19,7 @@ export default function ShareSection({
   // {{REPLACE_CONFIG}} - Replace these defaults with your product's details
   title = "Invite a Friend! Share the power of {core feature}",
   subtext = "Help your friends discover the {core benefit}",
-  trackingUrl = "https://dub.sh/IdeaLandingPage",
+  trackingUrl = "https://www.validateidea.now",
   productName = "ProductName",
   coreBenefit = "game-changing solution",
 }: ShareConfig) {

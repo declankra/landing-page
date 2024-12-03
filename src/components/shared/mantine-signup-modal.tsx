@@ -146,7 +146,7 @@ const defaultSteps: StepConfig[] = [
       label: 'Thank you for signing up',
       buttonText: 'Copy Invite Link',
       message: 'Help your friends build products people love, too!',
-      shareLink: 'https://your-product.com?ref=invite',
+      shareLink: 'https://www.validateidea.now',
       triggerToast: true,
       description: 'Share with your friends'
     }]
