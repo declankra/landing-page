@@ -14,29 +14,29 @@ const features = [
     colorIndex: 8 // Using accent[4] - #38BDF8
   },
   {
-    icon: Zap,
-    title: "Modern Tech Stack",
-    description: "Experience blazing fast performance with industry-leading tech stack.",
-    colorIndex: 8 // Using accent[5] - #0EA5E9
-  },
-  {
-    icon: ChartBar,
-    title: "Pre-built Analytics",
-    description: "Gain immediate insights into user engagement with built-in analytics.",
-    colorIndex: 8 // Using accent[6] - #0284C7
-  },
-  {
     icon: Users,
     title: "Product-Led Signup Flow",
     description: "Capture user interest and understand their needs.",
     colorIndex: 8 // Using accent[4] - #38BDF8
   },
   {
+    icon: ChartBar,
+    title: "Pre-built Analytics",
+    description: "Know instantly if people care about your idea with built-in user engagement analytics.",
+    colorIndex: 8 // Using accent[6] - #0284C7
+  },
+  {
+    icon: Zap,
+    title: "Modern Tech Stack",
+    description: "Experience blazing fast performance with industry-leading tech stack.",
+    colorIndex: 8 // Using accent[5] - #0EA5E9
+  },
+  {
     icon: Puzzle,
     title: "Seamless Integrations",
     description: "Connect with your favorite tools like Supabase, Vercel, and Resend effortlessly.",
     colorIndex: 8 // Using accent[5] - #0EA5E9
-    },
+  },
   {
     icon: Eye,
     title: "Clarity and Focus",
