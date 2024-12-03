@@ -73,7 +73,7 @@ Before you begin, ensure you have the following installed:
    ```bash
    cp .env.example .env.local
    ```
-   Then, fill in your environment variables:
+   Then, fill in your environment variables (need to create accounts for each, see notion guide for more details):
    ```env
    # Supabase
    NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
