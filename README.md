@@ -66,7 +66,7 @@ Before you begin, ensure you have the following installed:
 
 2. **Install dependencies**
    ```bash
-   pnpm install
+   npm install
    ```
 
 3. **Set up environment variables**
