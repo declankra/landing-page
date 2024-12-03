@@ -83,28 +83,33 @@ Before you begin, ensure you have the following installed:
    NEXT_PUBLIC_AMPLITUDE_API_KEY=your-amplitude-key
    ```
 
-4. **Set up Supabase tables**
+4. **Set up .gitignore**
+   ```bash
+   cp .gitignore.example .gitignore
+   ```
+   This ensures sensitive files like .env.local aren't committed to your repository.
+
+5. **Set up Supabase tables**
    Create the following tables in your Supabase dashboard:
    - `signups`: For collecting email signups
    - `contacts`: For contact form submissions
    
    Schema details are provided in the `/supabase` directory.
 
-5. **Run the development server**
+6. **Run the development server**
    ```bash
    pnpm dev
    ```
    Visit [http://localhost:3000](http://localhost:3000) to see your landing page.
 
-6. **Customize your landing page**
+7. **Customize your landing page**
    - Update copy and configuration in `/src/components/sections`
    - Modify themes in `/src/styles`
 
-7. **Deploy to Vercel**
+8. **Deploy to Vercel**
    ```bash
    pnpm vercel deploy
    ```
-
 
 ## How to use
 This boilerplate is inspired by my ongoing web development projects and struggle to decide what to build, so it's designed to serve as a reference for real-world software apps. Feel free to dive into the code and see how I've tackled various features. Whether you're looking to understand design systems, database interactions, analytics, email handling, or UI components, you'll find practical, configurable implementations throughout the codebase. It's not just a starting point; it's a learning resource that can help you build your own applications.
