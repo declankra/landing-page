@@ -89,7 +89,7 @@ export default function ImageMarqueeVertical({
                             "text-3xl md:text-4xl lg:text-[length:var(--heading-2-fluid)]", // Responsive font size
                             "leading-tight md:leading-[var(--heading-2-line-height)]",
                             "font-[var(--heading-2-weight)]",
-                            "tracking-[var(--heading-2-tracking)]",
+                            "tracking-tighter",
                             // Mobile optimization
                             "max-w-[20ch]", // Limit line length for readability
                             "break-words", // Ensure long words don't overflow
@@ -111,7 +111,7 @@ export default function ImageMarqueeVertical({
 
                         {/* Action button with proper spacing */}
                         {actionText && actionUrl && (
-                            <div className="pt-2">
+                            <div className="pt-0">
                                 <Button
                                     variant="link"
                                     className="p-0 text-primary font-medium hover:underline"
