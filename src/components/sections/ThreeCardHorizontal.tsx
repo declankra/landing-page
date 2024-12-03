@@ -117,7 +117,7 @@ export default function ThreeCardHorizontalHorizontal({
                     <h3 className="text-xl font-semibold mb-1.5">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground line-clamp-4">
+                    <p className="text-muted-foreground">
                       {step.description}
                     </p>
                   </CardContent>

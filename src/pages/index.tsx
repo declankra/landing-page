@@ -85,23 +85,23 @@ export default function Home() {
           steps={[
             {
               number: 1,
-              title: "View the guide",
-              description: "Signup with your email to get access to the guide for free.",
-              imagePath: "/images/step1-placeholder.webp",
+              title: "Clone the codebase",
+              description: "Signup with your email to get free, instant access to the guide and codebase.",
+              imagePath: "/images/howItWorks/step1.webp",
               imageAlt: "Step 1 visualization"
             },
             {
               number: 2,
               title: "Launch your landing page",
-              description: "Use the guide to launch your landing page and start validating your idea with the product-led approach to understanding your users.",
-              imagePath: "/images/step2-placeholder.webp",
+              description: "Use the guide and codebase to go live with a product-led approach to understanding your users.",
+              imagePath: "/images/howItWorks/step2.webp",
               imageAlt: "Step 2 visualization"
             },
             {
               number: 3,
               title: "Validate your idea",
               description: "Given the data you've collected on user interest, decide if it's worth building further.",
-              imagePath: "/images/step3-placeholder.webp",
+              imagePath: "/images/howItWorks/step3.webp",
               imageAlt: "Step 3 visualization"
             }
           ]}
