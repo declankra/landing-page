@@ -158,7 +158,13 @@ export default function Home() {
 
       <section className={styles.section}>
         {/* Sharing site for reach */}
-        <ShareSection />
+        <ShareSection 
+          title = "Invite a Friend! Share the power of taking action"
+          subtext = "Help your friends start building things people love too"
+          trackingUrl = "https://www.validateidea.now"
+          productName = "ValidateIdea"
+          coreBenefit = "quickly launch and validate your ideas now"
+        />
       </section>
 
 

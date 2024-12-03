@@ -26,7 +26,7 @@ export default function ShareSection({
   const { toast } = useToast(); // Use shadcn's toast
 
   // Social media share text
-  const shareText = `Check out ${productName} - a ${coreBenefit}! 🚀`;
+  const shareText = `Check out ${productName} - ${coreBenefit}! 🎯`;
   
   // Social media share URLs
   const socialShareUrls = {
