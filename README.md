@@ -167,10 +167,11 @@ your-project/
 │   │   └── ...
 │   │
 │   ├── pages/                 # Next.js pages
-│   │   ├── _app.tsx           # App configuration with providers
+│   │   ├── _app.tsx           # App wrapper with global providers
 │   │   ├── _document.tsx      # Document level customization
-│   │   ├── index.tsx          # Main entry point (serves LandingPage.tsx)
-│   │   └── LandingPage.tsx    # Main component for content structure
+│   │   ├── index.tsx          # Main entry point page (/)
+│   │   ├── LandingPage.tsx    # Content structure for reference
+│   │   └── examples.tsx       # Optional second page (/examples)
 │   │
 │   └── lib/                   # Utilities & configurations
 │       ├── utils.ts           # Helper functions
