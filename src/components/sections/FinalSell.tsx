@@ -70,7 +70,8 @@ export default function FinalSell({
             "text-4xl font-bold md:text-5xl lg:text-6xl",
             "leading-tight pb-2", // Added padding and increased line height
             "bg-gradient-to-b from-foreground via-foreground/50 to-foreground bg-clip-text text-transparent",
-            "animate-rainbow [--speed:4s]"
+            "animate-rainbow [--speed:4s]",
+            "max-w-[20ch]" // Limit width to force earlier line breaks
           )}
         >
           {title}

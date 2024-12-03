@@ -177,9 +177,9 @@ export default function Home() {
       <section className={styles.section}>
         {/* Finall Sell Component - large call to action */}
         <FinalSell
-          title="Your compelling final pitch"
-          subtitle="The clear value-add of using product"
-          ctaText="Start {JTBD} now"
+          title="Ready to unlock your winning idea?"
+          subtitle="Spend less time guessing. Build with confidence."
+          ctaText="Start Validating now"
           onCtaClick={() => {
             // Your conversion tracking/signup logic, defaults to signup modal
           }}
