@@ -10,6 +10,7 @@ import HowItWorksVertical from '@/components/sections/HowItWorksVertical';
 import SpotlightImage from '@/components/sections/SpotlightImage';
 import ComparisonTable from '@/components/sections/ComparisonTable';
 import FAQDrawerMT from '@/components/sections/FAQDrawerMT';
+import { Title } from '@/components/shared/title';
 
 export async function getStaticProps() {
   const navigationLinks = [
@@ -26,9 +27,17 @@ export async function getStaticProps() {
 export default function ExamplesPage() {
   return (
     <>
-      {/* Add your examples content here */}
       <section className={styles.section}>
-        <h1>Component Examples</h1>
+        <Title
+          title="Easily Configurable Components"
+          subtitle="EXAMPLES"
+          action={{
+            text: "✨ View a page built with this codebase",
+            type: "shiny-text",
+            href: "/examples",
+            position: "bottom"
+          }}
+        />
       </section>
 
 
