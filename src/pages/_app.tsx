@@ -8,13 +8,14 @@ import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster'; // Import from shadcn
 import { theme as mantineTheme } from '../styles/theme'; // Custom Mantine Theme
+import Layout from '@/components/layout/Layout';  // Single shared layout component
 import { AnalyticsProvider } from '@/lib/analytics/google/GoogleAnalyticsProvider'; // Google Analytics import
 import PostHogPageview from '@/lib/analytics/posthog-simple/PostHogProvider'; // PostHog Analytics import
+import { OpenPanelProvider } from '@/lib/analytics/openpanel/OpenPanelProvider';
 // Amplitude Analytics import
 import { initAmplitude, Analytics } from '@/lib/analytics/amplitude/amplitude';
 import { useScrollTracking } from '@/lib/analytics/amplitude/useScrollTracking';
-import { OpenPanelProvider } from '@/lib/analytics/openpanel/OpenPanelProvider';
-import Layout from '@/components/layout/Layout';
+
 
 
 
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   // Initialize Amplitude - do this as early as possible
   useEffect(() => {
+
     // Initialize Amplitude
     initAmplitude();
 
@@ -65,12 +67,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <MantineProvider theme={mantineTheme}>
           <PostHogPageview />
           <OpenPanelProvider>
-          <Layout navigationLinks={navigationLinks}>
+            <Layout navigationLinks={navigationLinks}>
               <Component {...pageProps} />
             </Layout>
-            <Toaster /> {/* shadcn Toaster */}
-            <AnalyticsProvider /> {/* Google Analytics */}
           </OpenPanelProvider>
+          <Toaster /> {/* shadcn Toaster */}
+          <AnalyticsProvider /> {/* Google Analytics */}
         </MantineProvider>
       </ThemeProvider>
     </>
