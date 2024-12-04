@@ -1,4 +1,6 @@
 // src/pages/examples.tsx
+import Head from 'next/head';
+
 import styles from '@/styles/components/LandingPage.module.css';
 import UserSayCarousel from '@/components/sections/UserSayCarousel';
 import MarqueeCardDisplay from '@/components/sections/MarqueeCardDisplay';
@@ -11,6 +13,12 @@ import SpotlightImage from '@/components/sections/SpotlightImage';
 import ComparisonTable from '@/components/sections/ComparisonTable';
 import FAQDrawerMT from '@/components/sections/FAQDrawerMT';
 import { Title } from '@/components/shared/title';
+
+// {{REPLACE_CONFIG}} - Update these values for your product
+const pageConfig = {
+  title: 'Examples | ValidateIdea',
+  description: 'See real-world examples of how ValidateIdea helps launch and test new products.'
+};
 
 export async function getStaticProps() {
   const navigationLinks = [
@@ -27,6 +35,13 @@ export async function getStaticProps() {
 export default function ExamplesPage() {
   return (
     <>
+      <Head>
+        {/* Only page-specific meta tags */}
+        <title>{pageConfig.title}</title>
+        <meta name="description" content={pageConfig.description} />
+        {/* These override the defaults from _document.tsx */}
+      </Head>
+
       <section className={styles.section}>
         <Title
           title="Easily Configurable Components"

@@ -1,4 +1,5 @@
 // src/pages/index.tsx
+import Head from 'next/head';
 
 // import CustomBackgroundImage from './CustomBackgroundImage' // Optional: Hero custom background component
 import HeroCenteredBackgroundImage from '../components/sections/HeroCenteredBackgroundImage'
@@ -14,6 +15,15 @@ import ThreeCardHorizontal from '@/components/sections/ThreeCardHorizontal';
 import Testimonials from '@/components/sections/Testimonials';
 import styles from '@/styles/components/LandingPage.module.css';
 import ImageMarqueeVertical from '@/components/sections/ImageMarqueeVertical';
+
+// {{REPLACE_CONFIG}} - Update these values for your product
+const siteConfig = {
+  title: 'ValidateIdea - Quickly Launch and Validate Your Ideas',
+  description: 'Go from idea to validated product with a simple, fast approach to testing product-market fit.',
+  siteUrl: 'https://www.validateidea.now', // Replace with your actual URL
+  // Optional: Add social media image
+  ogImage: '/public/logos/ProjectLogo.webp'
+};
 
 export async function getStaticProps() {
   const navigationLinks = [
@@ -36,6 +46,13 @@ export default function Home() {
 
   return (
     <>
+      {/* Head section for SEO and page title */}
+      <Head>
+        {/* Only page-specific meta tags here */}
+        <title>{siteConfig.title}</title>
+        <meta name="description" content={siteConfig.description} />
+      </Head>
+
       <section className={styles.sectionFullWidth}>
         {/* Hero Component Variant - Background Image with centered text and no initial email input */}
         <HeroCenteredBackgroundImage
@@ -124,7 +141,7 @@ export default function Home() {
 
       <section id="features" className={styles.sectionAlt}>
         {/* Features Component - Card Grid*/}
-        <Features 
+        <Features
           title="Everything you need to build something people love"
           subtitle="Features"
         />
@@ -133,12 +150,12 @@ export default function Home() {
 
       <section className={styles.section}>
         {/* Image Marquee Component - vertical scrolling images */}
-      <ImageMarqueeVertical
-        title="Custom components to sell your idea"
-        subtitle='Free, forever'
-        actionText="See Examples"
-        actionUrl="/examples"
-        images={[
+        <ImageMarqueeVertical
+          title="Custom components to sell your idea"
+          subtitle='Free, forever'
+          actionText="See Examples"
+          actionUrl="/examples"
+          images={[
             { src: "/images/examples/usersay.webp", alt: "User Say component" },
             { src: "/images/examples/table.webp", alt: "Table component" },
             { src: "/images/examples/ValueProp.webp", alt: "Value Prop component" },
@@ -158,12 +175,12 @@ export default function Home() {
 
       <section className={styles.section}>
         {/* Sharing site for reach */}
-        <ShareSection 
-          title = "Invite a Friend! Share the power of taking action"
-          subtext = "Help your friends start building things people love too"
-          trackingUrl = "https://www.validateidea.now"
-          productName = "ValidateIdea"
-          coreBenefit = "quickly launch and validate your ideas now"
+        <ShareSection
+          title="Invite a Friend! Share the power of taking action"
+          subtext="Help your friends start building things people love too"
+          trackingUrl="https://www.validateidea.now"
+          productName="ValidateIdea"
+          coreBenefit="quickly launch and validate your ideas now"
         />
       </section>
 
