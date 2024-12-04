@@ -2,35 +2,42 @@
 import * as amplitude from '@amplitude/analytics-browser';
 import { sessionReplayPlugin } from "@amplitude/plugin-session-replay-browser";
 
+// Simple localhost detection
+const isLocalhost = typeof window !== 'undefined' && window.location.hostname === 'localhost';
 
-// Initialize Amplitude only on the client side
-// Should be called as early as possible in the app lifecycle
+// Initialize Amplitude based on environment
 export const initAmplitude = () => {
+  // Select appropriate API key based on environment
+  const apiKey = isLocalhost 
+    ? process.env.NEXT_PUBLIC_AMPLITUDE_DEV_KEY 
+    : process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY;
 
-    // Create and configure Session Replay plugin
+  if (!apiKey) {
+    console.warn('Amplitude API key not configured');
+    return;
+  }
+
+  if (typeof window !== 'undefined') {
+    amplitude.init(apiKey, {
+      defaultTracking: {
+        pageViews: true,
+        sessions: true,
+        formInteractions: true,
+        fileDownloads: true,
+      }
+    });
+
+    // Add session replay plugin
     const sessionReplay = sessionReplayPlugin({
-        sampleRate: 1
-      });
-
-      if (typeof window !== 'undefined') {
-        amplitude.init(process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY || '', {
-            autocapture: true,
-            defaultTracking: {
-                pageViews: true,
-                sessions: true,
-                formInteractions: true,
-                fileDownloads: true,
-            },
-        });
-        
-        // Add session replay plugin inside the if block
-        amplitude.add(sessionReplay);
-    }
+      sampleRate: 1
+    });
+    amplitude.add(sessionReplay);
+  }
 };
 
 // Event Names - Centralized constants for consistency
 export const AMPLITUDE_EVENTS = {
-  // Page View Events (although autocaptured, we might want to add custom properties)
+  // Page View Events
   PAGE_VIEW: '$pageview',
   
   // Signup Flow Events
@@ -48,11 +55,11 @@ export const AMPLITUDE_EVENTS = {
   SHARE_INITIATED: 'share_initiated',
   SHARE_COMPLETED: 'share_completed',
   
-  // Feature Interaction Events (using Amplitude's autocapture for clicks)
+  // Feature Events
   FEATURE_VIEWED: 'feature_viewed',
   FEATURE_HOVER: 'feature_hover',
   
-  // FAQ Events (some will be autocaptured)
+  // FAQ Events
   FAQ_EXPANDED: 'faq_expanded',
   FAQ_COLLAPSED: 'faq_collapsed',
   
@@ -60,57 +67,42 @@ export const AMPLITUDE_EVENTS = {
   VIDEO_STARTED: 'video_playback_started',
   VIDEO_PROGRESS: 'video_playback_progress',
   VIDEO_COMPLETED: 'video_playback_completed',
-  VIDEO_PLAY_CLICKED: 'video_play_clicked', // Track when user clicks play button
+  VIDEO_PLAY_CLICKED: 'video_play_clicked',
+  VIDEO_CTA_CLICKED: 'video_cta_clicked',
   
   // Scroll Depth Events
   SCROLL_DEPTH: 'scroll_depth',
-
-  // Video Demo ComponentCTA Clicked
-  VIDEO_CTA_CLICKED: 'video_cta_clicked', // Video button click tracking
-
 } as const;
 
-// Create a type for user properties
-type UserProperties = Record<string, string | number | boolean>;  // removed null
+type ValidPropertyType = string | number | boolean;
 
 // Helper function to identify users
-export const identifyUser = (userId: string, userProperties?: UserProperties) => {
-    amplitude.setUserId(userId);
-    if (userProperties) {
-      const identify = new amplitude.Identify();
-      Object.entries(userProperties).forEach(([key, value]) => {
-        identify.set(key, value);
-      });
-      amplitude.identify(identify);
-    }
-  };
-
-  // Create a type for the learn more click properties
-type LearnMoreClickProperties = {
-  location: string;
-  destination_url: string;
-  [key: string]: string | number | boolean; // For any additional properties
+export const identifyUser = (userId: string, userProperties?: Record<string, string | number | boolean>) => {
+  amplitude.setUserId(userId);
+  if (userProperties) {
+    const identify = new amplitude.Identify();
+    Object.entries(userProperties).forEach(([key, value]) => {
+      identify.set(key, value);
+    });
+    amplitude.identify(identify);
+  }
 };
 
-// Analytics tracking functions - simplified to use Amplitude's built-in functionality
+// Analytics wrapper
 export const Analytics = {
-    // Track events with properties
-    track: (eventName: string, eventProperties?: UserProperties) => {
-      amplitude.track(eventName, eventProperties);
-    },
+  track: (eventName: string, eventProperties?: Record<string, unknown>) => {
+    amplitude.track(eventName, eventProperties);
+  },
 
-  // Page View with custom properties (in addition to autocapture)
-  trackPageView: (additionalProperties?: UserProperties) => {
+  trackPageView: (additionalProperties?: Record<string, unknown>) => {
     amplitude.track(AMPLITUDE_EVENTS.PAGE_VIEW, {
       ...additionalProperties,
       url: window.location.href,
       referrer: document.referrer,
-      // Add UTM parameters if present
       ...Object.fromEntries(new URLSearchParams(window.location.search))
     });
   },
 
-  // Signup Flow - simplified to match Amplitude's recommended event structure
   trackSignupStep: (stepNumber: number, stepName: string, isComplete: boolean) => {
     const eventName = isComplete 
       ? AMPLITUDE_EVENTS.SIGNUP_STEP_COMPLETED 
@@ -119,12 +111,10 @@ export const Analytics = {
     amplitude.track(eventName, {
       step_number: stepNumber,
       step_name: stepName,
-      // Include UTM parameters for attribution
       ...Object.fromEntries(new URLSearchParams(window.location.search))
     });
   },
 
-  // Video tracking with standardized properties
   trackVideoEvent: (eventName: string, videoProperties: {
     title: string,
     position: number,
@@ -136,14 +126,10 @@ export const Analytics = {
       ...videoProperties,
       event_type: videoProperties.is_play_click ? 'play_click' : 'video_progress',
       timestamp: new Date().toISOString(),
-      // Include UTM parameters if present
-      ...(typeof window !== 'undefined'
-        ? Object.fromEntries(new URLSearchParams(window.location.search)) 
-        : {})
+      ...Object.fromEntries(new URLSearchParams(window.location.search))
     });
   },
 
-  // Scroll depth tracking
   trackScrollDepth: (depth: number) => {
     amplitude.track(AMPLITUDE_EVENTS.SCROLL_DEPTH, {
       depth_percentage: depth,
@@ -151,8 +137,7 @@ export const Analytics = {
     });
   },
 
-  // User Properties
-  setUserProperties: (properties: UserProperties) => {
+  setUserProperties: (properties: Record<string, ValidPropertyType>) => {
     const identify = new amplitude.Identify();
     Object.entries(properties).forEach(([key, value]) => {
       identify.set(key, value);
@@ -160,24 +145,23 @@ export const Analytics = {
     amplitude.identify(identify);
   },
 
-  // Session Properties (can be used to add properties that persist for the session)
-  setSessionProperties: (properties: UserProperties) => {
+  setSessionProperties: (properties: Record<string, ValidPropertyType>) => {
     const identify = new amplitude.Identify();
     Object.entries(properties).forEach(([key, value]) => {
       identify.set(key, value);
     });
     amplitude.identify(identify);
   },
-   // Add new method for tracking learn more clicks
-   trackLearnMoreClick: (properties: LearnMoreClickProperties) => {
+
+  trackLearnMoreClick: (properties: {
+    location: string;
+    destination_url: string;
+    [key: string]: string | number | boolean;
+  }) => {
     amplitude.track(AMPLITUDE_EVENTS.LEARN_MORE_CLICKED, {
       ...properties,
       timestamp: new Date().toISOString(),
-      // Automatically capture UTM parameters if present
-      ...(typeof window !== 'undefined' 
-        ? Object.fromEntries(new URLSearchParams(window.location.search))
-        : {}
-      )
+      ...Object.fromEntries(new URLSearchParams(window.location.search))
     });
   },
 };
