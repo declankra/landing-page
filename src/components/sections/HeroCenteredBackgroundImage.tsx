@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/tooltip"
 import { SignupSource } from '@/lib/analytics/amplitude/signup-analytics';
 import Analytics from '@/lib/analytics/amplitude/amplitude';
+import { SignupSourceOP } from '@/lib/analytics/openpanel/events';
 
 
 type ChecklistItem = {
@@ -175,7 +176,10 @@ export default function HeroCenteredBackgroundImage({
               // steps={customSteps}
               // Optional: Custom table name
               // supabaseTable="early_access_signups"
-              source={SignupSource.HERO}  // Track CTA source
+              source={{
+                amplitude: SignupSource.HERO,
+                openPanel: SignupSourceOP.HERO
+              }}
           />
         </div>
       )

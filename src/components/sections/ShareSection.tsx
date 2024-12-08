@@ -4,6 +4,9 @@ import { TwitterLogoIcon, DiscordLogoIcon, InstagramLogoIcon } from "@radix-ui/r
 import { IconBrandReddit } from '@tabler/icons-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from "@/hooks/use-toast"
+import { useOpenPanel } from '@/lib/analytics/openpanel/OpenPanelProvider';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/openpanel/events';
+
 // import styles from '../styles/ShareSection.module.css'; // not used because overriding with shadcn defaults
 
 // Configuration object for easy customization per product
@@ -28,32 +31,61 @@ export default function ShareSection({
   // Social media share text
   const shareText = `Check out ${productName} - ${coreBenefit}! 🎯`;
   
-  // Social media share URLs
-  const socialShareUrls = {
-    Twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(trackingUrl)}`,
-    Facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(trackingUrl)}&quote=${encodeURIComponent(shareText)}`,
-    Linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(trackingUrl)}&summary=${encodeURIComponent(shareText)}`,
-    Discord: `https://discord.com/share?url=${encodeURIComponent(trackingUrl)}&title=${encodeURIComponent(shareText)}`,
-    Instagram: `https://www.instagram.com/share?url=${encodeURIComponent(trackingUrl)}&caption=${encodeURIComponent(shareText)}`,
-    Reddit: `https://www.reddit.com/submit?url=${encodeURIComponent(trackingUrl)}&title=${encodeURIComponent(shareText)}`
+  // Handle social sharing with analytics
+  const handleShare = (platform: 'twitter' | 'facebook' | 'linkedin' | 'discord' | 'instagram' | 'reddit')  => {
+    const shareUrls = {
+      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(trackingUrl)}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(trackingUrl)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(trackingUrl)}`,
+      discord: `https://discord.com/share?url=${encodeURIComponent(trackingUrl)}`,
+      instagram: `https://www.instagram.com/share?url=${encodeURIComponent(trackingUrl)}`,
+      reddit: `https://www.reddit.com/submit?url=${encodeURIComponent(trackingUrl)}`
+    };
+
+    // Track share attempt
+    op.track(ANALYTICS_EVENTS.SHARE_CLICKED, {
+      platform,
+      location: 'share_section',
+      url: trackingUrl,
+      share_text: shareText
+    });
+
+    // Open share dialog
+    window.open(shareUrls[platform], '_blank');
   };
+
+  const op = useOpenPanel();
 
   // Handle copy to clipboard
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(trackingUrl);
+      // Track successful copy
+      op.track(ANALYTICS_EVENTS.SHARE_CLICKED, {
+        platform: 'copy',
+        location: 'share_section',
+        success: true
+      });
       toast({
         description: "Link copied to clipboard!",
         duration: 1800,
       });
     } catch (error: unknown) {
       console.error('Failed to copy:', error);
+      // Track failed copy attempt
+      op.track(ANALYTICS_EVENTS.SHARE_CLICKED, {
+        platform: 'copy',
+        location: 'share_section',
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      });
       toast({
         variant: "destructive",
         description: "Failed to copy link",
       });
     }
   };
+
 
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
@@ -81,7 +113,7 @@ export default function ShareSection({
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => window.open(socialShareUrls.Twitter, '_blank')}
+                  onClick={() => handleShare('twitter')}
                   aria-label="Share on Twitter"
                 >
                   <TwitterLogoIcon className="h-5 w-5" />
@@ -89,7 +121,7 @@ export default function ShareSection({
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => window.open(socialShareUrls.Facebook, '_blank')}
+                  onClick={() => handleShare('facebook')}
                   aria-label="Share on Facebook"
                 >
                   <Facebook strokeWidth = {1.5} className="h-5 w-5" />
@@ -97,7 +129,7 @@ export default function ShareSection({
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => window.open(socialShareUrls.Linkedin, '_blank')}
+                  onClick={() => handleShare('linkedin')}
                   aria-label="Share on LinkedIn"
                 >
                   <Linkedin strokeWidth = {1.5} className="h-5 w-5" />
@@ -105,7 +137,7 @@ export default function ShareSection({
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => window.open(socialShareUrls.Discord, '_blank')}
+                  onClick={() => handleShare('discord')}
                   aria-label="Share on Discord"
                 >
                   <DiscordLogoIcon className="h-5 w-5" />
@@ -113,7 +145,7 @@ export default function ShareSection({
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => window.open(socialShareUrls.Instagram, '_blank')}
+                  onClick={() => handleShare('instagram')}
                   aria-label="Share on Instagram"
                 >
                   <InstagramLogoIcon className="h-5 w-5" />
@@ -121,7 +153,7 @@ export default function ShareSection({
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => window.open(socialShareUrls.Reddit, '_blank')}
+                  onClick={() => handleShare('reddit')}
                   aria-label="Share on Reddit"
                 >
                   <IconBrandReddit strokeWidth = {1.6} className="h-5 w-5" />

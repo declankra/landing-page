@@ -5,6 +5,8 @@ import styles from '@/styles/components/SpotlightVideo.module.css';
 import { cn } from "@/lib/utils";
 import { IconArrowRight } from '@tabler/icons-react';
 import { AMPLITUDE_EVENTS, Analytics } from '@/lib/analytics/amplitude/amplitude';
+import { useOpenPanel } from '@/lib/analytics/openpanel/OpenPanelProvider';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/openpanel/events';
 
 interface SpotlightVideoProps {
   // {{REPLACE_PROPS}} - Configure these based on your product needs
@@ -50,6 +52,8 @@ export default function SpotlightVideo({
   onCtaClick,
   hideButton = false, // Defaults to showing the button
 }: SpotlightVideoProps) {
+  const op = useOpenPanel();
+
   // Process title to wrap highlighted text in Mark component if provided
   const renderTitle = () => {
     if (!highlightedText) return title;
@@ -78,6 +82,11 @@ export default function SpotlightVideo({
   // Handle video play by adding a tracking event
   const handleVideoPlay = () => {
     Analytics.track(AMPLITUDE_EVENTS.VIDEO_PLAY_CLICKED);
+    op.track(ANALYTICS_EVENTS.VIDEO_PLAY, {
+      video_id: videoSrc,
+      location: 'spotlight_section',
+      timestamp: Date.now(),
+    });
   };
 
   return (

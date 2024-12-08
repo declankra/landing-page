@@ -15,6 +15,9 @@ import { supabase } from '@/lib/supabaseClient';
 import { useToast } from "@/hooks/use-toast";
 import confetti from 'canvas-confetti';
 import { signupAnalytics, SignupSource } from '@/lib/analytics/amplitude/signup-analytics';
+import { useOpenPanel } from '@/lib/analytics/openpanel/OpenPanelProvider';
+import { SignupSourceOP } from '@/lib/analytics/openpanel/events';
+import { SignupTracking } from '@/lib/analytics/openpanel/signup-tracking';
 
 // Types for form configuration
 type FormFieldBase = {
@@ -82,8 +85,11 @@ interface MantineSignupModalProps {
     /** Callback on successful signup */
     onSuccess?: (data: SignupData) => void;
   
-    /** Track which CTA triggered the modal */
-    source: SignupSource;
+  /** Track which CTA triggered the modal for both analytics platforms */
+  source: {
+    amplitude: SignupSource;
+    openPanel: SignupSourceOP;
+  };
 }
 
 // Supabase column mapping
@@ -195,6 +201,10 @@ export function MantineSignupModal({
   const [currentStep, setCurrentStep] = useState(requestEmail ? 1 : 0);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+  const op = useOpenPanel();
+
+  // Initialize tracking utility
+  const [signupTracker] = useState(() => new SignupTracking(op, source.openPanel));
 
   // Initialize form with all possible field values
   const form = useForm({
@@ -213,17 +223,22 @@ export function MantineSignupModal({
 
   // Modal state handlers
   const handleModalOpen = useCallback(() => {
-    signupAnalytics.trackSignupStart(source);
-  }, [source]);
+    signupAnalytics.trackSignupStart(source.amplitude);
+    signupTracker.trackStart();
+
+  }, [source, signupTracker]);
 
   const handleModalClose = useCallback(() => {
     if (currentStep > 0 && currentStep < steps.length - 1) {
+      signupTracker.trackAbandonment(steps[currentStep].title);
       signupAnalytics.trackSignupAbandoned('modal_closed');
     }
     setCurrentStep(requestEmail ? 1 : 0);
     form.reset();
     onClose();
-  }, [currentStep, form, onClose, requestEmail, steps.length]);
+  }, [currentStep, form, onClose, requestEmail, signupTracker, steps]);
+
+
 
   // Use handleModalOpen in a useEffect
   useEffect(() => {
@@ -257,10 +272,10 @@ export function MantineSignupModal({
       });
       handleModalClose();
     }
-
+    signupTracker.trackCompletion();
     signupAnalytics.trackSignupComplete();
     onSuccess?.(finalData);
-  }, [currentStep, handleModalClose, onSuccess, steps, successAnimation, toast]);
+  }, [currentStep, handleModalClose, onSuccess, steps, successAnimation, toast, signupTracker]);
 
   // Form submission handler
   const handleSubmit = useCallback(async (values: SignupData) => {
@@ -273,8 +288,8 @@ export function MantineSignupModal({
     try {
       setLoading(true);
       // Track step completion
+      signupTracker.trackStepComplete(currentStep + 1, steps[currentStep].title);
       signupAnalytics.trackSignupStep(currentStep + 1, steps[currentStep].title, true);
-
       // Map form field names to Supabase column names
       const supabaseData = Object.entries(values).reduce((acc, [key, value]) => {
         const columnName = SUPABASE_COLUMN_MAPPING[key as keyof typeof SUPABASE_COLUMN_MAPPING] || key;
@@ -297,6 +312,7 @@ export function MantineSignupModal({
       // Move to next step if not complete
       if (currentStep < steps.length - 1) {
         const nextStepIndex = currentStep + 1;
+        signupTracker.trackStepView(currentStep + 1, steps[currentStep].title);
         signupAnalytics.trackSignupStep(
           nextStepIndex + 1,
           steps[nextStepIndex].title,
@@ -315,7 +331,7 @@ export function MantineSignupModal({
     } finally {
       setLoading(false);
     }
-  }, [currentStep, form, handleSuccess, steps, supabaseTable, toast]);
+  }, [currentStep, form, handleSuccess, steps, supabaseTable, toast, signupTracker]);
 
   // Field renderer
   const renderFields = () => {
