@@ -49,7 +49,7 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
 ## Prerequisites
 Before you begin, ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v18.17 or higher)
-- [pnpm](https://pnpm.io/) (v8.0 or higher) - Recommended for faster, more efficient package management
+- [npm](https://www.npmjs.com/) (v8.0 or higher) - Default Node.js package manager
 - [Supabase](https://supabase.com/) account for the database
 - [Vercel](https://vercel.com/) account for deployment
 - [Resend](https://resend.com/) account for email delivery
@@ -98,7 +98,7 @@ Before you begin, ensure you have the following installed:
 
 6. **Run the development server**
    ```bash
-   pnpm dev
+   npm dev
    ```
    Visit [http://localhost:3000](http://localhost:3000) to see your landing page.
 
@@ -108,7 +108,9 @@ Before you begin, ensure you have the following installed:
 
 8. **Deploy to Vercel**
    ```bash
-   pnpm vercel deploy
+   1. Push your code to GitHub
+   2. Visit vercel.com and click "Deploy"
+   3. Connect your GitHub repo and follow the prompts
    ```
 
 ## How to use
