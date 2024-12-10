@@ -98,7 +98,7 @@ Before you begin, ensure you have the following installed:
 
 6. **Run the development server**
    ```bash
-   npm dev
+   npm run dev
    ```
    Visit [http://localhost:3000](http://localhost:3000) to see your landing page.
 
