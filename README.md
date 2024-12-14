@@ -46,6 +46,12 @@ An open source, full stack, product-minded starter kit for going from idea-to-ve
 - pre-configured components to sell your idea
 
 
+## How to use
+This boilerplate is inspired by my ongoing web development projects and struggle to decide what to build, so it's designed to serve as a reference for real-world software apps. Feel free to dive into the code and see how I've tackled various features. Whether you're looking to understand design systems, database interactions, analytics, email handling, or UI components, you'll find practical, configurable implementations throughout the codebase. It's not just a starting point; it's a learning resource that can help you build your own applications.
+
+With this, you have a great starting point for your own project.
+
+
 ## Prerequisites
 Before you begin, ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v18.17 or higher)
@@ -112,11 +118,6 @@ Before you begin, ensure you have the following installed:
    2. Visit vercel.com and click "Deploy"
    3. Connect your GitHub repo and follow the prompts
    ```
-
-## How to use
-This boilerplate is inspired by my ongoing web development projects and struggle to decide what to build, so it's designed to serve as a reference for real-world software apps. Feel free to dive into the code and see how I've tackled various features. Whether you're looking to understand design systems, database interactions, analytics, email handling, or UI components, you'll find practical, configurable implementations throughout the codebase. It's not just a starting point; it's a learning resource that can help you build your own applications.
-
-With this, you have a great starting point for your own project.
 
 
 ## Directory Structure
@@ -209,6 +210,9 @@ your-project/
 
 ## Recognition
 [Product Hunt](https://www.producthunt.com/@declan_kramper)
+
+## Examples
+[UpWardly](https://www.wakeupwardly.com)
 
 
 

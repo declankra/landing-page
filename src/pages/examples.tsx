@@ -49,7 +49,7 @@ export default function ExamplesPage() {
           action={{
             text: "✨ View a page built with this codebase",
             type: "shiny-text",
-            href: "/examples",
+            href: "https://www.wakeupwardly.com",
             position: "bottom"
           }}
         />
