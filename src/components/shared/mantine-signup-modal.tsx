@@ -141,7 +141,7 @@ const defaultSteps: StepConfig[] = [
       label: 'What excites you most about this product?',
       placeholder: "I'm most excited about...",
       required: true,
-      description: 'so we can optimize for your excitment'
+      description: 'so we can optimize for your excitement'
     }]
   },
   {
