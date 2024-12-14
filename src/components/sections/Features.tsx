@@ -11,37 +11,37 @@ const features = [
     icon: Rocket,
     title: "Rapid Deployment",
     description: "Launch your landing page in minutes with our pre-configured starter kit.",
-    colorIndex: 8 // Using accent[4] - #38BDF8
+    colorIndex: 5 // Using accent[4] - #38BDF8
   },
   {
     icon: Users,
     title: "Product-Led Signup Flow",
     description: "Capture user interest and understand their needs.",
-    colorIndex: 8 // Using accent[4] - #38BDF8
+    colorIndex: 5 // Using accent[4] - #38BDF8
   },
   {
     icon: ChartBar,
     title: "Pre-built Analytics",
     description: "Know instantly if people care about your idea with built-in user engagement analytics.",
-    colorIndex: 8 // Using accent[6] - #0284C7
+    colorIndex: 5 // Using accent[6] - #0284C7
   },
   {
     icon: Zap,
     title: "Modern Tech Stack",
     description: "Experience blazing fast performance with industry-leading tech stack.",
-    colorIndex: 8 // Using accent[5] - #0EA5E9
+    colorIndex: 5 // Using accent[5] - #0EA5E9
   },
   {
     icon: Puzzle,
     title: "Seamless Integrations",
-    description: "Connect with your favorite tools like Supabase, Vercel, and Resend effortlessly.",
-    colorIndex: 8 // Using accent[5] - #0EA5E9
+    description: "Connect with your favorite tools like Supabase, Resend, and Amplitude by just adding your API keys.",
+    colorIndex: 5 // Using accent[5] - #0EA5E9
   },
   {
     icon: Eye,
     title: "Clarity and Focus",
     description: "A clean, intuitive design that highlights your idea, making it easy for visitors to understand and engage",
-    colorIndex: 8 // Using accent[6] - #0284C7
+    colorIndex: 5 // Using accent[6] - #0284C7
   }
 ];
 
@@ -91,7 +91,7 @@ export default function Features({
               <div 
                 className={`${styles.iconWrapper} ${activeFeature === index ? styles.activeIcon : ''}`}
                 style={{ 
-                  '--feature-color': `var(--mantine-color-neutral-${feature.colorIndex})`
+                  '--feature-color': `var(--mantine-color-accent-${feature.colorIndex})`
                 } as React.CSSProperties}
               >
                 <Icon size={24} />
