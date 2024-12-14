@@ -69,6 +69,11 @@ Note: Mantine automatically converts rem values from theme.ts to CSS variables
     background: var(--mantine-color-neutral-1);
     padding-left: var(--mantine-spacing-md);
   }
+
+  /* Add hover state color change for question text */
+  .accordionControl:hover .question {
+    color: hsl(var(--color-primary));
+  } 
   
   /* Panel (content) styling */
   .accordionPanel {
