@@ -94,7 +94,7 @@ export default function ThreeCardHorizontalHorizontal({
                   <div className="relative w-full aspect-[5/3] bg-muted">
                     {/* Number Badge */}
                     <div 
-                      className="absolute left-4 top-4 z-10 size-9 rounded-full bg-[hsl(var(--color-base-100))] text-[hsl(var(--color-base-content))] flex items-center justify-center font-medium shadow-lg"
+                      className="absolute left-4 top-4 z-10 size-9 rounded-full bg-[hsl(var(--color-primary))] text-[hsl(var(--color-primary-content))] flex items-center justify-center font-medium shadow-lg"
                       style={{ transform: 'translateZ(10px)' }}
                     >
                       {step.number}
