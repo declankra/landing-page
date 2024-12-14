@@ -3,13 +3,22 @@ import { cn } from "@/lib/utils";
 import styles from '@/styles/components/StatsSimple.module.css';
 import { useIntersection } from '@mantine/hooks';
 
-
 /**
  * Internal type definition for stat items
  */
 interface Stat {
   value: string;
   label: string;
+}
+
+/**
+ * Props interface for the StatsSimple component
+ */
+interface StatsSimpleProps {
+  className?: string;
+  title?: React.ReactNode;
+  subtitle?: React.ReactNode;
+  stats?: Stat[];
 }
 
 /**
@@ -20,7 +29,6 @@ const defaultConfig = {
   title: "Why people trust us",
   subtitle: "These numbers show our scale of impact and importance",
   stats: [
-  // {{REPLACE_COPY}} - Replace these defaults with your product's actual stats
     { value: "$1T", label: "Assets under holding" },
     { value: "69M+", label: "Daily users" },
     { value: "0.1%", label: "Flat subscription fee" },
@@ -30,25 +38,26 @@ const defaultConfig = {
   ] as Stat[]
 };
 
-
 /**
  * StatsSimple Component
  * 
  * A responsive stats display component with an optional header section
  * and a grid of statistics with accompanying labels. 
- * All configuration is handled through the defaultConfig object above. 
  * Uses Mantine's useIntersection hook for scroll-triggered animations.
- * 
  */
 export default function StatsSimple({
     className,
-  }: {
-    className?: string
-  }) {
-    // Destructure values from config
-    const { title, subtitle, stats } = defaultConfig;
+    title: propTitle,
+    subtitle: propSubtitle,
+    stats: propStats,
+  }: StatsSimpleProps) {
     
-    // Use Mantine's intersection hook
+    // Use provided props or fall back to default values
+    const title = propTitle ?? defaultConfig.title;
+    const subtitle = propSubtitle ?? defaultConfig.subtitle;
+    const stats = propStats ?? defaultConfig.stats;
+    
+    // Use Mantine's intersection hook for scroll animations
     const { ref, entry } = useIntersection({
       root: null,
       threshold: 0.1,
@@ -67,19 +76,22 @@ export default function StatsSimple({
         )}
       >
         <div className="container px-4 md:px-6">
-          {/* Header Section */}
+          {/* Header Section with condensed width */}
           <div className={cn(
-          "flex flex-col items-center justify-center text-center mb-12",
-          styles.header,
-          isVisible && styles.headerVisible
-        )}>
-          <h2 className="text-3xl font-bold tracking-tighter md:text-heading-2 mb-2">
-            {title}
-          </h2>
-          <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed dark:text-gray-400">
-            {subtitle}
-          </p>
-        </div>
+            "flex flex-col items-center justify-center text-center mb-12",
+            styles.header,
+            isVisible && styles.headerVisible
+          )}>
+            <h2 className={cn(
+              "text-3xl font-bold tracking-tighter md:text-heading-2 mb-2",
+              "max-w-[20ch]" // Limit title width
+            )}>
+              {title}
+            </h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed dark:text-gray-400">
+              {subtitle}
+            </p>
+          </div>
   
           {/* Stats Grid */}
           <div className={cn(
@@ -93,21 +105,26 @@ export default function StatsSimple({
                 className={cn(
                   styles.statItem,
                   isVisible && styles.visible,
-                  "flex flex-col items-center justify-center space-y-2 border-gray-200 p-4 rounded-lg transition-colors hover:bg-muted/50"
+                  "flex flex-col items-center text-center", // Ensure centered alignment
+                  "space-y-2 border-gray-200 p-4 rounded-lg",
+                  "transition-colors hover:bg-muted/50"
                 )}
                 style={{ 
                   '--animation-delay': `${index * 100}ms`,
                 } as React.CSSProperties}
               >
+                {/* Stat Value */}
                 <div className={cn(
                   styles.stat,
                   "text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
                 )}>
                   {stat.value}
                 </div>
+                {/* Stat Label - now explicitly centered */}
                 <p className={cn(
                   styles.label,
-                  "text-sm font-medium text-muted-foreground md:text-base"
+                  "text-sm font-medium text-muted-foreground md:text-base",
+                  "text-center w-full" // Ensure text centering
                 )}>
                   {stat.label}
                 </p>
