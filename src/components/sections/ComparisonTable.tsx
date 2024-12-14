@@ -12,6 +12,12 @@ import { Check, X } from "lucide-react";
 import { Mark } from '@mantine/core';
 import { cn } from "@/lib/utils";
 
+interface FeatureComparison {
+  name: string;
+  ourProduct: boolean | string;
+  competitors: (boolean | string)[];
+}
+
 interface ComparisonTableProps {
   // Title configuration
   title?: string;
@@ -51,62 +57,81 @@ export default function ComparisonTable({
     className,
   }: ComparisonTableProps) {
     // {{REPLACE_FEATURES}} - Replace with your product's feature comparison
-    const features = [
-      {
-        name: "User Authentication",
-        ourProduct: true,
-        competitors: [true, false, true]
-      },
-      {
-        name: "Real-time Analytics",
-        ourProduct: true,
-        competitors: [false, false, false]
-      },
-      {
-        name: "Multi-language Support",
-        ourProduct: true,
-        competitors: [false, true, true]
-      },
-      {
-        name: "Customizable Themes",
-        ourProduct: true,
-        competitors: [false, false, false]
-      },
-      {
-        name: "API Access",
-        ourProduct: true,
-        competitors: [true, true, true]
-      },
-      {
-        name: "Mobile Optimization",
-        ourProduct: true,
-        competitors: [true, true, false]
-      },
-      {
-        name: "Third-Party Integrations",
-        ourProduct: true,
-        competitors: [false, true, true]
-      },
-      {
-        name: "Offline Mode",
-        ourProduct: true,
-        competitors: [false, false, true]
-      },
-      {
-        name: "Data Export Options",
-        ourProduct: true,
-        competitors: [true, true, false]
-      },
-      {
-        name: "24/7 Customer Support",
-        ourProduct: true,
-        competitors: [true, false, true]
-      }
-    ];
+    const features: FeatureComparison[] = [
+        {
+          name: "User Authentication",
+          ourProduct: true,
+          competitors: [true, false, true]
+        },
+        {
+          name: "Real-time Analytics",
+          ourProduct: true,
+          competitors: [false, false, false]
+        },
+        {
+          name: "Multi-language Support",
+          ourProduct: true,
+          competitors: [false, true, true]
+        },
+        {
+          name: "Customizable Themes",
+          ourProduct: true,
+          competitors: [false, false, false]
+        },
+        {
+          name: "API Access",
+          ourProduct: true,
+          competitors: [true, true, true]
+        },
+        {
+          name: "Mobile Optimization",
+          ourProduct: true,
+          competitors: [true, true, false]
+        },
+        {
+          name: "Third-Party Integrations",
+          ourProduct: true,
+          competitors: [false, true, true]
+        },
+        {
+          name: "Offline Mode",
+          ourProduct: true,
+          competitors: [false, false, true]
+        },
+        {
+          name: "Data Export Options",
+          ourProduct: true,
+          competitors: [true, true, false]
+        },
+        {
+          name: "24/7 Customer Support",
+          ourProduct: true,
+          competitors: [true, false, true]
+        }
+      ];
   
       // Function to determine if a feature is unique to our product
-  const isUniqueFeature = (feature: typeof features[0]): boolean => {
-    return feature.ourProduct && feature.competitors.every(comp => !comp);
+  const isUniqueFeature = (feature: FeatureComparison): boolean => {
+    return feature.ourProduct === true && feature.competitors.every(comp => 
+      comp === false || typeof comp === 'string'
+    );
+  };
+
+  // Add helper function to render feature status
+  const renderFeatureStatus = (status: boolean | string) => {
+    if (typeof status === 'boolean') {
+      return status ? (
+        <div className="flex justify-center">
+          <Check className="h-5 w-5 text-green-500" />
+        </div>
+      ) : (
+        <div className="flex justify-center">
+          <X className="h-5 w-5 text-red-500" />
+        </div>
+      );
+    }
+    // Return text for string values
+    return <span className="text-sm text-muted-foreground">{status}</span>;
   };
 
   return (
@@ -159,26 +184,12 @@ export default function ComparisonTable({
                 </TableCell>
 
                 <TableCell className="border-x-8 border-primary/40 bg-primary/5 text-center">
-                  {feature.ourProduct ? (
-                    <div className="flex justify-center">
-                      <Check className="h-5 w-5 text-green-500" />
-                    </div>
-                  ) : (
-                    <div className="flex justify-center">
-                      <X className="h-5 w-5 text-red-500" />
-                    </div>
-                  )}
+                  {renderFeatureStatus(feature.ourProduct)}
                 </TableCell>
 
                 {feature.competitors.map((hasFeature, idx) => (
                   <TableCell key={idx} className="text-center">
-                    <div className="flex justify-center">
-                      {hasFeature ? (
-                        <Check className="h-5 w-5 text-green-500" />
-                      ) : (
-                        <X className="h-5 w-5 text-red-500" />
-                      )}
-                    </div>
+                    {renderFeatureStatus(hasFeature)}
                   </TableCell>
                 ))}
               </TableRow>
