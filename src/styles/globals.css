@@ -34,7 +34,14 @@
         * --color-accent: Secondary brand color (not required)
         * --color-base-*: Neutral colors
       */
-    
+
+      /* Primary Colors */
+        --color-primary: 199 94% 50%;    /* Brand color = Neon Sky Blue */
+        --color-primary-content: 0 0% 100%; /* Text on primary = White */
+      /* extra primary */
+        --color-primary-subtle: 199 94% 75%; /* Lighter primary = Super light Blue */
+        --color-primary-bold: 199 94% 45%;   /* Darker primary = Dark Blue*/  
+
       /* Base Colors */
         --color-base-100: 0 0% 100%;  /* White */
         --color-base-200: 240 5% 96%; /* Light gray */
@@ -44,13 +51,6 @@
         --color-base-content: 240 10% 4%;       /* Primary text = Zinc-ish Black */
         --color-base-content-secondary: 240 4% 56%; /* Secondary lighter text */
       
-      /* Primary Colors */
-        --color-primary: 199 94% 50%;    /* Brand color = Neon Sky Blue */
-        --color-primary-content: 0 0% 100%; /* Text on primary = White */
-      /* extra primary */
-        --color-primary-subtle: 199 94% 75%; /* Lighter primary = Super light Blue */
-        --color-primary-bold: 199 94% 45%;   /* Darker primary = Dark Blue*/
-
       /*---------------------------------*/
 
       /* Accent Colors */
