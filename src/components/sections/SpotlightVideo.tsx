@@ -128,7 +128,15 @@ export default function SpotlightVideo({
 
       {/* Video Section with aspect ratio container */}
       <div className={styles.videoContainer}>
-        <div className={styles.aspectRatioBox}>
+        <div className={cn(
+            styles.aspectRatioBox,
+            // Added shadow with subtle border styling
+            "shadow-lg", // Adds a larger shadow
+            "border-10 border-border/10", // Adds a very subtle border
+            "rounded-xl overflow-hidden", // Rounds the corners and clips the shadow/border
+            "transition-shadow duration-300", // Smooth shadow transition
+            "hover:shadow-xl", // Optional: increases shadow on hover
+          )}>
           <div className={styles.videoContent}>
             <HeroVideoDialog
               videoSrc={videoSrc}
