@@ -129,11 +129,11 @@ export default function Home() {
       <section id="demo" className={styles.section}>
         {/* Video Spotlight Comoponent site for reach */}
         <SpotlightVideo
-          title="Experience your problem solved with our solution"
-          highlightedText="problem solved"
+          title="See what validating your idea looks like"
+          highlightedText="validating your idea"
           highlightColor='var(--mantine-primary)'
-          videoSrc="https://www.youtube.com/embed/QGIUa2sSYFI"
-          thumbnailSrc="/images/SteveJobs16x9.webp"
+          videoSrc="https://www.loom.com/embed/17c80f81d052406683e77fb6e7b967bf?sid=180aca66-9449-43a9-b55f-e52cff0e29a2"
+          thumbnailSrc="/images/DemoPlaceholder.webp"
           hideButton={true}
         />
       </section>
