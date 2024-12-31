@@ -209,7 +209,7 @@ your-project/
 - [x/twitter](https://x.com/asbestostrades)
 
 ## Recognition
-[Product Hunt](https://www.producthunt.com/@declan_kramper)
+<a href="https://www.producthunt.com/posts/validateidea?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-validateidea" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=746018&theme=light" alt="ValidateIdea - Stop&#0032;overthinking&#0044;&#0032;start&#0032;validating&#0032;your&#0032;ideas&#0032;quickly | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 ## Examples
 [UpWardly](https://www.wakeupwardly.com)
