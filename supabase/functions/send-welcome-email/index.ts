@@ -25,7 +25,7 @@ serve(async (req) => {
 
     // Send email using Resend
     const data = await resend.emails.send({
-      from: 'Declan from ValidateIdea <declan@validateidea.now>',
+      from: 'Declan from ValidateIdea <contact@dkbuilds.co>',
       to: email_address,
       subject: 'Welcome to ValidateIdea - Let\'s Build Something Great!',
       react: WelcomeEmail({

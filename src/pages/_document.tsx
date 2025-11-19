@@ -5,7 +5,7 @@ export default function Document() {
   const siteConfig = {
     title: 'ValidateIdea', // {{REPLACE_WITH_PRODUCT_NAME}}
     description: 'Quickly launch and validate your ideas now', // {{REPLACE_WITH_PRODUCT_DESCRIPTION}}
-    siteUrl: 'https://www.validateidea.now', // {{REPLACE_WITH_SITE_URL}} e.g., https://yourproduct.com
+    siteUrl: 'https://landing-page-nu-plum-69.vercel.app', // {{REPLACE_WITH_SITE_URL}} e.g., https://yourproduct.com
     themeColor: '#ffffff',
     siteImage: '/public/logos/ProjectLogo.webp'
   };

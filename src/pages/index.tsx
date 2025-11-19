@@ -20,7 +20,7 @@ import ImageMarqueeVertical from '@/components/sections/ImageMarqueeVertical';
 const siteConfig = {
   title: 'ValidateIdea - Quickly Launch and Validate Your Ideas',
   description: 'Go from idea to validated product with a simple, fast approach to testing product-market fit.',
-  siteUrl: 'https://www.validateidea.now', // Replace with your actual URL
+  siteUrl: 'https://landing-page-nu-plum-69.vercel.app', // Replace with your actual URL
   // Optional: Add social media image
   ogImage: '/public/logos/ProjectLogo.webp'
 };
@@ -178,7 +178,7 @@ export default function Home() {
         <ShareSection
           title="Invite a Friend! Share the power of taking action"
           subtext="Help your friends start building things people love too"
-          trackingUrl="https://www.validateidea.now"
+          trackingUrl="https://landing-page-nu-plum-69.vercel.app"
           productName="ValidateIdea"
           coreBenefit="quickly launch and validate your ideas now"
         />

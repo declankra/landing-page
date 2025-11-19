@@ -22,7 +22,7 @@ export default function ShareSection({
   // {{REPLACE_CONFIG}} - Replace these defaults with your product's details
   title = "Invite a Friend! Share the power of {core feature}",
   subtext = "Help your friends discover the {core benefit}",
-  trackingUrl = "https://www.validateidea.now",
+  trackingUrl = "https://landing-page-nu-plum-69.vercel.app",
   productName = "ProductName",
   coreBenefit = "game-changing solution",
 }: ShareConfig) {

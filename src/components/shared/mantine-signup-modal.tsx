@@ -152,7 +152,7 @@ const defaultSteps: StepConfig[] = [
       label: 'Thank you for signing up',
       buttonText: 'Copy Invite Link',
       message: 'Help your friends build products people love, too!',
-      shareLink: 'https://www.validateidea.now',
+      shareLink: 'https://landing-page-nu-plum-69.vercel.app',
       triggerToast: true,
       description: 'Share with your friends'
     }]
