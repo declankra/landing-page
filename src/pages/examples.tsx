@@ -49,7 +49,7 @@ export default function ExamplesPage() {
           action={{
             text: "✨ View a page built with this codebase",
             type: "shiny-text",
-            href: "https://www.wakeupwardly.com",
+            href: "https://upwardly.vercel.app",
             position: "bottom"
           }}
         />
